@@ -1,0 +1,3 @@
+peripheral or central?
+?-->?no data receiving from characteristic
+error about wrong format by service uuid

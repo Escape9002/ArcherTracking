@@ -1,0 +1,2 @@
+Receiving Data:
+	between 3 and 50 miliseconds per asking time

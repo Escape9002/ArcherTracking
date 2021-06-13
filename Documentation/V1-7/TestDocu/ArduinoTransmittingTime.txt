@@ -1,0 +1,24 @@
+Transmitting Rate(time dif. from whole running Time[in millis]):
+	reading accelX and sending short: 
+		30
+		0
+		1
+		49
+		0
+		1
+	only sending:
+		50
+		40
+		0
+		50
+		40
+		0
+	only reading:
+		0
+		1
+		0
+		1
+		0
+		1
+
+differs from 1 to 30 to 50 milliseconds per catch

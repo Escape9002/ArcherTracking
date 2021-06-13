@@ -1,0 +1,3 @@
+daten1 werden gezeichnet.
+bei extrem wert: daten2 anfangen
+bei extrem wert: daten2 ende mit daten1 ende gleichsetzten | daten3anfagen
