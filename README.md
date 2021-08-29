@@ -1,0 +1,4 @@
+# ArcherTracking
+Jugendforscht Projekt 
+
+Bogenschützen müssen Meister der Wiederholung sein. Um selbst kleine Fehler zu finden und Training allein, wie in Corona-Zeiten, möglich zu machen bietet es sich an, den Schützen zu tracken.Statt teurer Kameras und aufwendiger Datenanalyse kann man mithilfe eines einfachen Beschleunigungssensors die Bewegungen des Schützen nachverfolgen. Die Daten des Beschleunigungssensors  werden per Bluetooth an eine Android-App gesendet werden. Dort können die Daten dann auf verschiedene Arten ausgelesen und gespeichert werden. So wird eine günstige, einfach zu bedienende und genau Trackingmethode für alle Schützen geschaffen, die potentiell überall eingesetzt werden kann. Die Verwendungsmöglichkeiten enden natürlich nicht beim reinen Bogenschießen. Bewegungstracking kommt in fast allen VirtualReality Spielen eingesetzt und sogar Drohnen und Roboter kann man darüber steuern. So sind viele Einsatzorte für Bewegungstracker denkbar.
