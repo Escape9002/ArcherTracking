@@ -90,5 +90,5 @@ void loop() {
   Serial.println(IMU.getTemperature_C(),6);
   Serial.println();
   */
-  delay(200);
+  //delay(200);
 } 
