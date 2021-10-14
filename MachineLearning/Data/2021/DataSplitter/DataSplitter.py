@@ -1,55 +1,75 @@
-# import pandas as pd
-# 2
-# 3
-# #csv file name to be read in 
-# 4
-# in_csv = '2865_Shooting.csv'
-# 5
-# 6
-# #get the number of lines of the csv file to be read
-# 7
-# number_lines = sum(1 for row in (open(in_csv)))
-# 8
-# 9
-# #size of rows of data to write to the csv, 
-# 10
-# #you can change the row size according to your need
-# 11
-# rowsize = 500
-# 12
-# 13
-# #start looping through data writing it to a new file for each set
-# 14
-# for i in range(1,number_lines,rowsize):
-# 15
-#     df = pd.read_csv(in_csv,
-# 16
-#           header=None,
-# 17
-#           nrows = rowsize,#number of rows to read at each loop
-# 18
-#           skiprows = i)#skip rows that have been read
-# 19
-# 20
-#     #csv to write data to a new file with indexed name. input_1.csv etc.
-# 21
-#     out_csv = 'input' + str(i) + '.csv'
-# 22
-# 23
-#     df.to_csv(out_csv,
-# 24
-#           index=False,
-# 25
-#           header=False,
-# 26
-#           mode='a',#append data to csv file
-# 27
-#           chunksize=rowsize)#size of data to append for each loop
-
-
 import csv
 
-with open("2865_Shooting.csv", "r") as f:
-    reader = csv.reader(f, delimiter="\t")
-    for i, line in enumerate(reader):
-        print ('line[{}] = {}'.format(i, line))
+lines_read = 0
+splitted = 0
+valStorage = []
+
+posVal = "10"
+minVal = "-10"
+collumns= 3
+
+
+with open("2865_Shooting.csv", newline='\n') as f:    # open CSV file as f
+    reader = csv.reader(f, delimiter=",")             # read it, splitsign ","
+
+    print("started")
+
+    for lines_read, line in enumerate(reader):        #skip trough rows 
+        #print ('line[{}] = {}'.format(lines_read, line))
+
+        if lines_read > 0:                            #skip the header || will produce Error (wrong datatype ) otherwise
+          #print("debug0")
+          valStorage.append(line)
+  
+          for a in range(collumns):                          #iterate trough collumns (3)
+            #print("debug1")
+            if line[a] >= posVal or line[a] <= minVal:  # if value is higher/ lower than maximum 
+              splitted = splitted + 1                 # do the split
+
+
+              with open("DataSplit{lines_read}",'w', newline='') as myFile:
+                wr= csv.writer(myFile,delimiter = ' ', quotechar = '|' , quoting =csv.QUOTE_ALL)
+                for x in range(len(valStorage)):
+                  wr.writerow(valStorage)
+
+
+              #print(valStorage)
+
+              
+
+              valStorage= []
+
+
+              
+
+
+print("Read Lines: " + str(lines_read) + " Splitted: " + str(splitted))
+
+# #---------------------------------------------------------------------------------------------
+# #start looping through data writing it to a new file for each set
+
+# for i in range(1,number_lines,rowsize):
+
+#     df = pd.read_csv(in_csv,
+
+#           header=None,
+
+#           nrows = rowsize,#number of rows to read at each loop
+
+#           skiprows = i)#skip rows that have been read
+
+
+#     #csv to write data to a new file with indexed name. input_1.csv etc.
+
+#     out_csv = 'input' + str(i) + '.csv'
+
+
+#     df.to_csv(out_csv,
+
+#           index=False,
+
+#           header=False,
+
+#           mode='a',#append data to csv file
+
+#           chunksize=rowsize)#size of data to append for each loop
