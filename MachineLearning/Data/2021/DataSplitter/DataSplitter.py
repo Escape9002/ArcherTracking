@@ -4,8 +4,8 @@ lines_read = 0
 splitted = 0
 valStorage = []
 
-posVal = "10"
-minVal = "-10"
+posVal = '20.00'
+minVal = '-20.00'
 collumns= 3
 
 
@@ -21,23 +21,31 @@ with open("2865_Shooting.csv", newline='\n') as f:    # open CSV file as f
           #print("debug0")
           valStorage.append(line)
   
-          for a in range(collumns):                          #iterate trough collumns (3)
-            #print("debug1")
-            if line[a] >= posVal or line[a] <= minVal:  # if value is higher/ lower than maximum 
-              splitted = splitted + 1                 # do the split
+                                   #iterate trough collumns (3)
+          #print("debug1")
+          if len(valStorage) >5:
+            for a in range(collumns): 
+              if line[a]< minVal or posVal < line[a]:  # if value is higher/ lower than maximum 
+                splitted = splitted + 1                 # do the split
+                #print("true " + str(valStorage))
 
-
-              with open("DataSplit{lines_read}",'w', newline='') as myFile:
-                wr= csv.writer(myFile,delimiter = ' ', quotechar = '|' , quoting =csv.QUOTE_ALL)
-                for x in range(len(valStorage)):
+                with open("DataSplit{}".format(splitted),'w', newline='') as myFile:
+                  wr= csv.writer(myFile,delimiter = ' ', quotechar = '\n' , quoting =csv.QUOTE_ALL)
                   wr.writerow(valStorage)
+
+                valStorage= []
+
+              else:
+                a = a +1
+                #print(a)
+              
 
 
               #print(valStorage)
 
               
 
-              valStorage= []
+              
 
 
               
