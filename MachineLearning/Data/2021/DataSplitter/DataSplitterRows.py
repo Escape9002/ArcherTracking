@@ -9,7 +9,7 @@ minVal = '-20.00'
 collumns= 3
 
 
-with open("\1061_Shooting.csv", newline='\n') as f:    # open CSV file as f
+with open("1061_Shooting.csv", newline='\n') as f:    # open CSV file as f
     reader = csv.reader(f, delimiter=",")             # read it, splitsign ","
 
     print("started")
