@@ -1,4 +1,5 @@
 import csv
+import math
 
 lines_read = 0
 splitted = 0
@@ -16,5 +17,15 @@ with open("C:/Users/anton/Videos/JugendForscht/2020_21/BogenTracker/ArcherTracki
 
     for lines_read, line in enumerate(reader):        #skip trough rows 
         #print ('line[{}] = {}'.format(lines_read, line))
-       
-        print(line)
+        if(lines_read > 0):
+            value = float(line[0]) + float(line[1]) + float(line[2])
+
+            if(value < 0):
+                value = value * (-1)
+
+            #print(math.sqrt(value))
+            if(value > 20.00):
+                splitted = splitted+1
+                print(value)
+    
+print(splitted)
