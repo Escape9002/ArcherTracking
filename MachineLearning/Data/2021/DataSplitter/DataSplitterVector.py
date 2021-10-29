@@ -9,8 +9,8 @@ posVal = '20.00'
 minVal = '-20.00'
 collumns= 3
 
-
-with open("C:/Users/anton/Videos/JugendForscht/2020_21/BogenTracker/ArcherTracking/MachineLearning/Data/2021/DataSplitter/1061_Shooting.csv", newline='\n') as f:    # open CSV file as f
+#shit = open("Spliftted1")
+with open("1061_Shooting.csv", newline='\n') as f:    # open CSV file as f
     reader = csv.reader(f, delimiter=",")             # read it, splitsign ","
 
     print("started")
@@ -27,5 +27,16 @@ with open("C:/Users/anton/Videos/JugendForscht/2020_21/BogenTracker/ArcherTracki
             if(value > 20.00):
                 splitted = splitted+1
                 print(value)
+            valStorage.append(value)
     
+#shit.write(str(valStorage))
+
 print(splitted)
+
+
+output_file = open('months.txt', 'w')
+
+for month in valStorage:
+    output_file.write(str(month) + "\n")
+
+output_file.close()
