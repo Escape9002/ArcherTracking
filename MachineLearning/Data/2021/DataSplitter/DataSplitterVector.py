@@ -10,6 +10,7 @@ minVal = '-20.00'
 collumns= 3
 
 #shit = open("Spliftted1")
+
 with open("1061_Shooting.csv", newline='\n') as f:    # open CSV file as f
     reader = csv.reader(f, delimiter=",")             # read it, splitsign ","
 
@@ -20,12 +21,10 @@ with open("1061_Shooting.csv", newline='\n') as f:    # open CSV file as f
         if(lines_read > 0):
             value = float(line[0]) + float(line[1]) + float(line[2])
 
-            if(value < 0):
-                value = value * (-1)
-
             #print(math.sqrt(value))
-            if(value > 20.00):
+            if(abs(value) > 20.00):
                 splitted = splitted+1
+                value = round(abs(value),2)
                 print(value)
             valStorage.append(value)
     
