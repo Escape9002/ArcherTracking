@@ -14,7 +14,7 @@ collumns= 3
 with open("1061_Shooting.csv", newline='\n') as f:    # open CSV file as f
     reader = csv.reader(f, delimiter=",")             # read it, splitsign ","
 
-    print("started")
+    print("STARTED")
 
     for lines_read, line in enumerate(reader):        #skip trough rows 
         #print ('line[{}] = {}'.format(lines_read, line))
@@ -24,18 +24,22 @@ with open("1061_Shooting.csv", newline='\n') as f:    # open CSV file as f
             #print(math.sqrt(value))
             if(abs(value) > 20.00):
                 splitted = splitted+1
-                value = round(abs(value),2)
+                #value = abs(round(value,2))
+                value = round(value,1)
                 print(value)
-            valStorage.append(value)
+                valStorage.append(value)
+            
     
 #shit.write(str(valStorage))
 
+print("Splitted Times: ")
 print(splitted)
 
 
-output_file = open('months.txt', 'w')
+output_file =open('months.csv', 'w')
 
 for month in valStorage:
     output_file.write(str(month) + "\n")
 
 output_file.close()
+
