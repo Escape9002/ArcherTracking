@@ -4,6 +4,7 @@ import math
 #Value Bereich: shot is found when acceleration goes faster than a certain limit (5) from then to now (==30 datapoints )
 #-----------------------------------------------------------------------------GLOBAL VARIABLES
 valStorage = []
+valStorage.append("aX,aY,aZ")
 id = 0
 FinalStorage = []
 
