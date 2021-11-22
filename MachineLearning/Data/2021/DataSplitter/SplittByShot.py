@@ -37,7 +37,7 @@ def ReadAndMark(runtimex):
                 valueOld.append(float(line[0]))
                 valueNew = float(line[0])
 
-                if((len(valueOld)>=30) and (valueNew > (valueOld[0]+5))):
+                if((len(valueOld)>=30) and ((valueNew-valueOld[0]) > 5)):
 
                     valStorage.append("\n")
                     valueOld.clear()
