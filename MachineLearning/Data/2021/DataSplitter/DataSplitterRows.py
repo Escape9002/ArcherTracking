@@ -7,7 +7,7 @@ valStorage = []
 posVal = '20.00'
 minVal = '-20.00'
 collumns= 3
-a = 1
+
 
 with open("830_Shooting.csv", newline='\n') as f:    # open CSV file as f
     reader = csv.reader(f, delimiter=",")             # read it, splitsign ","
@@ -24,7 +24,7 @@ with open("830_Shooting.csv", newline='\n') as f:    # open CSV file as f
                                    #iterate trough collumns (3)
           #print("debug1")
           if len(valStorage) >5:
-            #for a in range(collumns): 
+            for a in range(collumns): 
               if line[a]< minVal or posVal < line[a]:  # if value is higher/ lower than maximum 
                 splitted = splitted + 1                 # do the split
                 #print("true " + str(valStorage))
