@@ -48,56 +48,15 @@ MPU9250 IMU(Wire, 0x68);
 int status;
 //-------------------------------------------------------------------------------------BIBLIOTHEK
 //-------------------------------------------------------------------------------------VARIABLEN
-//---------------------------------------------------Acclereator
-/*
-  volatile short accelXInt = 1;
-  volatile short accelYInt = 1;
-  volatile short accelZInt = 1;
+float ac_x, ac_y, ac_z; //Accelerometer
+float gy_x, gy_y, gy_z; //Gyroscope
+//float ma_x, ma_y, ma_z; //Magnetometer
+// volatile int tempInt = 1;  //Temperature Guy
 
-  String accelXStr = " ";
-  String accelYStr = " ";
-  String accelZStr = " ";
-
-  byte accelXbyte = 1;
-  byte accelYbyte = 1;
-  byte accelZbyte = 1;
-*/
-float ac_x, ac_y, ac_z;
-
-//---------------------------------------------------Gyroscope
-/*
-  volatile int gyroXInt = 1;
-  volatile int gyroYInt = 1;
-  volatile int gyroZInt = 1;
-
-  String gyroXStr = " ";
-  String gyroYStr = " ";
-  String gyroZStr = " ";
-*/
-float gy_x, gy_y, gy_z;
-
-//---------------------------------------------------magnetic sensor
-/*
-  volatile int magnetXInt = 1;
-  volatile int magnetYInt = 1;
-  volatile int magnetZInt = 1;
-
-  String magnetXStr = " ";
-  String magnetYStr = " ";
-  String magnetZStr = " ";
-*/
-//float ma_x, ma_y, ma_z;
-
-//---------------------------------------------------Temperatur
-/*
-  volatile int tempInt = 1;
-  String tempStr = " ";
-*/
-//---------------------------------------------------Place for all data
-String Level_String;
+String Level_String;  //Storage for BLE-Data
 int fixed_length = 100;
-//-------------------------------------------------- Timer
-long newTime = 0;
+
+long newTime = 0; //Wir sind für die Abschaffung von Atomuhren, wir sind für den Ausstieg aus der Zeit!
 long oldTime = 0;
 //-------------------------------------------------------------------------------------VARIABLEN
 //-------------------------------------------------------------------------------------BLE_SETUP
@@ -105,6 +64,11 @@ BLEService SendingService("c54beb4a-40c7-11eb-b378-0242ac130002");
 BLEStringCharacteristic accelXChar("d6b78de4-40c7-11eb-b378-0242ac130002", BLERead | BLENotify, fixed_length);
 BLEStringCharacteristic gyroXChar("d6a507ce-5489-11ec-bf63-0242ac130002", BLERead | BLENotify, fixed_length);
 //-------------------------------------------------------------------------------------BLE_SETUP
+//-------------------------------------------------------------------------------------DATA FOR ML
+const float accelerationThreshold = 26; // threshold of significant in G's || normal movement == up to 20-23 G (added up)
+const int numSamples = 80;
+int samplesRead = numSamples;
+//-------------------------------------------------------------------------------------DATA FOR ML
 //-------------------------------------------------------------------------------------//-------------------------------------------------------------------------------------//-------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------SETUP()
 void setup() {
@@ -152,6 +116,8 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);    //B
   pinMode(LEDR, OUTPUT);           //R
   pinMode(LEDG, OUTPUT);           //G
+  //----------------------------------------------------CSV HEADER
+  //Serial.println("aX,aY,aZ,gX,gY,gZ");
 }
 //-------------------------------------------------------------------------------------//-------------------------------------------------------------------------------------//-------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------LOOP()
@@ -161,22 +127,29 @@ void loop() {
 
   if (central) {
     connectedLight();
+
     Serial.print("Connected to central: ");
     Serial.println(central.address());
+    
     digitalWrite(LED_BUILTIN, HIGH);
 
     while (central.connected()) {
-      getallData();
-      send_String_acc();
-      send_String_gyro();
+      //getallData();
+      //send_String_acc();
+      //send_String_gyro();
       //transRate();
-
-
+      //IMU_Capture_wait(); //if active deaticate getallData() and send_xxx_xxx() Functions
+      if(IMU_Capture_wait()){
+        IMU_Capture_send();
+      }
     }
   }
   disconnectedLight();
+  
   Serial.print("Disconnected from central: ");
   Serial.println(central.address());
+  
+  //IMU_Capture();
 }
 
 //-------------------------------------------------------------------------------------//-------------------------------------------------------------------------------------//-------------------------------------------------------------------------------------
@@ -194,8 +167,14 @@ void send_String_acc() {
 }
 
 void send_String_gyro() {
-  Level_String = /*String(ac_x, 2) + "," + String(ac_y, 2) + "," + String(ac_z, 2) + "/" + */String(gy_x,2) + "/" + String(gy_y,2) + "/" + String(gy_z,2)/* + "/" + String(ma_x,2) + "/" + String(ma_y,2) + "/" + String(ma_z,2)*/;
+  Level_String = /*String(ac_x, 2) + "," + String(ac_y, 2) + "," + String(ac_z, 2) + "/" + */String(gy_x,2) + "," + String(gy_y,2) + "," + String(gy_z,2)/* + "/" + String(ma_x,2) + "/" + String(ma_y,2) + "/" + String(ma_z,2)*/;
   gyroXChar.writeValue(Level_String);
+}
+
+void send_String_empty() {
+  Level_String ="/n, /n, /n";
+  gyroXChar.writeValue(Level_String);
+  accelXChar.writeValue(Level_String);
 }
 
 //--------------------------------------------------- Send Bytes
@@ -247,6 +226,47 @@ void transRate() {
   newTime = millis();
   Serial.println(newTime - oldTime);
   oldTime = newTime;
+}
+
+//-------------------------------------------------- IMU_Capture
+boolean IMU_Capture_wait(){
+  // wait for significant motion
+  if (samplesRead == numSamples) {
+   // if (IMU.accelerationAvailable()) {
+      // read the acceleration data
+      getallData();
+
+      // sum up the absolutes
+      float aSum = fabs(ac_x) + fabs(ac_y) + fabs(ac_z);
+      //Serial.println(aSum);
+
+      // check if it's above the threshold
+      if (aSum >= accelerationThreshold) {
+        // reset the sample read count
+        samplesRead = 0;
+        return true;
+      }
+    return false;
+  }
+  return false;
+}
+void IMU_Capture_send(){
+  // check if the all the required samples have been read since
+  // the last time the significant motion was detected
+  while (samplesRead < numSamples) {
+      // read the acceleration and gyroscope data
+      getallData();
+
+      samplesRead++;
+
+      send_String_acc();
+      send_String_gyro();
+
+      if (samplesRead == numSamples) {
+        // add an empty line if it's the last sample
+        send_String_empty();
+      }
+  }
 }
 //------------------------------------------------------------------------------------------------------ Debugging
 //--------------------------------------------------- accelerator
