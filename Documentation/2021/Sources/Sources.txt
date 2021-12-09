@@ -6,3 +6,9 @@ https://www.scss.tcd.ie/publications/tech-reports/reports.93/TCD-CS-93-11.pdf
 https://ieeexplore.ieee.org/document/598236
 
 OpenCV
+
+https://x-io.co.uk/downloads/madgwick_internal_report.pdf
+https://x-io.co.uk/open-source-imu-and-ahrs-algorithms/
+https://github.com/arduino-libraries/MadgwickAHRS
+https://github.com/armsp/nano-33-ble-gen/tree/master/imu/arduino_madgwick
+https://github.com/armsp/nano-33-ble-gen/tree/master/imu/pjrc_madgwick
