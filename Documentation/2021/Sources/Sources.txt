@@ -12,3 +12,5 @@ https://x-io.co.uk/open-source-imu-and-ahrs-algorithms/
 https://github.com/arduino-libraries/MadgwickAHRS
 https://github.com/armsp/nano-33-ble-gen/tree/master/imu/arduino_madgwick
 https://github.com/armsp/nano-33-ble-gen/tree/master/imu/pjrc_madgwick
+
+https://stanford.edu/class/ee267/lectures/lecture10.pdf
