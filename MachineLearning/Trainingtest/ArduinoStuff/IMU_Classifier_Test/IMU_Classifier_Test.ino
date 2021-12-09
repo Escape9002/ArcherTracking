@@ -18,18 +18,19 @@
   This example code is in the public domain.
 */
 //--------------------------------------------
-/*
-  #include "Tastatur_lib.h"
 
+  #include "Tastatur_lib.h"
+/*
   //const String gesture_click = "10";
   //const String gesture_left = "37";
   //const String gesture_right = "39";
-  
-  const String gesture_click = "0x28";
-  const String gesture_left = "LEFT_ARROW";
-  const String gesture_right = "RIGHT_ARROW";
+  */
+  int  gesture_click = 96;
+  int  gesture_left =97 ;
+  int  gesture_right = 98;
+  int gesture_modifier = 0;
 
-*/
+
 //--------------------------------------------
 #include <Arduino_LSM9DS1.h>
 
@@ -196,17 +197,17 @@ void loop() {
           switch(getIndexOfMaximumValue(werte, 3)){
           case 0:
             //printToKeyboard(gesture_click);
-            //pressToKeyboard(gesture_click);
+            pressToKeyboard(gesture_click); //, gesture_modifier
           break;
 
           case 1:
             //printToKeyboard(gesture_left);
-             //pressToKeyboard(gesture_click);
+             pressToKeyboard(gesture_left); //, gesture_modifier
           break;
 
           case 2:
             //printToKeyboard(gesture_right);
-            // pressToKeyboard(gesture_click);
+             pressToKeyboard(gesture_right); //, gesture_modifier
           break;
           }
         
