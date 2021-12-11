@@ -16,20 +16,27 @@
   This example code is in the public domain.
 */
 
-#include <Arduino_LSM9DS1.h>
+#include "MPU9250.h"
+// an MPU9250 object with the MPU-9250 sensor on I2C bus 0 with address 0x68
+MPU9250 IMU(Wire, 0x68);
+int status;
 
-const float accelerationThreshold = 2.5; // threshold of significant in G's
+const float accelerationThreshold = 25; // threshold of significant in G's
 const int numSamples = 119;
 
 int samplesRead = numSamples;
 
 void setup() {
-  Serial.begin(9600);
-  while (!Serial);
+  Serial.begin(115200);
+  while (!Serial) {}
 
-  if (!IMU.begin()) {
-    Serial.println("Failed to initialize IMU!");
-    while (1);
+  status = IMU.begin();
+  if (status < 0) {
+    Serial.println("IMU initialization unsuccessful");
+    Serial.println("Check IMU wiring or try cycling power");
+    Serial.print("Status: ");
+    Serial.println(status);
+    while (1) {}
   }
 
   // print the header
@@ -38,55 +45,68 @@ void setup() {
 
 void loop() {
   float aX, aY, aZ, gX, gY, gZ;
+ // IMU.readSensor();
 
   // wait for significant motion
   while (samplesRead == numSamples) {
-    if (IMU.accelerationAvailable()) {
-      // read the acceleration data
-      IMU.readAcceleration(aX, aY, aZ);
+    IMU.readSensor();
+    // read the acceleration data
+    aX = IMU.getAccelX_mss() ;
+    aY = IMU.getAccelY_mss() ;
+    aZ = IMU.getAccelZ_mss() ;
+    // sum up the absolutes
+    float aSum = fabs(aX) + fabs(aY) + fabs(aZ);
+/*
+    Serial.print(aX);
+    Serial.print('\t');
+    Serial.print(aY);
+    Serial.print('\t');
+    Serial.print(aZ);
+    Serial.print('\t');
+    Serial.println(aSum);
+*/
 
-      // sum up the absolutes
-      float aSum = fabs(aX) + fabs(aY) + fabs(aZ);
-
-      // check if it's above the threshold
-      if (aSum >= accelerationThreshold) {
-        // reset the sample read count
-        samplesRead = 0;
-        break;
-      }
+    // check if it's above the threshold
+    if (aSum >= accelerationThreshold) {
+      // reset the sample read count
+      samplesRead = 0;
+      break;
     }
+    //}
   }
 
   // check if the all the required samples have been read since
   // the last time the significant motion was detected
   while (samplesRead < numSamples) {
-    // check if both new acceleration and gyroscope data is
-    // available
-    if (IMU.accelerationAvailable() && IMU.gyroscopeAvailable()) {
-      // read the acceleration and gyroscope data
-      IMU.readAcceleration(aX, aY, aZ);
-      IMU.readGyroscope(gX, gY, gZ);
+    IMU.readSensor();
+    // read the acceleration and gyroscope data
+    aX = IMU.getAccelX_mss() ;
+    aY = IMU.getAccelY_mss();
+    aZ = IMU.getAccelZ_mss();
+    gX = IMU.getGyroX_rads();
+    gY = IMU.getGyroY_rads();
+    gZ = IMU.getGyroZ_rads();
 
-      samplesRead++;
+    samplesRead++;
 
-      // print the data in CSV format
-      Serial.print(aX, 3);
-      Serial.print(',');
-      Serial.print(aY, 3);
-      Serial.print(',');
-      Serial.print(aZ, 3);
-      Serial.print(',');
-      Serial.print(gX, 3);
-      Serial.print(',');
-      Serial.print(gY, 3);
-      Serial.print(',');
-      Serial.print(gZ, 3);
+    // print the data in CSV format
+    Serial.print(aX, 3);
+    Serial.print(',');
+    Serial.print(aY, 3);
+    Serial.print(',');
+    Serial.print(aZ, 3);
+    Serial.print(',');
+    Serial.print(gX, 3);
+    Serial.print(',');
+    Serial.print(gY, 3);
+    Serial.print(',');
+    Serial.print(gZ, 3);
+    Serial.println();
+
+    if (samplesRead == numSamples) {
+      // add an empty line if it's the last sample
       Serial.println();
-
-      if (samplesRead == numSamples) {
-        // add an empty line if it's the last sample
-        Serial.println();
-      }
     }
   }
+  //}
 }
