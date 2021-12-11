@@ -18,9 +18,14 @@
 
 //input your wished freq and receive it in a value usable by imu.sample_rate_divider(int i);
 
+/*
+ * Tastaturausgabe mögl. tippen aber langsam + leerstellen werden mit "ß" aufgefüllt. alles =/ 
+ * 
+ * Tastaur immer auf false!
+ */
 
 #include "Tastatur_lib.h"
-bool keyb = true; //enable output via Keyboard (true is true, false is false)
+bool keyb = false; // disbale! [see line 19]
 
 #include "mpu9250.h"
 // an MPU9250 object with the MPU-9250 sensor on I2C bus 0 with address 0x68
@@ -142,10 +147,13 @@ void setup() {
     while (1) {}
   }
 
-  checkIMU();
-  delay(5000);
+  //checkIMU();
+  //delay(5000);
 
   // print the header
+  if(keyb){
+    printToKeyboard("aX,aY,aZ,gX,gY,gZ");
+  }
   Serial.println("aX,aY,aZ,gX,gY,gZ");
 }
 
