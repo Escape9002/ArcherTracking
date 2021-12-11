@@ -19,17 +19,18 @@
 */
 //--------------------------------------------
 
-  #include "Tastatur_lib.h"
+ // #include "Tastatur_lib.h"
 /*
   //const String gesture_click = "10";
   //const String gesture_left = "37";
   //const String gesture_right = "39";
   */
+  /*
   int  gesture_click = 96;
   int  gesture_left =97 ;
   int  gesture_right = 98;
   int gesture_modifier = 0;
-
+*/
 
 //--------------------------------------------
 #include <Arduino_LSM9DS1.h>
@@ -70,7 +71,7 @@ byte tensorArena[tensorArenaSize] __attribute__((aligned(16)));
 const char* GESTURES[] = {
   "punch",
   "left",
-  "rigth"
+  "right"
 };
 
 #define NUM_GESTURES (sizeof(GESTURES) / sizeof(GESTURES[0]))
@@ -188,7 +189,7 @@ void loop() {
 
         }
 
-    
+    /*
 
         //Serial.println(GESTURES[getIndexOfMaximumValue(werte, 3)]);
         Serial.println(getIndexOfMaximumValue(werte, 3));
@@ -210,7 +211,7 @@ void loop() {
              pressToKeyboard(gesture_right); //, gesture_modifier
           break;
           }
-        
+        */
 
         Serial.println();
       }

@@ -38,10 +38,9 @@
 //---------------------------------------------------BLE
 #include <ArduinoBLE.h>
 //---------------------------------------------------MPU9250
-#include "MPU9250.h"
+#include "mpu9250.h"
 // an MPU9250 object with the MPU-9250 sensor on I2C bus 0 with address 0x68
-MPU9250 IMU(Wire, 0x68);
-int status;
+bfs::Mpu9250 imu(&Wire, 0x68);
 //-------------------------------------------------------------------------------------BIBLIOTHEK
 //-------------------------------------------------------------------------------------VARIABLEN
 //---------------------------------------------------Acclereator
@@ -107,15 +106,24 @@ void setup() {
   //while (!Serial)
 
   //---------------------------------------------------MPU9250 Setup
-
-  status = IMU.begin();
-  if (status < 0) {
-    Serial.println("IMU initialization unsuccessful");
-    Serial.println("Check IMU wiring or try cycling power");
-    Serial.print("Status: ");
-    Serial.println(status);
+  /* Serial to display data */
+  Serial.begin(115200);
+  // while (!Serial) {}
+  /* Start the I2C bus */
+  Wire.begin();
+  Wire.setClock(400000);
+  /* Initialize and configure IMU */
+  if (!imu.Begin()) {
+    Serial.println("Error initializing communication with IMU");
     while (1) {}
   }
+  /* Set the sample rate divider */
+  /*
+    if (!imu.ConfigSrd(herz(1000))) {
+    Serial.println("Error configured SRD");
+    while (1) {}
+    }
+  */
   //---------------------------------------------------BLE Setup
 
   if (!BLE.begin()) {
@@ -160,9 +168,11 @@ void loop() {
     digitalWrite(LED_BUILTIN, HIGH);
 
     while (central.connected()) {
-      getallData();
-      send_String();
-      //transRate();
+      if (getallData()) {
+        send_String();
+        //transRate();
+      }
+
 
 
     }
@@ -174,6 +184,99 @@ void loop() {
 
 //-------------------------------------------------------------------------------------//-------------------------------------------------------------------------------------//-------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------PROGRAMMS
+//--------------------------------------------------- Input Herz for the sample Rate to work with direct input
+int herz(int i) {
+  i = (1000 - i) / i;
+  return i;
+}
+//--------------------------------------------------- reverse herz --> input sample divider, get herz
+int HzToSrd(int i) {
+  i = 1000 / (i + 1);
+  return i;
+}
+//--------------------------------------------------- check all imu settings via Serial Monitor
+void checkIMU() {
+
+  unsigned long int acl = imu.accel_range();
+  unsigned long int gyr = imu.gyro_range();
+  unsigned long int fil = imu.dlpf_bandwidth();
+
+  String valAcl = "";
+  String valGyr = "";
+  String valFil = "";
+
+  switch (acl) {
+    case 0x00:
+      valAcl = "2G";
+      break;
+
+    case 0x08:
+      valAcl = "4G";
+      break;
+
+    case 0x10:
+      valAcl = "8G";
+      break;
+
+    case 0x18:
+      valAcl = "16G";
+      break;
+  }
+
+  switch (gyr) {
+    case 0x00:
+      valGyr = "250DPS";
+      break;
+
+    case 0x08:
+      valGyr = "500DPS";
+      break;
+
+    case 0x10:
+      valGyr = "1000DPS";
+      break;
+
+    case 0x18:
+      valGyr = "2000DPS";
+      break;
+  }
+
+  switch (fil) {
+    case 0x01:
+      valFil = "184 Hz";
+      break;
+
+    case 0x02:
+      valFil = "92 Hz";
+      break;
+
+    case 0x03:
+      valFil = "41 Hz";
+      break;
+
+    case 0x04:
+      valFil = "20 Hz";
+      break;
+
+    case 0x05:
+      valFil = "10 Hz";
+      break;
+
+    case 0x06:
+      valFil = "5 Hz";
+      break;
+  }
+  Serial.println("//////////////Data of MPU9250/////////////////");
+  Serial.print("Accel Range: ");
+  Serial.println(valAcl);
+  Serial.print("Gyro Range: ");
+  Serial.println(valGyr);
+  Serial.print("Herz Running: ");
+  Serial.println(HzToSrd(imu.srd()));
+  Serial.print("Low Pass Filter: ");
+  Serial.println(valFil);
+  Serial.println("/////////////Data of MPU9250//////////////");
+}
 //--------------------------------------------------- Send Int
 /*
   void send_Int() {
@@ -205,21 +308,28 @@ void send_String() {
   }
 */
 //--------------------------------------------------- get all data except temperatur
-void getallData() {
-  IMU.readSensor();
+bool getallData() {
+  if (imu.Read()) {
+    ac_x = imu.accel_x_mps2();
+    ac_y = imu.accel_y_mps2();
+    ac_z = imu.accel_z_mps2();
+    /*
+      gy_x = imu.gyro_x_radps();
+      gy_y = imu.gyro_y_radps();
+      gy_z = imu.gyro_z_radps();
+    */
+    /*
+      ma_x = IMU.getMagX_uT();  //look these guys up, this is not the correct way
+      ma_y = IMU.getMagY_uT();
+      ma_z = IMU.getMagZ_uT();
+    */
+    return true;
+  }
+  else {
+    return false;
+  }
 
-  ac_x = IMU.getAccelX_mss();
-  ac_y = IMU.getAccelY_mss();
-  ac_z = IMU.getAccelZ_mss();
-  /*
-    gy_x = IMU.getGyroX_rads();
-    gy_y = IMU.getGyroY_rads();
-    gy_z = IMU.getGyroZ_rads();
 
-    ma_x = IMU.getMagX_uT();
-    ma_y = IMU.getMagY_uT();
-    ma_z = IMU.getMagZ_uT();
-  */
 }
 //--------------------------------------------------- LED ( Connection status)
 void connectedLight() {
@@ -242,13 +352,13 @@ void transRate() {
   void debug_accel() {
 
   Serial.print("AccelX: ");
-  Serial.print(IMU.getAccelX_mss(), 6);
+  Serial.print(imu.accel_x_mps2(), 6);
   Serial.print("  ");
   Serial.print("AccelY: ");
-  Serial.print(IMU.getAccelY_mss(), 6);
+  Serial.print(imu.accel_x_mps2(), 6);
   Serial.print("  ");
   Serial.print("AccelZ: ");
-  Serial.println(IMU.getAccelZ_mss(), 6);
+  Serial.println(imu.accel_x_mps2(), 6);
 
     Serial.print("AccelX: ");
     Serial.print(accelXInt);
@@ -266,17 +376,17 @@ void transRate() {
   void debug_gyro() {
 
   Serial.print("GyroX: ");
-  Serial.print(IMU.getGyroX_rads(), 6);
+  Serial.print(imu.gyro_x_radps(), 6);
   Serial.print("  ");
   Serial.print("GyroY: ");
-  Serial.print(IMU.getGyroY_rads(), 6);
+  Serial.print(imu.gyro_x_radps(), 6);
   Serial.print("  ");
   Serial.print("GyroZ: ");
-  Serial.println(IMU.getGyroZ_rads(), 6);
+  Serial.println(imu.gyro_x_radps(), 6);
   }
 */
 //--------------------------------------------------- magnetic sensor
-/*
+/* || look it up again, these functions aint right
   void debug_magnet() {
   Serial.print("MagX: ");
   Serial.print(IMU.getMagX_uT(), 6);
@@ -289,7 +399,7 @@ void transRate() {
   }
 */
 //--------------------------------------------------- temperatur
-/*
+/* || look it up again, these functions aint right
   void debug_temp(){
   Serial.print("Temperature in C: ");
   Serial.println(IMU.getTemperature_C(), 6);

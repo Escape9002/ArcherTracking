@@ -17,7 +17,7 @@
 
   gyro:
   d6a507ce-5489-11ec-bf63-0242ac130002
-  
+
    Note:
    - no need for multiple characteristics
    - only sends Strings(decoding by Receiver needed)
@@ -42,10 +42,9 @@
 //---------------------------------------------------BLE
 #include <ArduinoBLE.h>
 //---------------------------------------------------MPU9250
-#include "MPU9250.h"
+#include "mpu9250.h"
 // an MPU9250 object with the MPU-9250 sensor on I2C bus 0 with address 0x68
-MPU9250 IMU(Wire, 0x68);
-int status;
+bfs::Mpu9250 imu(&Wire, 0x68);
 //-------------------------------------------------------------------------------------BIBLIOTHEK
 //-------------------------------------------------------------------------------------VARIABLEN
 float ac_x, ac_y, ac_z; //Accelerometer
@@ -76,15 +75,24 @@ void setup() {
   //while (!Serial)
 
   //---------------------------------------------------MPU9250 Setup
-
-  status = IMU.begin();
-  if (status < 0) {
-    Serial.println("IMU initialization unsuccessful");
-    Serial.println("Check IMU wiring or try cycling power");
-    Serial.print("Status: ");
-    Serial.println(status);
+  /* Serial to display data */
+  Serial.begin(115200);
+  // while (!Serial) {}
+  /* Start the I2C bus */
+  Wire.begin();
+  Wire.setClock(400000);
+  /* Initialize and configure IMU */
+  if (!imu.Begin()) {
+    Serial.println("Error initializing communication with IMU");
     while (1) {}
   }
+  /* Set the sample rate divider */
+  /*
+    if (!imu.ConfigSrd(herz(1000))) {
+    Serial.println("Error configured SRD");
+    while (1) {}
+    }
+  */
   //---------------------------------------------------BLE Setup
 
   if (!BLE.begin()) {
@@ -130,25 +138,29 @@ void loop() {
 
     Serial.print("Connected to central: ");
     Serial.println(central.address());
-    
+
     digitalWrite(LED_BUILTIN, HIGH);
 
     while (central.connected()) {
-      //getallData();
-      //send_String_acc();
-      //send_String_gyro();
+      if (getallData()) {
+        send_String_acc();
+        send_String_gyro();
+      }
+
       //transRate();
       //IMU_Capture_wait(); //if active deaticate getallData() and send_xxx_xxx() Functions
-      if(IMU_Capture_wait()){
+      /*
+        if (IMU_Capture_wait()) {
         IMU_Capture_send();
-      }
+        }
+      */
     }
   }
   disconnectedLight();
-  
+
   Serial.print("Disconnected from central: ");
   Serial.println(central.address());
-  
+
   //IMU_Capture();
 }
 
@@ -167,12 +179,12 @@ void send_String_acc() {
 }
 
 void send_String_gyro() {
-  Level_String = /*String(ac_x, 2) + "," + String(ac_y, 2) + "," + String(ac_z, 2) + "/" + */String(gy_x,2) + "," + String(gy_y,2) + "," + String(gy_z,2)/* + "/" + String(ma_x,2) + "/" + String(ma_y,2) + "/" + String(ma_z,2)*/;
+  Level_String = /*String(ac_x, 2) + "," + String(ac_y, 2) + "," + String(ac_z, 2) + "/" + */String(gy_x, 2) + "," + String(gy_y, 2) + "," + String(gy_z, 2)/* + "/" + String(ma_x,2) + "/" + String(ma_y,2) + "/" + String(ma_z,2)*/;
   gyroXChar.writeValue(Level_String);
 }
 
 void send_String_empty() {
-  Level_String ="/n, /n, /n";
+  Level_String = "/n, /n, /n";
   gyroXChar.writeValue(Level_String);
   accelXChar.writeValue(Level_String);
 }
@@ -196,21 +208,28 @@ void send_String_empty() {
   }
 */
 //--------------------------------------------------- get all data except temperatur
-void getallData() {
-  IMU.readSensor();
+bool getallData() {
+  if (imu.Read()) {
+    ac_x = imu.accel_x_mps2();
+    ac_y = imu.accel_y_mps2();
+    ac_z = imu.accel_z_mps2();
 
-  ac_x = IMU.getAccelX_mss();
-  ac_y = IMU.getAccelY_mss();
-  ac_z = IMU.getAccelZ_mss();
-  
-  gy_x = IMU.getGyroX_rads();
-  gy_y = IMU.getGyroY_rads();
-  gy_z = IMU.getGyroZ_rads();
-/*
-    ma_x = IMU.getMagX_uT();
-    ma_y = IMU.getMagY_uT();
-    ma_z = IMU.getMagZ_uT();
-  */
+    gy_x = imu.gyro_x_radps();
+    gy_y = imu.gyro_y_radps();
+    gy_z = imu.gyro_z_radps();
+
+    /*
+      ma_x = IMU.getMagX_uT();  //look these guys up, this is not the correct way
+      ma_y = IMU.getMagY_uT();
+      ma_z = IMU.getMagZ_uT();
+    */
+    return true;
+  }
+  else {
+    return false;
+  }
+
+
 }
 //--------------------------------------------------- LED ( Connection status)
 void connectedLight() {
@@ -229,43 +248,48 @@ void transRate() {
 }
 
 //-------------------------------------------------- IMU_Capture
-boolean IMU_Capture_wait(){
+boolean IMU_Capture_wait() {
   // wait for significant motion
   if (samplesRead == numSamples) {
-   // if (IMU.accelerationAvailable()) {
-      // read the acceleration data
-      getallData();
+    // if (IMU.accelerationAvailable()) {
+    // read the acceleration data
 
-      // sum up the absolutes
-      float aSum = fabs(ac_x) + fabs(ac_y) + fabs(ac_z);
-      //Serial.println(aSum);
+    if (!getallData()) {
+      return false;
+    }
 
-      // check if it's above the threshold
-      if (aSum >= accelerationThreshold) {
-        // reset the sample read count
-        samplesRead = 0;
-        return true;
-      }
+    // sum up the absolutes
+    float aSum = fabs(ac_x) + fabs(ac_y) + fabs(ac_z);
+    //Serial.println(aSum);
+
+    // check if it's above the threshold
+    if (aSum >= accelerationThreshold) {
+      // reset the sample read count
+      samplesRead = 0;
+      return true;
+    }
     return false;
   }
   return false;
 }
-void IMU_Capture_send(){
+void IMU_Capture_send() {
   // check if the all the required samples have been read since
   // the last time the significant motion was detected
   while (samplesRead < numSamples) {
-      // read the acceleration and gyroscope data
-      getallData();
-
+    // read the acceleration and gyroscope data
+    if (getallData()) {
       samplesRead++;
 
       send_String_acc();
       send_String_gyro();
+    }
 
-      if (samplesRead == numSamples) {
-        // add an empty line if it's the last sample
-        send_String_empty();
-      }
+
+
+    if (samplesRead == numSamples) {
+      // add an empty line if it's the last sample
+      send_String_empty();
+    }
   }
 }
 //------------------------------------------------------------------------------------------------------ Debugging
