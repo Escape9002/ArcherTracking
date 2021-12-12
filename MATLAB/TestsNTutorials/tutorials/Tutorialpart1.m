@@ -1,6 +1,7 @@
 %% sources
 %https://www.youtube.com/watch?v=0Oz1YxQ42X0&list=TLPQMTExMjIwMjFUCOHtJI9Gjw&index=1
 
+%example with arduino sense : openExample('arduinoio/MeasureLSM9DS1FromI2CDeviceOnArduinoHardwareExample')
 
 
 %% init arduino
