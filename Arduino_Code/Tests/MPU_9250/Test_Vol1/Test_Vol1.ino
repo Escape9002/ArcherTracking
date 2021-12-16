@@ -88,10 +88,10 @@ float aX, aY,aZ;
     unsigned long currentMillis = millis();
     float interval = float((float(currentMillis) - float(previousMillis)) /1000);
     aY = aY * interval;
-    Serial.println(aY);
+    //Serial.println(aY);
     distance = oldDistance + 0.5*aY * interval;
     oldDistance = distance;
-    //Serial.println(distance);
+    Serial.println(distance);
   }
 
   
