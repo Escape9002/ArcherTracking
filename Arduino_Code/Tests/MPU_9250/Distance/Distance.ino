@@ -1,83 +1,131 @@
 /*
-  Library: https://github.com/bolderflight/MPU9250
-  Basic_I2C.ino
   Brian R Taylor
   brian.taylor@bolderflight.com
 
-  Copyright (c) 2017 Bolder Flight Systems
+  Copyright (c) 2021 Bolder Flight Systems Inc
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy of this software
-  and associated documentation files (the "Software"), to deal in the Software without restriction,
-  including without limitation the rights to use, copy, modify, merge, publish, distribute,
-  sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the “Software”), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
   furnished to do so, subject to the following conditions:
 
-  The above copyright notice and this permission notice shall be included in all copies or
-  substantial portions of the Software.
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
 
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
-  BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
 */
-/*
-   Updated by Ahmad Shamshiri on July 09, 2018 for Robojax.com
-   in Ajax, Ontario, Canada
-   watch instrucion video for this code:
-  For this sketch you need to connect:
-  VCC to 5V and GND to GND of Arduino
-  SDA to A4 and SCL to A5
+#define DISABLE_MPU9250_FIFO
+#include "mpu9250.h"
 
-  S20A is 3.3V voltage regulator MIC5205-3.3BM5
-*/
+/* Mpu9250 object, I2C bus,  0x68 address */
+bfs::Mpu9250 imu(&Wire, 0x68);
 
-#include "MPU9250.h"
-
-// an MPU9250 object with the MPU-9250 sensor on I2C bus 0 with address 0x68
-MPU9250 IMU(Wire, 0x68);
-int status;
-
-float velocity = 0;
-float distance = 0;
-float distanceOld = 0;
-float hz = 25 ;// value is 0,0000025 but now *10000000
-int mulitplikator = 10000000;
+unsigned long previousMillis = 0;
+float hz = 0;
 
 void setup() {
-  // serial to display data
+  /* Serial to display data */
   Serial.begin(115200);
   while (!Serial) {}
-
-  // start communication with IMU
-  status = IMU.begin();
-  if (status < 0) {
-    Serial.println("IMU initialization unsuccessful");
-    Serial.println("Check IMU wiring or try cycling power");
-    Serial.print("Status: ");
-    Serial.println(status);
+  /* Start the I2C bus */
+  Wire.begin();
+  Wire.setClock(400000);
+  /* Initialize and configure IMU */
+  if (!imu.Begin()) {
+    Serial.println("Error initializing communication with IMU");
     while (1) {}
   }
+  /* Set the sample rate divider */
+  if (!imu.ConfigSrd(19)) {
+    Serial.println("Error configured SRD");
+    while (1) {}
+  }
+
+  hz = 1000 / (imu.srd() + 1);
+
+  Serial.println("Dist_A Dist_B");
 }
 
+    float oldDistance_a;
+    float oldDistance_b;
+    
 void loop() {
-  // read the sensor
-  IMU.readSensor();
-  // display the data
-/*
-  Serial.print("AccelX: ");
-  Serial.print(IMU.getAccelX_mss(), 6);
-  Serial.print("  ");
-  Serial.print("AccelY: ");
-  Serial.print(IMU.getAccelY_mss(), 6);
-  Serial.print("  ");
-  Serial.print("AccelZ: ");
-  Serial.println(IMU.getAccelZ_mss(), 6);
-*/
-  velocity = IMU.getAccelX_mss()*mulitplikator * hz + velocity;
-  distance = velocity* hz + distanceOld;
-  distanceOld = distance;
+  float aX, aY, aZ;
 
-  Serial.println(distanceOld);
+  /* Check if data read */
+  if (imu.Read()) {
+
+    aX = imu.accel_x_mps2();
+    aY = imu.accel_y_mps2();
+    aZ = imu.accel_z_mps2();
+
+    /*
+      Serial.print(imu.new_imu_data());
+      Serial.print("\t");
+      Serial.print(imu.new_mag_data());
+      Serial.print("\t");
+      Serial.print(imu.accel_x_mps2());
+      Serial.print("\t");
+      Serial.print(imu.accel_y_mps2());
+      Serial.print("\t");
+      Serial.print(imu.accel_z_mps2());
+      Serial.print("\t");
+      Serial.print(imu.gyro_x_radps());
+      Serial.print("\t");
+      Serial.print(imu.gyro_y_radps());
+      Serial.print("\t");
+      Serial.print(imu.gyro_z_radps());
+      Serial.print("\t");
+      Serial.print(imu.mag_x_ut());
+      Serial.print("\t");
+      Serial.print(imu.mag_y_ut());
+      Serial.print("\t");
+      Serial.print(imu.mag_z_ut());
+      Serial.print("\t");
+      Serial.print(imu.die_temp_c());
+      Serial.print("\n");
+    */
+    unsigned long currentMillis = millis();
+    float interval = float((float(currentMillis) - float(previousMillis)) / 1000);
+
+
+
+    float velocity_a = aY * hz;
+    float distance_a = 0.5 * aY * (hz * hz) + velocity_a * hz + oldDistance_a;
+
+    float velocity_b = aY * interval;
+    float distance_b = oldDistance_b + 0.5 * velocity_b * interval;
+
+    Serial.println(distance_a);
+    //Serial.print("\t");
+    //Serial.println(distance_b);
+
+    oldDistance_b = distance_b;
+    oldDistance_a = distance_a;
+
+  }
+
 
 }
+/*
+  int distance() {
+  //Motion in one simple direction, let y=0.
+  unsigned long currentMillis =  millis(); //record time of new reading
+  float interval = float((float(currentMillis) - float(previousMillis)) / 1000) ; //Time of previous reading-Time of Current reading= Interval
+  previousMillis = currentMillis;
+
+    ac = bx * interval; //acceleration x time=velocity
+    lv = inv;      // initial velocity=lv, final velocity=inv
+    inv = inv + ac; // vf =vi+1t;
+    s = s + (lv * interval) + 0.5 * ac * interval; // Distance= Previous Distance + Vit + 1/2 x a x t^2
+
+  }
+  }*/
