@@ -53,9 +53,6 @@ void setup() {
 
   Serial.println("Dist_A Dist_B");
 }
-
-    float oldDistance_a;
-    float oldDistance_b;
     
 void loop() {
   float aX, aY, aZ;
@@ -95,21 +92,27 @@ void loop() {
     */
     unsigned long currentMillis = millis();
     float interval = float((float(currentMillis) - float(previousMillis)) / 1000);
+    previousMillis = currentMillis;
 
+    /*
+    Serial.print(hz);
+    Serial.print("\t");
+    Serial.println(interval);
 
+    if(hz == interval){Serial.println("/////////////////////////////////////");}
+*/
 
     float velocity_a = aY * hz;
-    float distance_a = 0.5 * aY * (hz * hz) + velocity_a * hz + oldDistance_a;
+    float distance_a = 0.5 * aY * (hz * hz) + velocity_a * hz + distance_a;
 
     float velocity_b = aY * interval;
-    float distance_b = oldDistance_b + 0.5 * velocity_b * interval;
+    float distance_b = distance_b + 0.5 * velocity_b * interval;
 
-    Serial.println(distance_a);
+    //Serial.println(distance_a);
     //Serial.print("\t");
-    //Serial.println(distance_b);
+    Serial.println(distance_b);
 
-    oldDistance_b = distance_b;
-    oldDistance_a = distance_a;
+    
 
   }
 
