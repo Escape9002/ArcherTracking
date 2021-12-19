@@ -52,7 +52,7 @@ void setup() {
   hz = 1000 / (imu.srd() + 1);
 
   Serial.println("Dist_A Dist_B");
-}
+}w
     
 void loop() {
   float aX, aY, aZ;
@@ -132,3 +132,15 @@ void loop() {
 
   }
   }*/
+
+  float measure(float acc, float hz){
+    float distance, velocity, t;
+    t = (hz/1000); //hz is not time but frequenzy
+
+    velocity = acc * t; 
+    distance = distance + velocity *   
+
+
+
+  
+  }
