@@ -28,11 +28,11 @@
 /* Mpu9250 object, I2C bus,  0x68 address */
 bfs::Mpu9250 imu(&Wire, 0x68);
 
-float hz = 0;
-float aXOFF = 0, aYOFF = 0 , aZOFF = 0;
+double hz = 0;
+double aXOFF = 0, aYOFF = 0 , aZOFF = 0;
 
-float aX, aY, aZ;
-float gyroX, gyroY, gyroZ;
+double aX, aY, aZ;
+double gyroX, gyroY, gyroZ;
 
 void setup() {
   /* Serial to display data */
@@ -55,108 +55,139 @@ void setup() {
   hz = 1000 / (imu.srd() + 1);
 
   Serial.println("start");
- // calibAccel();
+  calibAccel();
+  Serial.println("acc time velocity distance");
 }
 
 void loop() {
 
 
-  /* Check if data read */
+  /* Check for new data */
   if (imu.Read()) {
 
     aX = imu.accel_x_mps2() - aXOFF;
     aY = imu.accel_y_mps2() - aYOFF;
     aZ = imu.accel_z_mps2() - aZOFF;
-    /*
-      Serial.print(imu.gyro_x_radps());
-      Serial.print("\t");
-      Serial.print(imu.gyro_y_radps());
-      Serial.print("\t");
-      Serial.println(imu.gyro_z_radps());
-    
-/*
-    Serial.print(aX);
-    Serial.print("\t");
-    Serial.print(aY);
-    Serial.print("\t");
-    Serial.println(aZ);
-      */
-      if (aY > 0) {
 
-      float dist = measure_raw(aY, hz);
-      Serial.println(dist);
-      //Serial.print("\t");
-      //Serial.println(30 / dist);
-      }
- 
+    // Serial.println(constDistance_m(aY,hz));
+    Serial.println(integralDistance_m(aY, hz));
+
   }
-
-
 }
 
-float distance = 0;
-float velocity = 0;
-float t = 0;
+double distance = 0;
+double velocity = 0;
+double t = 0;
 
-float measure_cm(float acc, float freq) {
+//--------------------------------------------------measures the distance via constant accleration formels,
+//this is wrong fue to the nature of the acceleration. You receive different velocities within one step( as soon as the position is added)
+double constDistance_cm(double acc, double freq) {
 
-  t = (freq / 1000); //hz is not time but frequenzy
-
-
-  distance = (distance) + /*(velocity * t) +*/ (acc * (t * t) * 0.5);
-  velocity = acc * t;
-
-  return distance * 100;
+  if (acc > 0) {
+    t = (freq / 1000); //hz is not time but frequenzy
 
 
+    distance = (distance) + /*(velocity * t) +*/ (acc * (t * t) * 0.5);
+    velocity = acc * t;
+
+    return distance * 100;
+  }
 }
 
-float measure_raw(float acc, float freq) {
+double constDistance_m(double acc, double freq) {
+  if (acc > 0) {
+    t = (freq / 1000); //hz is not time but frequenzy
 
-  t = (freq / 1000); //hz is not time but frequenzy
 
+    distance = (distance) /*+ (velocity * t) */ + (acc * (t * t) * 0.5);
+    velocity = acc * t;
 
-  distance = (distance) /*+ (velocity * t) */+ (acc * (t * t) * 0.5);
-  velocity = acc * t;
+    return distance;
+  }
+}
+/*
+  String constDistance_csv() {
+  //measure_cm(aY, hz);
+  constDistance_m(aY, hz);
+
+  Serial.print(t, 16);
+  Serial.print("\t");
+  Serial.print(aY, 16);
+  Serial.print("\t");
+  Serial.print(velocity, 16);
+  Serial.print("\t");
+  Serial.println(distance, 16);
+
+  return String(t, 16) + "\t" + String(aY, 16) + "\t" + String(velocity, 16) + "\t" + String(distance, 16) + "\n";
+  }
+*/
+//--------------------------------------------------------------------measure the distance via integral formels, should solve the porblem from above. New problem is the new drift of the IMU
+double integralDistance_m(float acc, float freq) {
+  t = (freq / 1000); // hz to time
+
+  velocity = 0.02 * acc + velocity;
+
+  distance = 0.02 * velocity + distance;
 
   return distance;
-
-
 }
 
+double integralDistance_cm(double acc, double freq) {
+  t = (freq / 1000); // hz to time
+
+  velocity = 0.02 * acc + velocity;
+
+  distance = 0.02 * velocity + distance;
+
+  return distance * 100;
+}
+/*
+String integralDistance_csv(double acc, double freq) {
+  integralDistance_m(aY, hz);
+  /*
+    Serial.print(acc, 16);
+    Serial.print("\t");
+    Serial.print(t, 16);
+    Serial.print("\t");
+    Serial.print(velocity, 16);
+    Serial.print("\t");
+    Serial.println(distance, 16);
+  
+
+  return String(t, 16) + "\t" + String(acc, 16) + "\t" + String(velocity, 16) + "\t" + String(distance, 16) + "\n";
+}
+*/
+//--------------------------------------------------------------------Get the offset of the acceleration. This is supposed to calib the pure offset on the breadboard
 void calibAccel() {
   Serial.println("Calib");
   int rounds = 0;
   while (rounds < 201) {
-    if(imu.Read()){
-          aX = imu.accel_x_mps2();
-    aY = imu.accel_y_mps2();
-    aZ = imu.accel_z_mps2();
+    if (imu.Read()) {
+      aX = imu.accel_x_mps2();
+      aY = imu.accel_y_mps2();
+      aZ = imu.accel_z_mps2();
 
-    aXOFF = (aX + aXOFF) / 2;
-    aYOFF = (aY + aYOFF) / 2;
-    aZOFF = (aZ + aZOFF) / 2;
+      aXOFF = (aX + aXOFF) / 2;
+      aYOFF = (aY + aYOFF) / 2;
+      aZOFF = (aZ + aZOFF) / 2;
 
-    Serial.print(aXOFF);
-    Serial.print("\t");
-    Serial.print(aYOFF);
-    Serial.print("\t");
-    Serial.println(aZOFF);
-/*
-        Serial.print(aX);
-    Serial.print("\t");
-    Serial.print(aY);
-    Serial.print("\t");
-    Serial.println(aZ);
-*/
-    rounds ++;
-    }else{
-      
+      Serial.print(aXOFF, 16);
+      Serial.print("\t");
+      Serial.print(aYOFF, 16);
+      Serial.print("\t");
+      Serial.println(aZOFF, 16);
+      /*
+              Serial.print(aX);
+          Serial.print("\t");
+          Serial.print(aY);
+          Serial.print("\t");
+          Serial.println(aZ);
+      */
+      rounds ++;
+    } else {
+
     }
 
   }
-
- 
-  delay(5000); 
-  Serial.println("PROCEEDING");
+  Serial.println("PROCEEED");
 }
