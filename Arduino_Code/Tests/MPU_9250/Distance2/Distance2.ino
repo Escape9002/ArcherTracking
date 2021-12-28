@@ -22,6 +22,8 @@
   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
   IN THE SOFTWARE.
 */
+#define CSVDISTANCE 1 //toggle CSVDISTANCE mode
+
 #define DISABLE_MPU9250_FIFO
 #include "mpu9250.h"
 
@@ -35,6 +37,8 @@ double aX, aY, aZ;
 double gyroX, gyroY, gyroZ;
 
 void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, HIGH);
   /* Serial to display data */
   Serial.begin(115200);
   while (!Serial) {}
@@ -46,17 +50,28 @@ void setup() {
     Serial.println("Error initializing communication with IMU");
     while (1) {}
   }
-  /* Set the sample rate divider */
-  if (!imu.ConfigSrd(19)) {
+  /* Set the sample rate divider */   // 9 works ok || 
+  if (!imu.ConfigSrd(9)) {
     Serial.println("Error configured SRD");
     while (1) {}
   }
 
   hz = 1000 / (imu.srd() + 1);
 
-  Serial.println("start");
-  calibAccel();
-  Serial.println("acc time velocity distance");
+  //Serial.println("start");
+  calibAccel(200);
+
+#ifdef CSVDISTANCE
+  Serial.print("time");
+  Serial.print("\t");
+  Serial.print("acc");
+  Serial.print("\t");
+  Serial.print("velocity");
+  Serial.print("\t");
+  Serial.println("distance");
+#endif
+
+  digitalWrite(LED_BUILTIN, LOW);
 }
 
 void loop() {
@@ -65,12 +80,12 @@ void loop() {
   /* Check for new data */
   if (imu.Read()) {
 
-    aX = imu.accel_x_mps2() - aXOFF;
+    //aX = imu.accel_x_mps2() - aXOFF;
     aY = imu.accel_y_mps2() - aYOFF;
-    aZ = imu.accel_z_mps2() - aZOFF;
+    //aZ = imu.accel_z_mps2() - aZOFF;
 
-    // Serial.println(constDistance_m(aY,hz));
-    Serial.println(integralDistance_m(aY, hz));
+    constDistance_m(aY, hz);
+
 
   }
 }
@@ -81,6 +96,7 @@ double t = 0;
 
 //--------------------------------------------------measures the distance via constant accleration formels,
 //this is wrong fue to the nature of the acceleration. You receive different velocities within one step( as soon as the position is added)
+// correct Formula (distance) + /*(velocity * t) +*/ (acc * (t * t) * 0.5);
 double constDistance_cm(double acc, double freq) {
 
   if (acc > 0) {
@@ -89,6 +105,16 @@ double constDistance_cm(double acc, double freq) {
 
     distance = (distance) + /*(velocity * t) +*/ (acc * (t * t) * 0.5);
     velocity = acc * t;
+
+#ifdef CSVDISTANCE
+    Serial.print(t);
+    Serial.print("\t");
+    Serial.print(acc);
+    Serial.print("\t");
+    Serial.print(velocity);
+    Serial.print("\t");
+    Serial.println(distance);
+#endif
 
     return distance * 100;
   }
@@ -102,32 +128,39 @@ double constDistance_m(double acc, double freq) {
     distance = (distance) /*+ (velocity * t) */ + (acc * (t * t) * 0.5);
     velocity = acc * t;
 
+#ifdef CSVDISTANCE
+    Serial.print(t);
+    Serial.print("\t");
+    Serial.print(acc);
+    Serial.print("\t");
+    Serial.print(velocity);
+    Serial.print("\t");
+    Serial.println(distance);
+#endif
+
     return distance;
   }
 }
-/*
-  String constDistance_csv() {
-  //measure_cm(aY, hz);
-  constDistance_m(aY, hz);
-
-  Serial.print(t, 16);
-  Serial.print("\t");
-  Serial.print(aY, 16);
-  Serial.print("\t");
-  Serial.print(velocity, 16);
-  Serial.print("\t");
-  Serial.println(distance, 16);
-
-  return String(t, 16) + "\t" + String(aY, 16) + "\t" + String(velocity, 16) + "\t" + String(distance, 16) + "\n";
-  }
-*/
 //--------------------------------------------------------------------measure the distance via integral formels, should solve the porblem from above. New problem is the new drift of the IMU
+double accOld = 0;
+double velocityOld = 0;
 double integralDistance_m(float acc, float freq) {
   t = (freq / 1000); // hz to time
 
-  velocity = 0.02 * acc + velocity;
+  velocity = t * ((acc + accOld) / 2) + velocity;
+  accOld = acc;
+  distance = t * ((velocity + velocityOld) / 2) + distance;
+  velocityOld = velocity;
 
-  distance = 0.02 * velocity + distance;
+#ifdef CSVDISTANCE
+  Serial.print(t);
+  Serial.print("\t");
+  Serial.print(acc);
+  Serial.print("\t");
+  Serial.print(velocity);
+  Serial.print("\t");
+  Serial.println(distance);
+#endif
 
   return distance;
 }
@@ -135,33 +168,28 @@ double integralDistance_m(float acc, float freq) {
 double integralDistance_cm(double acc, double freq) {
   t = (freq / 1000); // hz to time
 
-  velocity = 0.02 * acc + velocity;
+  velocity = 0.02 * ((acc + accOld) / 2) + velocity;
+  accOld = acc;
+  distance = 0.02 * ((velocity + velocityOld) / 2) + distance;
+  velocityOld = velocity;
 
-  distance = 0.02 * velocity + distance;
 
+#ifdef CSVDISTANCE
+  Serial.print(t);
+  Serial.print("\t");
+  Serial.print(acc);
+  Serial.print("\t");
+  Serial.print(velocity);
+  Serial.print("\t");
+  Serial.println(distance);
+#endif
   return distance * 100;
 }
-/*
-String integralDistance_csv(double acc, double freq) {
-  integralDistance_m(aY, hz);
-  /*
-    Serial.print(acc, 16);
-    Serial.print("\t");
-    Serial.print(t, 16);
-    Serial.print("\t");
-    Serial.print(velocity, 16);
-    Serial.print("\t");
-    Serial.println(distance, 16);
-  
-
-  return String(t, 16) + "\t" + String(acc, 16) + "\t" + String(velocity, 16) + "\t" + String(distance, 16) + "\n";
-}
-*/
 //--------------------------------------------------------------------Get the offset of the acceleration. This is supposed to calib the pure offset on the breadboard
-void calibAccel() {
-  Serial.println("Calib");
+void calibAccel(int coun) {
+  //Serial.println("Calib");
   int rounds = 0;
-  while (rounds < 201) {
+  while (rounds < coun) {
     if (imu.Read()) {
       aX = imu.accel_x_mps2();
       aY = imu.accel_y_mps2();
@@ -171,11 +199,11 @@ void calibAccel() {
       aYOFF = (aY + aYOFF) / 2;
       aZOFF = (aZ + aZOFF) / 2;
 
-      Serial.print(aXOFF, 16);
-      Serial.print("\t");
-      Serial.print(aYOFF, 16);
-      Serial.print("\t");
-      Serial.println(aZOFF, 16);
+      //  Serial.print(aXOFF, 16);
+      // Serial.print("\t");
+      //Serial.print(aYOFF, 16);
+      //Serial.print("\t");
+      //Serial.println(aZOFF, 16);
       /*
               Serial.print(aX);
           Serial.print("\t");
@@ -189,5 +217,5 @@ void calibAccel() {
     }
 
   }
-  Serial.println("PROCEEED");
+  //  Serial.println("PROCEEED");
 }
