@@ -1,0 +1,60 @@
+Mit Bluetooth 5.0 wurde eine neue übertragunsweise zu 
+Bluetooth hinzugefügt. Diese nennt sich Bluetooth-Low-Energy und zeichnet
+sich durch einen geringen Stromverbrauch und damit einem höherem 
+Datendurchsatz aus. \\
+\\
+Bluetooth sendet Daten in Paketen. Hierbei ist bei Bluetooth-Low-Energy
+(zukünftig BLE) der Sender als Server ausgewiesen und der Empfänger als Client.\\
+\\
+Hierdurch kann der Client bis zu ??? Server abfragen ohne sich mit diesen 
+verbinden zu müssen. Jeder Server kann unbegrenzt Characteristiken anbieten,
+diese Stellen verschieden Datensätze dar, die vom Client abgefragt werden können.\\
+\\
+Laut Dokumentation beträgt der Maximale Datensatz 244 Bytes pro Paket bei 
+aktiviertem DLE. Diese Funktion ließ ich ausgeschaltet, wodurch ich Maximal
+27 Bytes pro Paket versenden kann. \\
+
+\subsection{Datendurchsatz per BLE}
+%Etwas stimmt hier nicht an der Rechnung, Fehlersuche!
+%Quelle:
+%https://www.novelbits.io/bluetooth-5-speed-maximum-throughput/
+%--------------------------------------------------------------
+2Mbps, steht in Prozessor Doku, lieber nochmal in BLELib nachlesen!
+\\
+Das Sendeprotokoll von Bluetooth schreibt vor, das ein Datenpaket von
+leeren Datenpakten eingepackt wird, somit beträgt die Sendezeit pro 
+Datenpaket 
+\\
+``Zeit = Leer + IFS + Data + IFS''
+\\
+``Leer = leerespacket(größe) / datarate''
+\\
+Für mich heißt das:\\
+leerGröße = 2 + 4 + 2 + 3 = 11 Bytes == 88 bits
+\\
+und die Sendezeit für das leere Paket beträgt damit:
+\\
+leerZeit = 88/2Mpbs = 44 Mikro Sekunden.
+\\
+Für ein volles DAtenpaket brauche ich:\\
+Voll = 44 + 2*150+ 2+4+2+4+20+3 = 44+300+35 = 379Bytes *8 ==3032 Bits\\
+Vollzeit = 3032 / 2 = 1,516 Mikrosekunden
+\\
+Für ein gesaamtes Datenpaket brauche ich damit mindestens:\\
+Zeit = 44 + 2*150 + 1,516 = 345,516 Mikrosekunden
+\\
+88/2 + 2*150 + (2 + 4 + 2 + 4 + 20 + 3)*8/2
+
+%-----------------------------------------------------------------
+\subsection{Datengröse}
+Die Daten werden als String versendet, diese werden von Arduino mit einer
+Null Terminiert. Die Größer der Sensordaten beträgt:\\
+Vorkommastellen (3) + Komma (1) + Dezimalstellen (2) + Terminierung (1) = 7 Char
+\\
+1 Char entspricht 1 Byte, somit gilt:\\
+9 Sensoren * 7 Byte = 63 Byte\\
+63 Byte / 27 Byte = 2,3 Datenpakete pro alle Sensoren
+Somit brauche ich für das Senden aller Sensoren mindestens 3 Characteristics.
+
+\subsection{Tatsächliche Übetragunsgeschwindigkeit}
+%Führe Test durch!

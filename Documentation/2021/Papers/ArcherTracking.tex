@@ -1,0 +1,83 @@
+\documentclass[12pt,titlepage]{scrreprt}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{float}
+\usepackage[a4paper,lmargin={2.5cm},rmargin={2.5cm},tmargin={2.5cm},bmargin = {2cm},footskip={1cm}]{geometry}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{wrapfig}
+\usepackage{url}
+\usepackage{calc}
+\usepackage{overcite} 
+\renewcommand\citeform[1]{[#1]}
+\usepackage{hyperref}
+\hypersetup{
+% colorlinks=false,
+  pdfborder={0 0 0}
+}
+
+% !TEX program = xelatex
+\begin{document}
+% \include{Title}
+\begin{titlepage}
+
+	
+
+\title{Archer-Tracking}
+\subtitle{Bewegungstracking für Sportler}
+\titlehead{\centering\includegraphics[width=15cm]{Bilder/IMG_9973 (4)}}
+
+
+\author{Antonio Rehwinkel}
+
+\publishers{Unterstützende Lehrer: Herr Czernohous \\ Herr Dierle \\  \texttt{jgreinert@geomar.de} \\
+\vspace*{2ex} und Professoren: Hochschule1 \\ Hochschule2\\ \texttt{m.czernohous@schiller-offenburg.de}}
+%- \\ Schiller-Gymnasium Offenburg}
+
+\maketitle
+
+\end{titlepage}
+\tableofcontents
+\include{Vorwort}
+
+\chapter{IMU vs Kameratracking}
+\input{Imu_vs_Kameratracking}
+
+\chapter{Bluetooth-Low-Energy}
+\input{Ble}
+
+\chapter{Hardware}
+\section{Arduino Nano 33 BLE}
+\input{Arduino}
+\section{MPU9250}
+\input{MPU9250}
+\section{Stromverbrauch}
+\input{Strom}
+
+\chapter{Software}
+\section{Android-App}
+\input{AndroidApp}
+\section{Arduino Firmware}
+\input{ArdFirmware}
+\section{Gleichmäsige und ungleichmäßige Beschleunigung}
+\input{constIntVel}
+\subsection{Gleichmäßige Formel}
+\input{constVel}
+\subsection{Integral}
+\input{integralVel}
+
+\chapter{Machine Learning}
+\section{Datenauswahl und Dimensionen}
+\input{MLData}
+\section{Modell und Funktion}
+\input{MLModNFunk}
+
+\chapter{Fazit}
+\include{Fazit}
+\include{Danksagung}
+\bibliography{bibliography}
+\bibliographystyle{plain}
+\end{document}
