@@ -14,7 +14,7 @@ Laut Dokumentation beträgt der Maximale Datensatz 244 Bytes pro Paket bei
 aktiviertem DLE. Diese Funktion ließ ich ausgeschaltet, wodurch ich Maximal
 27 Bytes pro Paket versenden kann. \\
 
-\subsection{Datendurchsatz per BLE}
+\section{Datendurchsatz per BLE}
 %Etwas stimmt hier nicht an der Rechnung, Fehlersuche!
 %Quelle:
 %https://www.novelbits.io/bluetooth-5-speed-maximum-throughput/
@@ -46,7 +46,7 @@ Zeit = 44 + 2*150 + 1,516 = 345,516 Mikrosekunden
 88/2 + 2*150 + (2 + 4 + 2 + 4 + 20 + 3)*8/2
 
 %-----------------------------------------------------------------
-\subsection{Datengröse}
+\section{Datengröse}
 Die Daten werden als String versendet, diese werden von Arduino mit einer
 Null Terminiert. Die Größer der Sensordaten beträgt:\\
 Vorkommastellen (3) + Komma (1) + Dezimalstellen (2) + Terminierung (1) = 7 Char
@@ -56,5 +56,5 @@ Vorkommastellen (3) + Komma (1) + Dezimalstellen (2) + Terminierung (1) = 7 Char
 63 Byte / 27 Byte = 2,3 Datenpakete pro alle Sensoren
 Somit brauche ich für das Senden aller Sensoren mindestens 3 Characteristics.
 
-\subsection{Tatsächliche Übetragunsgeschwindigkeit}
+\section{Tatsächliche Übetragunsgeschwindigkeit}
 %Führe Test durch!

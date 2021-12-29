@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.10.17)  29 DEC 2021 18:16
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.10.17)  29 DEC 2021 21:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -532,42 +532,61 @@ Class scrreprt Warning: \float@addtolists detected!
 (scrreprt)              a package that still implements the
 (scrreprt)              deprecated \float@addtolist interface.
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--17
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--17
+
+ []
+
+(./Imu_vs_Kameratracking.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 1--20
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--20
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--20
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--20
+
+ []
+
 )
-Underfull \hbox (badness 10000) in paragraph at lines 3--44
+Underfull \hbox (badness 10000) in paragraph at lines 22--44
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--44
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--44
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--44
 
  []
 
 [3
 
 
-]
+] [4]
 chapter 2.
-(./Imu_vs_Kameratracking.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 1--48
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1--48
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1--48
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1--48
-
- []
-
-[4
-
-
-
-]
-chapter 3.
 (./Ble.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--16
 
@@ -590,8 +609,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--16
 
 [5
 
+
+
 ]) [6]
-chapter 4.
+chapter 3.
 (./Arduino.tex)
 Underfull \hbox (badness 10000) in paragraph at lines 1--55
 
@@ -630,15 +651,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--59
 [7
 
 ] [8]
-chapter 5.
+chapter 4.
+(./Datenübertragung.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 1--67
+
+ []
+
 (./AndroidApp.tex) (./ArdFirmware.tex) (./constIntVel.tex) (./constVel.tex) (./integralVel.tex) [9
 
 ]
-chapter 6.
+chapter 5.
 (./MLData.tex) (./MLModNFunk.tex) [10
 
 ]
-chapter 7.
+chapter 6.
 [11
 
 ]
@@ -654,10 +680,10 @@ Package rerunfilecheck Info: File `ArcherTracking.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 15228 strings out of 476493
- 262558 string characters out of 5820668
- 749844 words of memory out of 5000000
- 35382 multiletter control sequences out of 15000+600000
+ 15236 strings out of 476493
+ 262708 string characters out of 5820668
+ 752844 words of memory out of 5000000
+ 35387 multiletter control sequences out of 15000+600000
  410453 words of font info for 62 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  108i,7n,108p,10730b,414s stack positions out of 5000i,500n,10000p,200000b,80000s

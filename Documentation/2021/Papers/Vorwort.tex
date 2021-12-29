@@ -13,4 +13,31 @@ bei dem selbst kleine Bewegungen immer wieder auf gleiche Weise
 ausgeführt werden müssen. Mit meinen Sensor sollen hier teure 
 Kamerasysteme abgeschafft werden und es so jeden ermöglichen, 
 selbst ohne Bogen oder Trainer bei sich Zuhause zu den 
-Bewegungsablauf zu trainieren.  
+Bewegungsablauf zu trainieren.\\
+
+\section{IMU vs Kameratracking}
+\input{Imu_vs_Kameratracking}
+
+\section{Bewegungen und Analyse}
+Eine Interessante Bewegung stellt vor allem der Zugarm des 
+Schüzten dar. Der Auszug verläuft nahezu linear, der häufigere Fehler 
+an dieser Stelle versteckt sich allerdings in der Höhe des Zugarms. 
+Um diese zu messen muss man die Erdanziehungskraft der Z-Achse herausrechnen.\\
+\\
+Da der Schussablauf eines Bogenschützen viele Stationen mit verschiedenen Bewegungen 
+beinhaltet fällt es häufig sogar den Trainern schwer zwischen einem technisch guten
+oder schlechtem Schuss zu unterscheiden.\\
+Die Datenlage aus dem 9DOF-System des verwendeten MPU erzeugt eine Datenwolke, die 
+diesen Vorgang fürs erste verkompliziert.\\
+Die Daten sind allerdings sehr gut zu vergleichen und zu mitteln. Mit diesen 
+Eigenschaften kann man über künstliche Intelligenz, genauer, Machine Learning 
+die Schüsse klassifiezieren. So kann jeder Schütze seine eigene Datenbasis erstellen,
+nach der sein Schuss klassifiziert und so eingeordnet werden können.\\
+Ein Vergleich mit einer deutlich größeren Datenbasis als einem einzelnen Schützen ist denkbar.\\
+\\
+Für dieses System ist es nahezu unwichtig wie viele Körperteile überwacht werden.
+Mit mehr Sensoren (oder Vergleichspunkten) wird es lediglich schwieriger für den
+Schützen einen guten Wert bei der klassifiezierung zu erreichen.\\
+Die Verwendung setzt natürlich vor allem korrekte, genau und viele Daten vorraus,
+dies gilt für das Training des Modells so wie für die Live-Daten des Schützen.\\
+\\

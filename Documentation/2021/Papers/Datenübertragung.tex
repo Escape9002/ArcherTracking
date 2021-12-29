@@ -1,0 +1,10 @@
+Die Daten werden wie in Kapitel zur BLE-Datenübetragung beschrieben in 
+3 verschiedenen Charakteristiken gesendet und empfangen. \\
+Eine Instanz muss hierbei sicherstellen das Daten
+nicht doppelt gesendet oder empfangen werden.\\
+Dies wird beim Arduino durch Abfrage einer Bibliothekseigenen Funktion
+sichergestellt, die erst auslöst wenn neue Daten des MPU9250 erzeugt wurden.\\
+Sobald diese Daten gesendet wurden, bekommt das Handy ein Signal und liest
+daraufhin die neuen Daten.\\
+\\
+Da die Daten 
