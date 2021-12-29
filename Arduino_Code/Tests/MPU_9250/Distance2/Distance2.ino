@@ -76,10 +76,10 @@ void loop() {
 
     //---------------------------------------------------which formula to use
     // function takes the acceleration and true Hz to work.
-    constDistance_m(aY, hz);
+    //constDistance_m(aY, hz);
     //constDistance_cm(aY, hz);
 
-    //integralDistance_m(aY, hz);
+    integralDistance_m(aY, hz);
     //integralDistance_cm(aY, hz);
 
 
@@ -97,6 +97,7 @@ double constDistance_cm(double acc, double freq) {
 
   if (acc > 0) {
     t = (freq / 1000); //hz is not time but frequenzy
+
 
 
     distance = (distance) + /*(velocity * t) +*/ (acc * (t * t) * 0.5);
@@ -120,7 +121,6 @@ double constDistance_m(double acc, double freq) {
   if (acc > 0) {
     t = (freq / 1000); //hz is not time but frequenzy
 
-
     distance = (distance) /*+ (velocity * t) */ + (acc * (t * t) * 0.5);
     velocity = acc * t;
 
@@ -140,6 +140,7 @@ double constDistance_m(double acc, double freq) {
 //--------------------------------------------------------------------measure the distance via integral formels, should solve the porblem from above. New problem is the new drift of the IMU
 double accOld = 0;
 double velocityOld = 0;
+
 double integralDistance_m(float acc, float freq) {
   t = (freq / 1000); // hz to time
 
@@ -147,6 +148,28 @@ double integralDistance_m(float acc, float freq) {
   accOld = acc;
   distance = t * ((velocity + velocityOld) / 2) + distance;
   velocityOld = velocity;
+
+#ifdef CSVDISTANCE
+  Serial.print(t);
+  Serial.print("\t");
+  Serial.print(acc);
+  Serial.print("\t");
+  Serial.print(velocity);
+  Serial.print("\t");
+  Serial.println(distance);
+#endif
+
+  return distance;
+}
+
+
+double integralDistance_m_second(float acc, float freq) {
+  t = (freq / 1000); // hz to time
+  //t = 1 / freq;
+
+  velocity = acc * t;
+
+  distance = (acc * (t * t) ) / 2 + velocity * t + distance;
 
 #ifdef CSVDISTANCE
   Serial.print(t);
