@@ -23,18 +23,27 @@ aktiviertem DLE. Diese Funktion ließ ich ausgeschaltet, wodurch ich Maximal
 \\
 Das Sendeprotokoll von Bluetooth schreibt vor, das ein Datenpaket von
 leeren Datenpakten eingepackt wird, somit beträgt die Sendezeit pro 
-Datenpaket 
+Datenpaket \\
 \\
-``Zeit = Leer + IFS + Data + IFS''
+$
+Zeit = Leer + IFS + Data + IFS
+$
 \\
-``Leer = leerespacket(größe) / datarate''
+\begin{equation}
+Leer = leerespacket(größe) / datarate
+\end{equation}
 \\
 Für mich heißt das:\\
+$
 leerGröße = 2 + 4 + 2 + 3 = 11 Bytes == 88 bits
+$
 \\
 und die Sendezeit für das leere Paket beträgt damit:
 \\
+$
 leerZeit = 88/2Mpbs = 44 Mikro Sekunden.
+$
+
 \\
 Für ein volles DAtenpaket brauche ich:\\
 Voll = 44 + 2*150+ 2+4+2+4+20+3 = 44+300+35 = 379Bytes *8 ==3032 Bits\\
