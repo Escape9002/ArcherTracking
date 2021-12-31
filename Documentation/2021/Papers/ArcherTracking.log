@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.17)  31 DEC 2021 13:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.17)  31 DEC 2021 16:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -721,13 +721,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--20
 
 [9
 
-]) (./ArdFirmware.tex) (./constIntVel.tex) (./constVel.tex) (./integralVel.tex) [10]
+]) (./ArdFirmware.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 1--73
+
+ []
+
+(./constIntVel.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 1--75
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--75
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--75
+
+ []
+
+(./constVel.tex) (./integralVel.tex) [10] [11]
 chapter 5.
-(./MLData.tex) (./MLModNFunk.tex) [11
+(./MLData.tex) (./MLModNFunk.tex) [12
 
 ]
 chapter 6.
-[12
+[13
 
 ]
 \openout2 = `Fazit.aux'.
@@ -742,18 +762,18 @@ Package rerunfilecheck Info: File `ArcherTracking.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 16055 strings out of 478599
- 271003 string characters out of 5858100
+ 16056 strings out of 478599
+ 271010 string characters out of 5858100
  749557 words of memory out of 5000000
  33604 multiletter control sequences out of 15000+600000
  411681 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,8n,108p,10734b,422s stack positions out of 5000i,500n,10000p,200000b,80000s
-<d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on ArcherTracking.pdf (12 pages, 1222663 bytes).
+<d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on ArcherTracking.pdf (13 pages, 1232737 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 200 compressed objects within 2 object streams
- 46 named destinations out of 1000 (max. 500000)
+ 236 PDF objects out of 1000 (max. 8388607)
+ 207 compressed objects within 3 object streams
+ 47 named destinations out of 1000 (max. 500000)
  206 words of extra memory for PDF output out of 10000 (max. 10000000)
 

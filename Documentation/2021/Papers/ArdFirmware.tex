@@ -1,0 +1,17 @@
+Das Programm auf dem Arduino Nano 33 Ble stellt zu Beginn eine 
+I$^2$C Verbindung mit dem MPU9250 her. Diese Verbindung wird über
+die Wire-Bibiliothek im Fast-Mode (Frequenz:400 000) hergestellt. 
+Das BLE-Objekt zur kommunikation
+mit dem Boardeigenem Chip wird ebenfalls initialisiert. \\
+Sobald eine BLE-VErbindung steht, fragt der Arduino
+den Sensor ab. Sollte dieser neue Daten 
+bereitgestellt haben, werden die Daten in einem String 
+verbunden und über die zu den Daten gehörende Characteristic 
+veröffentlicht. Dabei ist die Characteristic so eingestellt das 
+verbundene Geräte eine Nachricht bekommen, sobald der Wert 
+der Characteristic sich verändert.\\
+\\
+Der Motion-Processor wird von der Bibliothek verwendet und 
+kann so die Roh-Daten des Sensors mit einem Tief-Pass-Filter
+vorverarbeiten. Weitere Datenverarbeitung übernimmt der 
+Arduino nicht, um eine möglichst hohe Datenrate zu garantieren.

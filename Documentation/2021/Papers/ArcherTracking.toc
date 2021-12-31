@@ -17,11 +17,11 @@
 \contentsline {subsection}{\numberline {4.2.2}Graph}{9}{subsection.4.2.2}%
 \contentsline {subsection}{\numberline {4.2.3}Aufgezeichnete Daten}{10}{subsection.4.2.3}%
 \contentsline {section}{\numberline {4.3}Arduino Firmware}{10}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Gleichmäsige und ungleichmäßige Beschleunigung}{10}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Gleichmäßige Formel}{10}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Integral}{10}{subsection.4.4.2}%
-\contentsline {chapter}{\numberline {5}Machine Learning}{11}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Datenauswahl und Dimensionen}{11}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Modell und Funktion}{11}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Fazit}{12}{chapter.6}%
+\contentsline {section}{\numberline {4.4}Gleichmäßige und ungleichmäßige Beschleunigung}{10}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Gleichmäßige Formel}{11}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Integral}{11}{subsection.4.4.2}%
+\contentsline {chapter}{\numberline {5}Machine Learning}{12}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Datenauswahl und Dimensionen}{12}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Modell und Funktion}{12}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Fazit}{13}{chapter.6}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
