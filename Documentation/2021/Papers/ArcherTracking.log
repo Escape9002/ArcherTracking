@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.17)  31 DEC 2021 16:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.17)  31 DEC 2021 16:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -435,7 +435,11 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
 )
 \Hy@SectionHShift=\skip78
-) (./ArcherTracking.aux (./Vorwort.aux) (./Fazit.aux) (./Danksagung.aux))
+) (./ArcherTracking.aux (./Vorwort.aux)
+
+LaTeX Warning: Label `fig:wo-bin-ich' multiply defined.
+
+(./Fazit.aux) (./Danksagung.aux))
 \openout1 = `ArcherTracking.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
@@ -741,13 +745,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--75
 
  []
 
-(./constVel.tex) (./integralVel.tex) [10] [11]
+[10] (./constVel.tex) (./integralVel.tex) (./distMess.tex
+<Bilder/constDistance1.png, id=112, 1323.198pt x 586.263pt>
+File: Bilder/constDistance1.png Graphic file (type png)
+<use Bilder/constDistance1.png>
+Package pdftex.def Info: Bilder/constDistance1.png  used on input line 5.
+(pdftex.def)             Requested size: 426.79134pt x 189.09296pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Bilder/integralDistance2.png, id=114, 1314.438pt x 589.986pt>
+File: Bilder/integralDistance2.png Graphic file (type png)
+<use Bilder/integralDistance2.png>
+Package pdftex.def Info: Bilder/integralDistance2.png  used on input line 14.
+(pdftex.def)             Requested size: 426.79134pt x 191.56313pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) [11] [12 <./Bilder/constDistance1.png> <./Bilder/integralDistance2.png>]
 chapter 5.
-(./MLData.tex) (./MLModNFunk.tex) [12
+(./MLData.tex) (./MLModNFunk.tex) [13
 
 ]
 chapter 6.
-[13
+[14
 
 ]
 \openout2 = `Fazit.aux'.
@@ -758,22 +780,25 @@ chapter 6.
  (./Danksagung.tex)
 No file ArcherTracking.bbl.
 (./ArcherTracking.aux (./Vorwort.aux) (./Fazit.aux) (./Danksagung.aux))
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `ArcherTracking.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 16056 strings out of 478599
- 271010 string characters out of 5858100
+ 16097 strings out of 478599
+ 271972 string characters out of 5858100
  749557 words of memory out of 5000000
- 33604 multiletter control sequences out of 15000+600000
- 411681 words of font info for 59 fonts, out of 8000000 for 9000
+ 33636 multiletter control sequences out of 15000+600000
+ 411850 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,8n,108p,10734b,422s stack positions out of 5000i,500n,10000p,200000b,80000s
 <d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on ArcherTracking.pdf (13 pages, 1232737 bytes).
+Output written on ArcherTracking.pdf (14 pages, 1834834 bytes).
 PDF statistics:
- 236 PDF objects out of 1000 (max. 8388607)
- 207 compressed objects within 3 object streams
- 47 named destinations out of 1000 (max. 500000)
- 206 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 253 PDF objects out of 1000 (max. 8388607)
+ 219 compressed objects within 3 object streams
+ 51 named destinations out of 1000 (max. 500000)
+ 224 words of extra memory for PDF output out of 10000 (max. 10000000)
 

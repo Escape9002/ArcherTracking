@@ -20,8 +20,9 @@
 \contentsline {section}{\numberline {4.4}Gleichmäßige und ungleichmäßige Beschleunigung}{10}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Gleichmäßige Formel}{11}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}Integral}{11}{subsection.4.4.2}%
-\contentsline {chapter}{\numberline {5}Machine Learning}{12}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Datenauswahl und Dimensionen}{12}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Modell und Funktion}{12}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Fazit}{13}{chapter.6}%
+\contentsline {subsection}{\numberline {4.4.3}Tests zu den Messungen}{11}{subsection.4.4.3}%
+\contentsline {chapter}{\numberline {5}Machine Learning}{13}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Datenauswahl und Dimensionen}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Modell und Funktion}{13}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Fazit}{14}{chapter.6}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

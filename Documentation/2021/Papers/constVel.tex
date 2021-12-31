@@ -1,0 +1,19 @@
+Die Formel für gleichmäßige Beschleunigung berechnete 
+die Distanz in meinen Versuchen mit einer Genauigkeit von
++-10 cm auf 30cm Teststrecke. Wurden hierbei ebenfalls 
+negative Beschleunigungen gemessen wirkten sich diese direkt
+auf die Distanz aus. Dies stellte ein Problem beim abbremsen
+am Ende der Teststrecke dar. Die Werte sanken wieder auf null.\\
+Aus diesem Grund sind nur positive Werte für diese Funktion 
+zugelassen. Hier der Code-Aussschnitt aus der Berechnung.\\
+Für die Tests wurde dieser Code statt der BLE-Übetragung 
+auf dem Arduino ausgeführt.
+
+\begin{verbatim}
+    if (acc > 0) {
+    t = (freq / 1000); //hz is not time but frequenzy
+
+    distance = (distance) /*+ (velocity * t) */ + (acc * (t * t) * 0.5);
+    velocity = acc * t;
+    }
+\end{verbatim}
