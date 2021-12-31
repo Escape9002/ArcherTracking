@@ -6,7 +6,7 @@ Datendurchsatz aus. \\
 Bluetooth sendet Daten in Paketen. Hierbei ist bei Bluetooth-Low-Energy
 (zukünftig BLE) der Sender als Server ausgewiesen und der Empfänger als Client.\\
 \\
-Hierdurch kann der Client bis zu ??? Server abfragen ohne sich mit diesen 
+Hierdurch kann der Client bis zu??? Server abfragen ohne sich mit diesen 
 verbinden zu müssen. Jeder Server kann unbegrenzt Characteristiken anbieten,
 diese Stellen verschieden Datensätze dar, die vom Client abgefragt werden können.\\
 \\
@@ -23,46 +23,62 @@ aktiviertem DLE. Diese Funktion ließ ich ausgeschaltet, wodurch ich Maximal
 \\
 Das Sendeprotokoll von Bluetooth schreibt vor, das ein Datenpaket von
 leeren Datenpakten eingepackt wird, somit beträgt die Sendezeit pro 
-Datenpaket \\
-\\
-$
-Zeit = Leer + IFS + Data + IFS
-$
-\\
-\begin{equation}
-Leer = leerespacket(größe) / datarate
-\end{equation}
-\\
-Für mich heißt das:\\
-$
-leerGröße = 2 + 4 + 2 + 3 = 11 Bytes == 88 bits
-$
-\\
-und die Sendezeit für das leere Paket beträgt damit:
-\\
-$
-leerZeit = 88/2Mpbs = 44 Mikro Sekunden.
-$
+Datenpaket:
 
-\\
-Für ein volles DAtenpaket brauche ich:\\
-Voll = 44 + 2*150+ 2+4+2+4+20+3 = 44+300+35 = 379Bytes *8 ==3032 Bits\\
+\begin{equation} 
+$$
+Zeit = Leer + IFS + Data + IFS
+Leer = leerespacket(größe) / datarate
+$$
+\end{equation}
+
+Für mich heißt das:
+\begin{equation} 
+    $$
+leerGröße = 2 + 4 + 2 + 3 = 11 Bytes == 88 bits
+$$
+\end{equation}
+
+und die Sendezeit für das leere Paket beträgt damit:
+
+\begin{equation}
+    $$
+leerZeit = 88/2Mpbs = 44 Mikro Sekunden.
+$$
+\end{equation}
+
+
+Für ein volles Datenpaket brauche ich:
+\begin{equation}
+    $$
+Voll = 44 + 2*150+ 2+4+2+4+20+3 = 44+300+35 = 379Bytes *8 ==3032 Bits
 Vollzeit = 3032 / 2 = 1,516 Mikrosekunden
-\\
-Für ein gesaamtes Datenpaket brauche ich damit mindestens:\\
+$$
+\end{equation}
+
+Für ein gesaamtes Datenpaket brauche ich damit mindestens:
+\begin{equation}
+    $$
 Zeit = 44 + 2*150 + 1,516 = 345,516 Mikrosekunden
-\\
 88/2 + 2*150 + (2 + 4 + 2 + 4 + 20 + 3)*8/2
+$$
+\end{equation}
 
 %-----------------------------------------------------------------
 \section{Datengröse}
 Die Daten werden als String versendet, diese werden von Arduino mit einer
-Null Terminiert. Die Größer der Sensordaten beträgt:\\
+Null Terminiert. Die Größer der Sensordaten beträgt:
+\begin{equation}
+    $$
 Vorkommastellen (3) + Komma (1) + Dezimalstellen (2) + Terminierung (1) = 7 Char
-\\
-1 Char entspricht 1 Byte, somit gilt:\\
-9 Sensoren * 7 Byte = 63 Byte\\
+$$
+\end{equation}
+1 Char entspricht 1 Byte, somit gilt:
+\begin{equation}$$
+9 Sensoren * 7 Byte = 63 Byte
 63 Byte / 27 Byte = 2,3 Datenpakete pro alle Sensoren
+$$
+\end{equation}
 Somit brauche ich für das Senden aller Sensoren mindestens 3 Characteristics.
 
 \section{Tatsächliche Übetragunsgeschwindigkeit}

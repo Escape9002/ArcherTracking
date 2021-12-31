@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.17)  30 DEC 2021 13:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.17)  31 DEC 2021 13:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -435,7 +435,7 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
 )
 \Hy@SectionHShift=\skip78
-) (./ArcherTracking.aux)
+) (./ArcherTracking.aux (./Vorwort.aux) (./Fazit.aux) (./Danksagung.aux))
 \openout1 = `ArcherTracking.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
@@ -527,6 +527,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 25.
 LaTeX Info: Redefining \pageref on input line 25.
 LaTeX Info: Redefining \nameref on input line 25.
+ (./ArcherTracking.out) (./ArcherTracking.out)
 \@outlinefile=\write3
 \openout3 = `ArcherTracking.out'.
 
@@ -562,7 +563,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 
-{d:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Bilder/IMG_9973 (4).JPG>]
+{d:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Bilder/IMG_9973 (4).JPG>] (./ArcherTracking.toc)
 \tf@toc=\write4
 \openout4 = `ArcherTracking.toc'.
 
@@ -663,109 +664,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--16
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 22--32
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 22--32
-
- []
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 33.
-
-./Ble.tex:33: Please use \mathaccent for accents in math mode.
-<recently read> \accent 
-                        
-l.33 Leer = leerespacket(grö
-                             ße) / datarate
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-./Ble.tex:33: Missing { inserted.
-<to be read again> 
-                   \fontdimen 
-l.33 Leer = leerespacket(grö
-                             ße) / datarate
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-
-LaTeX Warning: Command \ss invalid in math mode on input line 33.
-
-./Ble.tex:34: You can't use `\eqno' in math mode.
-\endmathdisplay@a ...\df@tag \@empty \else \veqno 
-                                                  \alt@tag \df@tag \fi \ifx ...
-l.34 \end{equation}
-                   
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-./Ble.tex:34: Missing } inserted.
-<inserted text> 
-                }
-l.34 \end{equation}
-                   
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 38.
-
-./Ble.tex:38: Please use \mathaccent for accents in math mode.
-<recently read> \accent 
-                        
-l.38 leerGrö
-             ße = 2 + 4 + 2 + 3 = 11 Bytes == 88 bits
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-./Ble.tex:38: Missing { inserted.
-<to be read again> 
-                   \fontdimen 
-l.38 leerGrö
-             ße = 2 + 4 + 2 + 3 = 11 Bytes == 88 bits
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-
-LaTeX Warning: Command \ss invalid in math mode on input line 38.
-
-./Ble.tex:39: Missing } inserted.
-<inserted text> 
-                }
-l.39 $
-      
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-./Ble.tex:48: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.48 F
-      ür ein volles DAtenpaket brauche ich:\\
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
 [5
 
 
@@ -811,20 +709,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--61
 
 ] [8]
 chapter 4.
-(./Datenübertragung.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 1--69
+(./Datenübertragung.tex) (./AndroidApp.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--20
 
  []
 
-(./AndroidApp.tex) (./ArdFirmware.tex) (./constIntVel.tex) (./constVel.tex) (./integralVel.tex) [9
 
-]
+Underfull \hbox (badness 10000) in paragraph at lines 1--20
+
+ []
+
+[9
+
+]) (./ArdFirmware.tex) (./constIntVel.tex) (./constVel.tex) (./integralVel.tex) [10]
 chapter 5.
-(./MLData.tex) (./MLModNFunk.tex) [10
+(./MLData.tex) (./MLModNFunk.tex) [11
 
 ]
 chapter 6.
-[11
+[12
 
 ]
 \openout2 = `Fazit.aux'.
@@ -835,28 +738,22 @@ chapter 6.
  (./Danksagung.tex)
 No file ArcherTracking.bbl.
 (./ArcherTracking.aux (./Vorwort.aux) (./Fazit.aux) (./Danksagung.aux))
-
-Package rerunfilecheck Warning: File `ArcherTracking.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `ArcherTracking.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `ArcherTracking.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 16022 strings out of 478599
- 270492 string characters out of 5858100
- 746726 words of memory out of 5000000
- 33593 multiletter control sequences out of 15000+600000
+ 16055 strings out of 478599
+ 271003 string characters out of 5858100
+ 749557 words of memory out of 5000000
+ 33604 multiletter control sequences out of 15000+600000
  411681 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,7n,108p,10734b,422s stack positions out of 5000i,500n,10000p,200000b,80000s
-<d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on ArcherTracking.pdf (11 pages, 1232696 bytes).
+ 108i,8n,108p,10734b,422s stack positions out of 5000i,500n,10000p,200000b,80000s
+<d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on ArcherTracking.pdf (12 pages, 1222663 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 153 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
- 182 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 225 PDF objects out of 1000 (max. 8388607)
+ 200 compressed objects within 2 object streams
+ 46 named destinations out of 1000 (max. 500000)
+ 206 words of extra memory for PDF output out of 10000 (max. 10000000)
 
