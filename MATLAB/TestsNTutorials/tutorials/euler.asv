@@ -1,24 +1,9 @@
 %% Arduino Init
 a = arduino
 %% MPU init
-imu = mpu6050(a)
-
+%imu = mpu6050(a)
+imu = mpu9250(a)
 %%
-a = -pi : pi/2 : pi;                                % Define Corners of cube
-ph = roll; %default: pi/4                                          % Define Angular Orientation ( Phase%)
-x = [cos(a+ph); cos(a+ph)]/cos(ph);
-y = [sin(a+ph); sin(a+ph)]/sin(ph);
-z = [-ones(size(a)); ones(size(a))];
-
-figure
-surf(x, y, z, 'FaceColor','g')                      % Plot Cube
-hold on
-patch(x', y', z', 'r')                              % Make Cube Appear Solid
-hold off
-axis([ -1  1    -1  1    -1  1]*1.5)
-grid on
-
-
 acc_ort = []
 
 i = 1;
@@ -28,6 +13,10 @@ imu_read = imu.readAcceleration;
 aX = imu_read(1);
 aY = imu_read(2);
 aZ = imu_read(3);
+
+gX = imu_read(4);
+gY = imu_read(5);
+gZ = imu_read(6);
 
 
 
@@ -42,7 +31,7 @@ aZ = imu_read(3);
 
 acc_ort = [acc_ort; [i,roll, pitch]]
 
-rotate()
+
 
 
 i = i+1;
@@ -69,3 +58,23 @@ patch(x', y', z', 'r')                              % Make Cube Appear Solid
 hold off
 axis([ -1  1    -1  1    -1  1]*1.5)
 grid on
+
+%% Orietation Plot
+ld = load('rpy_9axis.mat')
+
+accel = ld.sensorData.Acceleration;
+gyro = ld.sensorData.AngularVelocity;    
+Fs  = ld.Fs;
+decim = 2;
+fuse = imufilter('SampleRate',Fs,'DecimationFactor',decim);
+
+pose = fuse(accel,gyro);
+
+tp = theaterPlot('XLimit',[-2 2],'YLimit',[-2 2],'ZLimit',[-2 2]);
+op = orientationPlotter(tp,'DisplayName','Fused Data',...
+    'LocalAxesLength',2);
+
+for i=1:numel(pose)
+    plotOrientation(op, pose(i))
+    drawnow
+end
