@@ -10,7 +10,7 @@
    BolderFlight Library used
 */
 //---------------------------------------------------toggle CSVDISTANCE mode
-#define CSVDISTANCE 1
+#define CSVDISTANCE 0
 
 #define DISABLE_MPU9250_FIFO
 #include "mpu9250.h"
@@ -64,6 +64,7 @@ void setup() {
   digitalWrite(LED_BUILTIN, LOW);
 }
 
+double aYold = 0.00;
 void loop() {
 
 
@@ -71,7 +72,10 @@ void loop() {
   if (imu.Read()) {
 
     //aX = imu.accel_x_mps2() - aXOFF;
-    aY = imu.accel_y_mps2() - aYOFF;
+    //aY = (aYold *0.5) + (0.5 *(imu.accel_y_mps2() - aYOFF));
+    aY = imu.accel_y_mps2() - aYOFF ;
+    //Serial.println(aY);
+    //aYold = aY;
     //aZ = imu.accel_z_mps2() - aZOFF;
 
     //---------------------------------------------------which formula to use
@@ -117,6 +121,8 @@ double constDistance_cm(double acc, double freq) {
   }
 }
 
+int debounce = 0;
+
 double constDistance_m(double acc, double freq) {
   if (acc > 0) {
     t = (freq / 1000); //hz is not time but frequenzy
@@ -135,6 +141,14 @@ double constDistance_m(double acc, double freq) {
 #endif
 
     return distance;
+    debounce = 0;
+  } else {
+    if (debounce > 20 && !(String(Serial.read()).equals("\n"))) {
+      Serial.print("\n");
+      debounce = 0;
+    } else {
+      debounce++;
+    }
   }
 }
 //--------------------------------------------------------------------measure the distance via integral formels, should solve the porblem from above. New problem is the new drift of the IMU
