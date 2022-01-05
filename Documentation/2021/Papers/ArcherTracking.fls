@@ -993,13 +993,6 @@ INPUT Imu_vs_Kameratracking.tex
 INPUT ./Imu_vs_Kameratracking.tex
 INPUT ./Imu_vs_Kameratracking.tex
 INPUT Imu_vs_Kameratracking.tex
-INPUT ./Ble.tex
-INPUT ./Ble.tex
-INPUT ./Ble.tex
-INPUT Ble.tex
-INPUT ./Ble.tex
-INPUT ./Ble.tex
-INPUT Ble.tex
 INPUT ./Arduino.tex
 INPUT ./Arduino.tex
 INPUT ./Arduino.tex
@@ -1021,6 +1014,13 @@ INPUT Strom.tex
 INPUT ./Strom.tex
 INPUT ./Strom.tex
 INPUT Strom.tex
+INPUT ./Ble.tex
+INPUT ./Ble.tex
+INPUT ./Ble.tex
+INPUT Ble.tex
+INPUT ./Ble.tex
+INPUT ./Ble.tex
+INPUT Ble.tex
 INPUT ./Datenübertragung.tex
 INPUT ./Datenübertragung.tex
 INPUT ./Datenübertragung.tex

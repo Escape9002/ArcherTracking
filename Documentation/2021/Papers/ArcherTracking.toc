@@ -10,14 +10,14 @@
 \contentsline {section}{\numberline {2.1}Analyse}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Bewegung}{5}{section.2.2}%
 \contentsline {section}{\numberline {2.3}IMU vs Kameratracking}{5}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Bluetooth-Low-Energy}{7}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Datendurchsatz per BLE}{7}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Datengröse}{8}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Tatsächliche Übetragunsgeschwindigkeit}{8}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Hardware}{9}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Arduino Nano 33 BLE}{9}{section.4.1}%
-\contentsline {section}{\numberline {4.2}MPU9250}{9}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Stromverbrauch}{10}{section.4.3}%
+\contentsline {chapter}{\numberline {3}Hardware}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Arduino Nano 33 BLE}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}MPU9250}{7}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Stromverbrauch}{8}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Bluetooth-Low-Energy}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Datendurchsatz per BLE}{9}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Datengröse}{10}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Tatsächliche Übetragunsgeschwindigkeit}{10}{section.4.3}%
 \contentsline {chapter}{\numberline {5}Software}{11}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Datenübertragung}{11}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Android-App}{11}{section.5.2}%
