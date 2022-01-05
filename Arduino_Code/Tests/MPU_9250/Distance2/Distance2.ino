@@ -29,7 +29,7 @@ void setup() {
   digitalWrite(LED_BUILTIN, HIGH);
   /* Serial to display data */
   Serial.begin(115200);
-  while (!Serial) {}
+  //while (!Serial) {}
   /* Start the I2C bus */
   Wire.begin();
   Wire.setClock(400000);
@@ -80,10 +80,10 @@ void loop() {
 
     //---------------------------------------------------which formula to use
     // function takes the acceleration and true Hz to work.
-    //constDistance_m(aY, hz);
+    constDistance_m(aY, hz);
     //constDistance_cm(aY, hz);
 
-    integralDistance_m(aY, hz);
+    //integralDistance_m(aY, hz);
     //integralDistance_cm(aY, hz);
 
 

@@ -37,7 +37,7 @@
     contained in [Lvel_String]
 */
 
-
+double aXOFF, aYOFF, aZOFF;
 //-------------------------------------------------------------------------------------BIBLIOTHEK
 //---------------------------------------------------BLE
 #include <ArduinoBLE.h>
@@ -126,6 +126,9 @@ void setup() {
   pinMode(LEDG, OUTPUT);           //G
   //----------------------------------------------------CSV HEADER
   //Serial.println("aX,aY,aZ,gX,gY,gZ");
+
+
+  calibAccel(20);
 }
 //-------------------------------------------------------------------------------------//-------------------------------------------------------------------------------------//-------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------LOOP()
@@ -210,9 +213,9 @@ void send_String_empty() {
 //--------------------------------------------------- get all data except temperatur
 bool getallData() {
   if (imu.Read()) {
-    ac_x = imu.accel_x_mps2();
-    ac_y = imu.accel_y_mps2();
-    ac_z = imu.accel_z_mps2();
+    ac_x = imu.accel_x_mps2() - aXOFF;
+    ac_y = imu.accel_y_mps2() - aXOFF;
+    ac_z = imu.accel_z_mps2() - aXOFF;
 
     gy_x = imu.gyro_x_radps();
     gy_y = imu.gyro_y_radps();
@@ -291,6 +294,40 @@ void IMU_Capture_send() {
       send_String_empty();
     }
   }
+}
+
+void calibAccel(int coun) {
+  //Serial.println("Calib");
+  int rounds = 0;
+  while (rounds < coun) {
+    if (imu.Read()) {
+      ac_x = imu.accel_x_mps2();
+      ac_y = imu.accel_y_mps2();
+      ac_z = imu.accel_z_mps2();
+
+      aXOFF = (ac_x + aXOFF) / 2;
+      aYOFF = (ac_y + aYOFF) / 2;
+      aZOFF = (ac_z + aZOFF) / 2;
+
+      //  Serial.print(aXOFF, 16);
+      // Serial.print("\t");
+      //Serial.print(aYOFF, 16);
+      //Serial.print("\t");
+      //Serial.println(aZOFF, 16);
+      /*
+              Serial.print(aX);
+          Serial.print("\t");
+          Serial.print(aY);
+          Serial.print("\t");
+          Serial.println(aZ);
+      */
+      rounds ++;
+    } else {
+
+    }
+
+  }
+  //  Serial.println("PROCEEED");
 }
 //------------------------------------------------------------------------------------------------------ Debugging
 //--------------------------------------------------- accelerator
