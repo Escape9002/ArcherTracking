@@ -18,8 +18,8 @@ ld = load('rpy_9axis.mat')
 
 accel = ld.sensorData.Acceleration;
 gyro = ld.sensorData.AngularVelocity;    
-Fs  = ld.Fs;
-decim = 2;
+Fs  = ld.Fs; %Hz of running sensor
+decim = 2; 
 fuse = imufilter('SampleRate',Fs,'DecimationFactor',decim);
 
 pose = fuse(accel,gyro);

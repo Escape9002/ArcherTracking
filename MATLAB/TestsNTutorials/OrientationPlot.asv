@@ -3,24 +3,16 @@ a = arduino
 %% MPU init
 %imu = mpu6050(a)
 imu = mpu9250(a)
+%%
+%acc_ort = []
 
-%% orientation Plot
-Fs  = 200%imu.SampleRate; %Hz of running sensor
-decim = 2; 
-%fuse = imufilter('ReferenceFrame','NED');
-fuse = imufilter('SampleRate',Fs,'DecimationFactor',decim);
-
-%% Euler plot
-acc_ort = []
-
-tp = theaterPlot('XLimit',[-2 2],'YLimit',[-2 2],'ZLimit',[-2 2]);
-op = orientationPlotter(tp,'DisplayName','Fused Data',...
-    'LocalAxesLength',2)
-
+%orientation Plot
+Fs  = imu.SampleRate; %Hz of running sensor
+decim = 1; 
+fuse = imufilter('ReferenceFrame','NED'); %('SampleRate',Fs,'DecimationFactor',decim)
 %%
 accel=[];
 gyro=[];
-mag = [];
 
 i = 1;
 while i <= 1600
@@ -47,7 +39,7 @@ mag = [mag;[magX,magY,magZ]];
 
 
 %euler winkel
-
+%{
   aX = aX / 9, 81;
   aY = aY / 9, 81;
   aZ = aZ / 9, 81;
@@ -56,14 +48,11 @@ mag = [mag;[magX,magY,magZ]];
   pitch = atan(-1 * aX / sqrt(aY^2 + aZ^2)) * 180 / pi;
 
 acc_ort = [acc_ort; [i,roll, pitch]]
-
-  plotOrientation(op, roll, pitch,0)
-    drawnow
+%}
 
 
+%disp(aX,aY,aZ,gX,gY,gZ)
 
-
-disp(i)
 i = i+1;
 end
 
@@ -75,7 +64,7 @@ end
 %disp(acc_ort_table)
 
 %% Run Plot
-pose = fuse(accel,gyro);
+pose = fuse(accel,gyro,mag);
 
 tp = theaterPlot('XLimit',[-2 2],'YLimit',[-2 2],'ZLimit',[-2 2]);
 op = orientationPlotter(tp,'DisplayName','Fused Data',...
@@ -83,15 +72,5 @@ op = orientationPlotter(tp,'DisplayName','Fused Data',...
 
 for i=1:numel(pose)
     plotOrientation(op, pose(i))
-    drawnow
-end
-
-%% run Euler Plot
-tp = theaterPlot('XLimit',[-2 2],'YLimit',[-2 2],'ZLimit',[-2 2]);
-op = orientationPlotter(tp,'DisplayName','Fused Data',...
-    'LocalAxesLength',2);
-
-for i=1:numel(eulerList)
-    plotOrientation(op, eulerList(1))
     drawnow
 end
