@@ -1,28 +1,36 @@
 \babel@toc {ngerman}{}\relax 
 \contentsline {chapter}{\numberline {1}Vorwort}{3}{chapter.1}%
-\contentsline {section}{\numberline {1.1}IMU vs Kameratracking}{3}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Bewegungen und Analyse}{4}{section.1.2}%
-\contentsline {chapter}{\numberline {2}Bluetooth-Low-Energy}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Datendurchsatz per BLE}{5}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Datengröse}{6}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Tatsächliche Übetragunsgeschwindigkeit}{6}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Hardware}{7}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Arduino Nano 33 BLE}{7}{section.3.1}%
-\contentsline {section}{\numberline {3.2}MPU9250}{7}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Stromverbrauch}{7}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Software}{9}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Datenübertragung}{9}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Android-App}{9}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Rohdaten}{9}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Graph}{9}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Aufgezeichnete Daten}{10}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Arduino Firmware}{10}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Gleichmäßige und ungleichmäßige Beschleunigung}{10}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Gleichmäßige Formel}{11}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Integral}{11}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Tests zu den Messungen}{11}{subsection.4.4.3}%
-\contentsline {chapter}{\numberline {5}Machine Learning}{13}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Datenauswahl und Dimensionen}{13}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Modell und Funktion}{13}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Fazit}{14}{chapter.6}%
+\contentsline {section}{\numberline {1.1}Einleitung}{3}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Problemlage}{3}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Anforderungen}{4}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Vorgehensweise}{4}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Materialsuche}{4}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Möglichkeiten}{4}{subsection.1.2.2}%
+\contentsline {chapter}{\numberline {2}Bewegungen, Analyse und bekannte Systeme}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Analyse}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Bewegung}{5}{section.2.2}%
+\contentsline {section}{\numberline {2.3}IMU vs Kameratracking}{5}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Bluetooth-Low-Energy}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Datendurchsatz per BLE}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Datengröse}{8}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Tatsächliche Übetragunsgeschwindigkeit}{8}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Hardware}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Arduino Nano 33 BLE}{9}{section.4.1}%
+\contentsline {section}{\numberline {4.2}MPU9250}{9}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Stromverbrauch}{10}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Software}{11}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Datenübertragung}{11}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Android-App}{11}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Rohdaten}{11}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Graph}{11}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Aufgezeichnete Daten}{12}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}Arduino Firmware}{12}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Gleichmäßige und ungleichmäßige Beschleunigung}{12}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Gleichmäßige Formel}{13}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Integral}{13}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Tests zu den Messungen}{13}{subsection.5.4.3}%
+\contentsline {chapter}{\numberline {6}Machine Learning}{15}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Datenauswahl und Dimensionen}{15}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Modell und Funktion}{15}{section.6.2}%
+\contentsline {chapter}{\numberline {7}Fazit}{16}{chapter.7}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

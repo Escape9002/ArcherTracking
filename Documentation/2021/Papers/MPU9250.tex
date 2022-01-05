@@ -1,11 +1,24 @@
-Der benutze IMU in diesem Projekt ist ein Multi-Chip mit einem
-3-Achsen Gyroskop, 3-Achsen Beschleunigungssensor und einem 3-Achsen Magnetometer.
-Alle Sensoren wurden noch in der Firma kalibriert. Der Chip bietet einen
-eingebauten Low-Pass-Filter der eine erste Bearbeitung der Daten vornimmt 
-und so den Hauptprozessor entlastet.\\
-In der folgenden Tablle ist die Empfindlichkeit und Genauigkeit der 
-einzelnen Sensoren notiert, sowie die Übetragunsart und Geschwindigkeit.\\
-%Tabelle
+Für eine genaue Datenlage sorgt in meinem Projekt der Multi-Chip MPU9250. Dieser ist mit 
+einem 3-Achsen Beschleunigungssensor, einem 3- Achsen Gyroskop Sensor und einem 3-
+Achsen Magnetometer ausgerüstet. Alle Sensoren beinhalten eine Kalibrierung innerhalb der 
+Firma und einen Selbsttest bei Benutzung. Der Sensor benötigt nur 2,4 bis 3,6 Volt für die 
+Inbetriebnahme. In der Tabelle sind die Datenpins und die Genauigkeit der Sensoren notiert.\\
 \\
-Für eine einfache Handhabung benutze ich die I2C Verbindung zwischen 
-Arduino und MPU9250.
+\begin{tabularx}{0.8\textwidth}{l|X}
+Eigenschaft & Daten \\
+\hline
+Memory & 1MB Flash | 256 KB SRAM \\ 
+
+Interfaces & $I^2C$, SPI, \dots \\
+
+Volt & Input: 4,5 - 21 V | Output: 3,3 V\\
+\end{tabularx}
+\\
+\\
+Die Daten werden über den I²C-Bus vom Arduino abgefragt. Die Abtastrate beträgt hierbei 
+stolze mögliche 400kHz. Dabei werden alle Sensoren abgefragt und die Daten versendet.
+Die geringe Größe des Chips (150*250), der geringe Energieverbrauch (3,5mA wenn 
+alle Sensoren ausgelesen werden), die hohe Genauigkeit und Geschwindigkeit der 
+Datenübertragung lassen diesen Sensor perfekt für dieses Projekt werden. Der verbaute
+DMP (Digital Motion Processor) wird ebenfalls verwendet und filtert die Daten mit einem
+Low-Pass-Filter.

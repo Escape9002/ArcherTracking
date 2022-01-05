@@ -1,8 +1,22 @@
-Der Arduino Nano 33 BLE wurde mit einem M4-ARM-Processor und einem 5.0 
-Bluetooth Modul ausgestattet. Damit ist er BLE-Fähig und liefert einen starken
-Prozessor für Kommarechnungen. \\
-%Tabelle der Daten einfügen
+Der Arduino Nano 33 BLE ist wie der Name schon sagt ein Prozessor aus dem Hause Arduino
+der Nano Reihe. Was diesen von der normalen Nano-Reihe unterscheidet ist der BLE-Chip
+NINA-b3(nRF52840) auf seinem Rücken. Dieser Chip ermöglicht es dem Arduino über 
+Bluetooth 5.0, auch genannt Bluetooth-Low-Energy, mit allen anderen Bluetooth-Geräten ab 
+der Bluetooth Version 4.0 kabellos zu kommunizieren.\\
 \\
-Der Arduino eignet sich durch seine BLE-Fähigkeit und I2C beziehungsweise
-SPI-Anschlüsse zur Verwendung mit dem Verwendetem MPU9250. Die geringe Größe
-und Stromverbrauch sind weitere Pluspunkte.
+\begin{tabularx}{0.8\textwidth}{l|X|XX}
+Sensoren & Datenübertragung & Empfindlichkeit                                     \\
+\hline
+Gyroskop & 3 * 16bit ADCs & $\pm250°/sec$, $\pm500°/sec$, $\pm1000°/sec$, $\pm2000°/sec$\\ 
+\hline
+Beschleunigungssensor & 3 * 16bit ADCs & $\pm2g$, $\pm4g$, $\pm8g$, $\pm16g$\\
+\hline
+Magnetometer & 3 * 16bit ADCs & full-scale range of $\pm$\SI{4800}{\milli\tesla\meter}T \\
+\hline
+Übertragung & $I^2C$, SPI, \dots & \\
+\end{tabularx}
+\\
+\\
+Der Arduino ist aufgrund seines BLE-Chips, der I²C-Verbindungsmöglichekit und der 
+Output-Volt Zahl von 3,3 Volt der richtige Prozessor für dieses Projekt. Auch die 
+kleinen Maße und das geringe Gewicht spielen ihm nur Pluspunkte ein.

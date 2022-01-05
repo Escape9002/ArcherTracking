@@ -1,0 +1,33 @@
+\chapter{Bewegungen, Analyse und bekannte Systeme}
+\section{Analyse}
+Da der Schussablauf eines Bogenschützen viele Stationen mit verschiedenen Bewegungen 
+beinhaltet fällt es häufig sogar den Trainern schwer zwischen einem technisch guten
+oder schlechtem Schuss zu unterscheiden.\\ 
+Somit galt es einen Punkt zu finden bei dem Fehler auffällig sind, so das ich die Daten auch im 
+Leben nachvollziehen kann.\\
+\\
+Der MPU9250 bietet 9 Freiheitsgrade (Degress Of Freedom - DOF). Aus welchen diese bestehen wird
+im Kapitel zum MPU9250 erläutert. Diese Freiheitsgrade lassen es zu, die Orientierung des Sensors 
+und damit die Orientierung des Körpers an der er befestigt ist genau zu messen. Sogar die Distanz 
+die der Sensor sich bewegt ist messbar.\\
+\\
+So ist eine Darstellung als 3D-Modell möglich an der der Schütze seine Fehler sieht und Unterschiede
+zu vorangegangen SChüssen hervorgehoben werden. \\
+Denkbar wäre eine klassifiezierung der einzelnen Schüsse um wie in einem Videospiel die Genauigkeit
+der Wiederholung in Prozent anzugeben. Interessant wird es, sobald mehrere Schützen Datensätze
+ihrer Schüsse vergleichen. Unterschiede werden ersichtlich, genau wie Gemeinsamkeiten.
+\\
+\section {Bewegung}
+Eine Interessante Bewegung stellt vor allem der Zugarm des 
+Schüzten dar. Der Auszug verläuft nahezu linear, der häufigere Fehler 
+an dieser Stelle versteckt sich allerdings in der Höhe des Zugarms. 
+Um diese zu messen muss man die Erdanziehungskraft der Z-Achse herausrechnen.\\
+\\
+Um den Schützen möglichst genau zu tracken sind mehrere Sensoren an eine Schützen denkbar und
+wünschenswert. So könnten Fehler der einzelnen MPUs herausgerechnet werden.\\
+Auch die klassifiezierung der Schüsse liefe so auf einem hörerem Standard.
+\\
+
+\section{IMU vs Kameratracking}
+\input{Imu_vs_Kameratracking}
+

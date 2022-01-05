@@ -15,29 +15,69 @@ Kamerasysteme abgeschafft werden und es so jeden ermöglichen,
 selbst ohne Bogen oder Trainer bei sich Zuhause zu den 
 Bewegungsablauf zu trainieren.\\
 
-\section{IMU vs Kameratracking}
-\input{Imu_vs_Kameratracking}
+\section{Einleitung}
+\subsection{Problemlage}
+Als Bogenschütze bekommt man schnell mit, auf welch hohem Niveau andere Schützen es 
+schaffen, immer wieder dasselbe zu tun. Dies bezieht sich nicht nur auf den allgemeinen 
+Aufbau, bei dem diese Eigenschaft sogar von Nöten ist, sondern auch auf Fehler im Aufbau.\\
+\\
+Da ich selbst schieße und die Möglichkeit hatte in zwei unterschiedlichen Vereinen zu 
+trainieren ergab sich schnell das Problem, das meine Schussform drohte schlechter zu 
+werden. Ohne Trainer, der meinen persönlichen Aufbau kannte, konnte ich nicht feststellen 
+wann ich Fehler wiederholte oder sogar neue einbaute. Eine Lösung musste her, die es mir 
+erlaubte meinen Schussablauf selbst nachzuverfolgen und Unterschiede oder Fehler selbst zu 
+finden.\\
+\\
+Bei Profi-Schützen wird schon seit Langem ähnliches getan. Mit Hilfe von mindestens 2 
+Hochgeschwindigkeitskameras und Punkten am Schützen ist man in der Lage den 
+Bewegungsablauf eines Schützen zu analysieren und 3D darzustellen.\\
+\\
+Die wohl bekanntesten Aufnahmen werden derzeit vorrangig zum Perfektionieren der 
+mechanischen Ausrüstung und als Lehrmaterial verwendet. Da Profi-Schützen häufig einen 
+nahezu perfekten Aufbau haben, werden die Daten selten zum Korrigieren von Aufbaufehlern 
+eingesetzt.\\
+\\
+Zur Auswertung der Daten ist eine weitere Person von Nöten, die speziell darauf geschult 
+wurde die erzeugten Daten auszuwerten.\\
+\\
+Die Hochgeschwindigkeitskameras, welche bei den ersten Aufnahmen von Bogenschützen 
+benutzt wurden, sind in der Lage 6000 bis 8000 Fotos in der Sekunde zu schießen. Kameras 
+dieser Qualität kosten selbst heute noch über 100 000 €.\\
+\\
+Der Raum, den diese Messmethode in Beschlag nimmt, ist ebenfalls nicht zu unterschätzen.
 
-\section{Bewegungen und Analyse}
-Eine Interessante Bewegung stellt vor allem der Zugarm des 
-Schüzten dar. Der Auszug verläuft nahezu linear, der häufigere Fehler 
-an dieser Stelle versteckt sich allerdings in der Höhe des Zugarms. 
-Um diese zu messen muss man die Erdanziehungskraft der Z-Achse herausrechnen.\\
+\subsection{Anforderungen}
+Wenn man es nun schafft den Kostenpunkt zu drücken und weniger Platz zu benötigen,
+ergeben sich völlig neue Möglichkeiten. Dies würde vor allem den kleinen Vereinen zu Gunsten 
+kommen. Sie wären endlich in der Lage den Schussaufbau aller Schützen auf kleinste Fehler 
+zu prüfen und eintrainierte Fehler einfach festzustellen.\\
 \\
-Da der Schussablauf eines Bogenschützen viele Stationen mit verschiedenen Bewegungen 
-beinhaltet fällt es häufig sogar den Trainern schwer zwischen einem technisch guten
-oder schlechtem Schuss zu unterscheiden.\\
-Die Datenlage aus dem 9DOF-System des verwendeten MPU erzeugt eine Datenwolke, die 
-diesen Vorgang fürs erste verkompliziert.\\
-Die Daten sind allerdings sehr gut zu vergleichen und zu mitteln. Mit diesen 
-Eigenschaften kann man über künstliche Intelligenz, genauer, Machine Learning 
-die Schüsse klassifiezieren. So kann jeder Schütze seine eigene Datenbasis erstellen,
-nach der sein Schuss klassifiziert und so eingeordnet werden können.\\
-Ein Vergleich mit einer deutlich größeren Datenbasis als einem einzelnen Schützen ist denkbar.\\
-\\
-Für dieses System ist es nahezu unwichtig wie viele Körperteile überwacht werden.
-Mit mehr Sensoren (oder Vergleichspunkten) wird es lediglich schwieriger für den
-Schützen einen guten Wert bei der klassifiezierung zu erreichen.\\
-Die Verwendung setzt natürlich vor allem korrekte, genau und viele Daten vorraus,
-dies gilt für das Training des Modells so wie für die Live-Daten des Schützen.\\
-\\
+Die Anforderungen an mein Projekt wären damit, dass eine kostengünstige Alternative 
+geschaffen wird, die wenig Platz benötigt und schnelle Ergebnisse liefert. Dabei müssen diese 
+Ergebnisse genau und für jeden verständlich sein.\\
+Ein weiterer Punkt der zu beachten war ist, dass der Schütze auf keinen Fall gestört werden 
+darf. Dies wirkte sich bei meiner Idee vor allem auf die Größe, das Gewicht und die 
+Datenübertragung aus.\\
+Entwickelt und gebaut wurde dieses Projekt im Schuljahr 2020/21 von Zuhause aus und im Schuljahr
+2021/22 weitergeführt.
+
+\section{Vorgehensweise}
+\subsection{Materialsuche}
+Es galt nun, die genannten Kriterien zur Hardware zu erfüllen. Um die Bewegungen des 
+Schützen nachzuverfolgen muss ich wissen, wo die einzelnen wichtigen Punkte des Aufbaus 
+sind. Dies betrifft beide Arme und die Schultern. Da sich die Arme viel bewegen, schien es mir 
+möglich, mithilfe eines günstigen Beschleunigungssensors die Änderungen festzustellen. Bei 
+hoher Genauigkeit könnte dieser vielleicht sogar die Bewegungen der Schultern messen.
+Um den Schützen nicht zu behindern, ist eine kabellose Verbindung von Vorteil.
+
+\subsection{Möglichkeiten}
+Auf meiner Suche hatte ich die Idee, einen Ultraschallsensor am Schützen zu befestigen. Der 
+Ultraschallsensor hätte am Boden befestigt werden können und um die Höhe der einzelnen 
+Punkte des Schützen bestimmen. Ebenfalls wäre eine Kabelführung für schnellere 
+Datenübertragung und ein günstigerer Preis möglich gewesen. Dieses System muss allerdings 
+sehr genau auf den Schützen eingestellt werden und liefert wenig verwendbare Daten.
+Auch die Verwendung einer günstigeren Kamera wäre möglich gewesen. Dabei vereint man 
+allerdings alle Nachteile, die das jetzige System hat. Man braucht viel Platz und trotz sehr 
+günstiger Kameras übersteigt der Preis sehr schnell den Kostenpunkt sowohl meiner Ersten 
+als auch meiner folgenden Idee.
+Meine finale Idee war, einen Beschleunigungssensor und einen BLE-Chip zu kombinieren.
