@@ -32,3 +32,6 @@ for i=1:numel(pose)
     plotOrientation(op, pose(i))
     drawnow
 end
+
+%% Distance Plot
+
