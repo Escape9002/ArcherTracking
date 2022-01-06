@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.17)  5 JAN 2022 17:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.17)  6 JAN 2022 14:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -698,52 +698,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--63
  []
 
 ) [4]
-\openout2 = `BewAnalSys.aux'.
-
- (./BewAnalSys.tex
 chapter 2.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3--20
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3--20
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3--20
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--30
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--30
-
- []
-
-(./Imu_vs_Kameratracking.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--15
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1--15
-
- []
-
-[5
-
-
-
-
-])) [6]
-chapter 3.
 (./Arduino.tex
 Missing character: There is no ∞ in font cmr12!
 Missing character: There is no ∞ in font cmr12!
@@ -812,26 +767,26 @@ Underfull \hbox (badness 6675) in paragraph at lines 17--17
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 1--58
+Underfull \hbox (badness 10000) in paragraph at lines 1--55
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--58
+Underfull \hbox (badness 10000) in paragraph at lines 1--55
 
  []
 
 (./MPU9250.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 1--60
+Underfull \hbox (badness 10000) in paragraph at lines 1--57
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--60
+Underfull \hbox (badness 10000) in paragraph at lines 1--57
 
  []
 
-[7
+[5
 
 
 
@@ -841,45 +796,98 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--5
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 13--62
+Underfull \hbox (badness 10000) in paragraph at lines 13--59
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--62
+Underfull \hbox (badness 10000) in paragraph at lines 13--59
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--62
+Underfull \hbox (badness 10000) in paragraph at lines 13--59
 
  []
 
-[8]
-chapter 4.
+[6]
+chapter 3.
 (./Ble.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--16
+Underfull \hbox (badness 10000) in paragraph at lines 1--23
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--16
+Underfull \hbox (badness 10000) in paragraph at lines 1--23
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--16
+Underfull \hbox (badness 10000) in paragraph at lines 1--23
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--16
+Underfull \hbox (badness 10000) in paragraph at lines 1--23
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--23
+
+ []
+
+[7
+
+]) [8]
+\openout2 = `BewAnalSys.aux'.
+
+ (./BewAnalSys.tex
+chapter 4.
+(./Imu_vs_Kameratracking.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--15
+
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 6--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--38
 
  []
 
 [9
 
-]) [10]
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 39--48
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--48
+
+ []
+
+) [10]
 chapter 5.
 (./Daten√ºbertragung.tex) (./AndroidApp.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--20
@@ -893,23 +901,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--20
 
 [11
 
+
+
 ]) (./ArdFirmware.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 1--77
+Underfull \hbox (badness 10000) in paragraph at lines 1--76
 
  []
 
 (./constIntVel.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 1--79
+Underfull \hbox (badness 10000) in paragraph at lines 1--78
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--79
+Underfull \hbox (badness 10000) in paragraph at lines 1--78
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--79
+Underfull \hbox (badness 10000) in paragraph at lines 1--78
 
  []
 
@@ -957,13 +967,13 @@ Package rerunfilecheck Info: File `ArcherTracking.out' has not changed.
 Here is how much of TeX's memory you used:
  19612 strings out of 478599
  377270 string characters out of 5858100
- 821070 words of memory out of 5000000
+ 822070 words of memory out of 5000000
  37112 multiletter control sequences out of 15000+600000
  412187 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,11n,108p,10734b,846s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ArcherTracking.pdf (16 pages, 1870489 bytes).
+Output written on ArcherTracking.pdf (16 pages, 1871996 bytes).
 PDF statistics:
  319 PDF objects out of 1000 (max. 8388607)
  277 compressed objects within 3 object streams

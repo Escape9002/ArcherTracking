@@ -1,4 +1,7 @@
 \chapter{Bewegungen, Analyse und bekannte Systeme}
+\section{IMU vs Kameratracking}
+\input{Imu_vs_Kameratracking}
+
 \section{Analyse}
 Da der Schussablauf eines Bogenschützen viele Stationen mit verschiedenen Bewegungen 
 beinhaltet fällt es häufig sogar den Trainern schwer zwischen einem technisch guten
@@ -9,13 +12,28 @@ Leben nachvollziehen kann.\\
 Der MPU9250 bietet 9 Freiheitsgrade (Degress Of Freedom - DOF). Aus welchen diese bestehen wird
 im Kapitel zum MPU9250 erläutert. Diese Freiheitsgrade lassen es zu, die Orientierung des Sensors 
 und damit die Orientierung des Körpers an der er befestigt ist genau zu messen. Sogar die Distanz 
-die der Sensor sich bewegt ist messbar.\\
+die der Sensor sich bewegt ist in der Theorie messbar.\\
 \\
 So ist eine Darstellung als 3D-Modell möglich an der der Schütze seine Fehler sieht und Unterschiede
-zu vorangegangen SChüssen hervorgehoben werden. \\
-Denkbar wäre eine klassifiezierung der einzelnen Schüsse um wie in einem Videospiel die Genauigkeit
+zu vorangegangen Schüssen hervorgehoben werden. \\
+Denkbar wäre eine Klassifiezierung der einzelnen Schüsse um wie in einem Videospiel die Genauigkeit
 der Wiederholung in Prozent anzugeben. Interessant wird es, sobald mehrere Schützen Datensätze
-ihrer Schüsse vergleichen. Unterschiede werden ersichtlich, genau wie Gemeinsamkeiten.
+ihrer Schüsse vergleichen. Unterschiede werden ersichtlich, genau wie Gemeinsamkeiten.\\
+\\
+Die benötigten Daten für ein 3D-Modell varierien je nach gewollter Genauigkeit der Darstellung.
+Mithilfe von Euler Winkeln ist es möglich die Orientierung des Sensors zu berechnen und so nur
+die gemessene Beschleunigung zu Übertragen. Allerdings verliert die Darstellung so einen
+Freiheitsgrad durch den sogennanten ``Gimbal-Lock''. Die Euler Winkel drehen das Objekt im gedachte
+Achsen herum, wenn dabei eine Axe um 180° gedreht wird würde es zu einer zweimaligen Drehung
+um die selbe Axe kommen. Ebenfalls gestalltet sich die Berechnung der Gier-Axe schwer, da hier
+keine Veränderung in eine der gemessenen Axen für Beschleunigung erkennbar ist.
+\\
+Um dieses Problem zu lösen muss man das Gyroskop mit einbeziehen, dieses kann die Beschleunigung
+in Winkeln bemessen. Damit könnte man die Orientierung eines Objekt bestimmen, allerdings ohne 
+Bezug zur Orientierung in der echten Welt. Man wüsste nicht wie das Objekt steht, man weiß nur 
+das es sich um einen bestimmten Winkel in diese oder die andere Richtung gedreht hat. \\
+Deshalb muss man die Daten des Beschleunigungsensors und des Gyroskops fusionieren. So kann man 
+alle
 \\
 \section {Bewegung}
 Eine Interessante Bewegung stellt vor allem der Zugarm des 
@@ -28,6 +46,6 @@ wünschenswert. So könnten Fehler der einzelnen MPUs herausgerechnet werden.\\
 Auch die klassifiezierung der Schüsse liefe so auf einem hörerem Standard.
 \\
 
-\section{IMU vs Kameratracking}
-\input{Imu_vs_Kameratracking}
+
+
 
