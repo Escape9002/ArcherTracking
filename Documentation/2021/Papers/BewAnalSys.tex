@@ -16,7 +16,8 @@ zu vorangegangen Schüssen hervorgehoben werden. \\
 Denkbar wäre eine Klassifiezierung der einzelnen Schüsse um wie in einem Videospiel die Genauigkeit
 der Wiederholung in Prozent anzugeben. Interessant wird es, sobald mehrere Schützen Datensätze
 ihrer Schüsse vergleichen. Unterschiede werden ersichtlich, genau wie Gemeinsamkeiten.\\
-\\
+
+\section{3D-Darstellung(Theorie)}
 Die benötigten Daten für ein 3D-Modell varierien je nach gewollter Genauigkeit der Darstellung.
 Mithilfe von Euler Winkeln ist es möglich die Orientierung des Sensors zu berechnen und so nur
 die gemessene Beschleunigung "ubertragen zu m"ussen. Allerdings verliert die Darstellung so einen
@@ -30,8 +31,12 @@ in Winkeln bemessen. Damit könnte man die Orientierung eines Objekt bestimmen, 
 Bezug zur Orientierung in der echten Welt. Man wüsste nicht wie das Objekt steht, man weiß nur 
 das es sich um einen bestimmten Winkel in diese oder die andere Richtung gedreht hat. \\
 Deshalb muss man die Daten des Beschleunigungsensors und des Gyroskops fusionieren. So kann man 
-alle
+die Drehung in jede Rechnung erfassen. Der ``Gimbal-Lock'' bleibt jedoch bestehen.\\
 \\
+Dieses Problem kann man mithilfe von Quaternionen als Orientierung lösen, da ich jedoch keine 
+Winkel von 180° erwahrte und Euler-Winkel für mich einfacher in der Anwendung sind verwendet
+dieses Projekt die Euler-Winkel. 
+
 \section {Bewegung}
 Eine Interessante Bewegung stellt vor allem der Zugarm des 
 Schüzten dar. Der Auszug verläuft nahezu linear, der häufigere Fehler 
@@ -41,8 +46,8 @@ Möglich ist ebenso die Neigung des Armes über die Euler-Winkel zu berechnen. S
 der Arm zu hoch sein wird sich die Ausrichtung des Sensors stark verändern.\\
 \\
 Um den Schützen möglichst genau zu tracken sind mehrere Sensoren an eine Schützen denkbar und
-wünschenswert. So könnten Fehler der einzelnen MPUs herausgerechnet werden.\\
-Auch die klassifiezierung der Schüsse liefe so auf einem hörerem Standard.
+wünschenswert. So könnten Fehler der einzelnen MPUs herausgerechnet werden.
+Auch die Klassifiezierung der Schüsse liefe so auf einem hörerem Standard.
 \\
 
 

@@ -17,7 +17,8 @@
 \contentsline {section}{\numberline {3.3}Tatsächliche Übetragunsgeschwindigkeit}{9}{section.3.3}%
 \contentsline {chapter}{\numberline {4}Bewegungen, Analyse und bekannte Systeme}{10}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Analyse}{10}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Bewegung}{11}{section.4.2}%
+\contentsline {section}{\numberline {4.2}3D-Darstellung(Theorie)}{10}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Bewegung}{11}{section.4.3}%
 \contentsline {chapter}{\numberline {5}Software}{12}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Datenübertragung}{12}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Arduino Firmware}{12}{section.5.2}%
@@ -29,6 +30,8 @@
 \contentsline {section}{\numberline {5.4}Gleichmäßige und ungleichmäßige Beschleunigung}{14}{section.5.4}%
 \contentsline {subsection}{\numberline {5.4.1}Gleichmäßige Formel}{15}{subsection.5.4.1}%
 \contentsline {subsection}{\numberline {5.4.2}Integral}{15}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Tests zu den Messungen}{15}{subsection.5.4.3}%
-\contentsline {chapter}{\numberline {6}Fazit}{17}{chapter.6}%
+\contentsline {section}{\numberline {5.5}Tests}{15}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Distanz-Messungen}{15}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Fehler}{16}{subsection.5.5.2}%
+\contentsline {chapter}{\numberline {6}Fazit}{18}{chapter.6}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
