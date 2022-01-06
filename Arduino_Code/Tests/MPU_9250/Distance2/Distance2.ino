@@ -10,7 +10,7 @@
    BolderFlight Library used
 */
 //---------------------------------------------------toggle CSVDISTANCE mode
-#define CSVDISTANCE 0
+#define CSVDISTANCE 1
 
 #define DISABLE_MPU9250_FIFO
 #include "mpu9250.h"
@@ -121,7 +121,7 @@ double constDistance_cm(double acc, double freq) {
   }
 }
 
-int debounce = 0;
+//int debounce = 0;
 
 double constDistance_m(double acc, double freq) {
   if (acc > 0) {
@@ -141,14 +141,14 @@ double constDistance_m(double acc, double freq) {
 #endif
 
     return distance;
-    debounce = 0;
+  /*  debounce = 0;
   } else {
     if (debounce > 20 && !(String(Serial.read()).equals("\n"))) {
       Serial.print("\n");
       debounce = 0;
     } else {
       debounce++;
-    }
+    }*/
   }
 }
 //--------------------------------------------------------------------measure the distance via integral formels, should solve the porblem from above. New problem is the new drift of the IMU
