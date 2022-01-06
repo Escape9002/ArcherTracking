@@ -4,14 +4,16 @@ Achsen Magnetometer ausgerüstet. Alle Sensoren beinhalten eine Kalibrierung inn
 Firma und einen Selbsttest bei Benutzung. Der Sensor benötigt nur 2,4 bis 3,6 Volt für die 
 Inbetriebnahme. In der Tabelle sind die Datenpins und die Genauigkeit der Sensoren notiert.\\
 \\
-\begin{tabularx}{0.8\textwidth}{l|X}
-Eigenschaft & Daten \\
+\begin{tabularx}{0.8\textwidth}{l|X|XX}
+Sensoren & Datenübertragung & Empfindlichkeit                                     \\
 \hline
-Memory & 1MB Flash | 256 KB SRAM \\ 
-
-Interfaces & $I^2C$, SPI, \dots \\
-
-Volt & Input: 4,5 - 21 V | Output: 3,3 V\\
+Gyroskop & 3 * 16bit ADCs & $\pm250°/sec$, $\pm500°/sec$, $\pm1000°/sec$, $\pm2000°/sec$\\ 
+\hline
+Beschleunigungssensor & 3 * 16bit ADCs & $\pm2g$, $\pm4g$, $\pm8g$, $\pm16g$\\
+\hline
+Magnetometer & 3 * 16bit ADCs & full-scale range of $\pm$\SI{4800}{\milli\tesla\meter}T \\
+\hline
+Übertragung & $I^2C$, SPI, \dots & \\
 \end{tabularx}
 \\
 \\
@@ -22,3 +24,4 @@ alle Sensoren ausgelesen werden), die hohe Genauigkeit und Geschwindigkeit der
 Datenübertragung lassen diesen Sensor perfekt für dieses Projekt werden. Der verbaute
 DMP (Digital Motion Processor) wird ebenfalls verwendet und filtert die Daten mit einem
 Low-Pass-Filter.
+

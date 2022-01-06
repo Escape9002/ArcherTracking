@@ -13,14 +13,30 @@ verschiedenen Modi gemessen. Die Ergebnisse stehen in der Tabelle:\\
 Der Stromverbrauch lässt so berechnen und erleichter die Korrekte Batterie-Wahl.
 \\
 Die Verwendeten Formeln: 
-P = U / I\\
-Ah / V = Wh\\
-Wh / W = t --> (U*I*t) / U*I = t\\
-\\
-So verbraucht der Arduino \\
-0,005 A * 7,4 V = 0,037 W\\
+\begin{equation}
+    $$
+    P = U / I
+    Ah / V = Wh
+    Wh / W = t --> (U*I*t) / U*I = t
+    $$
+\end{equation}
+So verbraucht der Arduino:
+\begin{equation}
+    $$
+    0,005 A * 7,4 V = 0,037 W
+    $$
+\end{equation}
 \\
 Die Verschiedenen Batterien-Typen stehen in der folgenden Tabelle:\\
+\begin{tabularx}{0.8\textwidth}{l|X|X|X|XX}
+    Typ & Laufzeit(in Stunden) & Gewicht & Cut-Off-Spannung & Differenz\\
+    \hline
+    9V & 40 & 0,05Kg &7.2V & $9-7.2 = 2,8$\\
+    \hline
+    CR2025 & 12 & 0,0025Kg & 2V & $3-2 = 1$\\
+    \hline
+    2 * CR2025 & 48,6 & 0,005Kg & 2V & $6-2 = 4$\\
+\end{tabularx}
 %Tabelle
 %9V : 40h, 0,05 KG, CutoffVol: 7.2V (9-7.2 = 2,8)
 % CR2025 : 12h , 0,0025 Kg, CutoffVolt: 2V (3-2 = 1)
