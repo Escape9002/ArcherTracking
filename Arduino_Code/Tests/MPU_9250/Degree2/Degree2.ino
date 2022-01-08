@@ -100,9 +100,9 @@ double eulerOrt(double X_out, double Y_out, double Z_out, double freq) {
 
   t = (freq / 1000); //hz is not time but frequenzy
 
-  X_out = X_out / 9, 81;
-  Y_out = Y_out / 9, 81;
-  Z_out = Z_out / 9, 81;
+  X_out = X_out / 9.81;
+  Y_out = Y_out / 9.81;
+  Z_out = Z_out / 9.81;
 
   float  roll = atan(Y_out / sqrt(pow(X_out, 2) + pow(Z_out, 2))) * 180 / PI;
   float pitch = atan(-1 * X_out / sqrt(pow(Y_out, 2) + pow(Z_out, 2))) * 180 / PI;
@@ -122,16 +122,16 @@ double eulerOrt(double acX, double acY, double acZ, double gyX, double gyY, doub
 
   t = (freq / 1000); //hz is not time but frequenzy
 
-  acX = acX / 9, 81;
-  acY = acY / 9, 81;
-  acZ = acZ / 9, 81;
+  acX = acX / 9.81;
+  acY = acY / 9.81;
+  acZ = acZ / 9.81;
 
   acRoll = atan(acY / sqrt(pow(acX, 2) + pow(acZ, 2))) * 180 / PI;
   acPitch = atan(-1 * acX / sqrt(pow(acY, 2) + pow(acZ, 2))) * 180 / PI;
 
-  gyRoll = gyRoll + (gyX * RAD_TO_DEG) *  t; // deg/s * t = deg
-  gyPitch = gyPitch + (gyY * RAD_TO_DEG) * t;
-  gyYaw = gyYaw + (gyZ * RAD_TO_DEG ) *   t;
+  gyRoll = gyRoll + gyX *0.5 *  t; // deg/s * t = deg
+  gyPitch = gyPitch + gyY * 0.5 * t;
+  gyYaw = gyYaw + gyZ * 0.5 *   t;
 
   // Complementary filter - combine acceleromter and gyro angle values
   trueRoll = 0.5 * gyRoll + 0.5 * acRoll;
