@@ -20,7 +20,11 @@ gyro=[];
 Fusion = 1;
 
 %% Euler Plot Init
-yawZ = 0;
+
+anglesX = 0;
+anglesY = 0;
+anglesZ = 0;
+
 aXERROR = 0;
 aYERROR = 0;
 aZERROR = 0;
@@ -28,6 +32,9 @@ aZERROR = 0;
 gXERROR =0;
 gYERROR = 0;
 gZERROR = 0;
+
+%Testing
+angles = [];
 
 tp = theaterPlot('XLimit',[-2 2],'YLimit',[-2 2],'ZLimit',[-2 2]);
 op = orientationPlotter(tp,'DisplayName','Fused Data',...
@@ -40,6 +47,7 @@ Fusion = 0;
 i = 1;
 count = 100;
 rounds = 200;
+angles = ["Roll", "Pitch", "Yaw", "RollF", "PitchF", "YawF"];
 
 start = ["Calib: ", count, "Rounds: ",rounds, "Mode: ", Fusion]
 
@@ -81,18 +89,45 @@ while i <= (count + rounds)
         gXERROR = gXERROR/ count ;
         gXERROR = gXERROR / count;
 
-        debug = ["ERRORS:",aXERROR,aYERROR,aZERROR,gXERROR,gYERROR,gZERROR] 
+        debug = ["ERRORS:",aXERROR,aYERROR,aZERROR,gXERROR,gYERROR,gZERROR]
         disp(debug) %display Error values
-        
+
 
     elseif i > count
 
         if Fusion == 0
             %------------------------------------eulerPlot
+            %{
             t = trueSR / 1000;
-            yawZ = yawZ + (gZ * 180/pi)*t;
+            anglesX = anglesX + (gX * 180/pi)*t;
+            anglesY = anglesY + (gY * 180/pi)*t;
+            anglesZ = anglesZ + (gZ * 180/pi)*t;
 
-            eulerPlot(op, aX,aY,aZ, yawZ);
+            eulerPlot(op, aX,aY,aZ, anglesX, anglesY, anglesZ, angles);
+            %}
+
+            anglesX = anglesX + (gX * 180/pi)*t;
+            anglesY = anglesY + (gY * 180/pi)*t;
+            anglesZ = anglesZ + (gZ * 180/pi)*t;
+
+            aX = aX / 9, 81;
+            aY = aY / 9, 81;
+            aZ = aZ / 9, 81;
+
+            rollX = atan(aY / sqrt(aX^2 + aZ^2)) * 180 / pi;
+            pitchY = atan(-1 * aX / sqrt(aY^2 + aZ^2)) * 180 / pi;
+            yawZ = anglesZ;
+            %yawZO = arcsin(aZO);
+
+            rollXf = rollX * 0,5 + anglesX * 0,5;
+            pitchYf = pitchY * 0,5 + anglesY * 0,5;
+            yawZf = anglesZ;
+
+            plotOrientation(op, rollX, pitchY, yawZ);
+            drawnow
+
+            angles = [angles;[rollX, pitchY, yawZ, rollXf, pitchYf, yawZf]];
+            disp(angles)
 
         elseif Fusion == 1
             %-----------------------------------SensorFusionPlotCapture
@@ -121,7 +156,7 @@ end
 %% EulerPlot Function
 
 
-function eulerPlot = eulerPlot(opO,aXO,aYO,aZO, gZO)
+function eulerPlot = eulerPlot(opO,aXO,aYO,aZO, gXO, gYO, gZO, anglesO)
 
 aXO = aXO / 9, 81;
 aYO = aYO / 9, 81;
@@ -129,13 +164,18 @@ aZO = aZO / 9, 81;
 
 rollX = atan(aYO / sqrt(aXO^2 + aZO^2)) * 180 / pi;
 pitchY = atan(-1 * aXO / sqrt(aYO^2 + aZO^2)) * 180 / pi;
-yawZO = gZO;
+yawZ = gZO;
 %yawZO = arcsin(aZO);
 
-plotOrientation(opO, rollX, pitchY, yawZO);
+rollXf = rollX * 0,5 + gXO * 0,5;
+pitchYf = pitchY * 0,5 + gYO * 0,5;
+yawZf = gZO;
+
+plotOrientation(opO, rollX, pitchY, yawZ);
 drawnow
 
-%return yawZO;
+anglesO = [anglesO;[rollX, pitchY, yawZ, rollXf, pitchYf, yawZf]];
+disp(anglesO)
 
 end
 
