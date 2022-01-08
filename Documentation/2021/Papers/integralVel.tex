@@ -1,15 +1,16 @@
-Die Berechnung der Distanz über Integrale ist ``The way to go''
+Die Berechnung der Distanz über Integrale ist der Standard 
 in der Wissenschaft, obwohl die Fehler die sie mit sich bringt
 bekannt sind. Eben diese Fehler wirkten sich bei meinem Sensor
 stark aus.\\
-Die Testergebnisse ergaben einen Fehler von +70cm auf einer Strecke
-von 30cm. Wurde der Sensor zurückbewegt an seinen Startpunkt sank
+Die Testergebnisse ergaben einen Fehler von $\pm15$cm auf einer Strecke
+von 30cm. Ebenso war das Ergebnis sofort in Centimetern, statt wie erwartet in Metern. 
+Wurde der Sensor zurückbewegt an seinen Startpunkt sank
 der Wert jedoch wieder auf Null ab. Somit kann man schließen,
 dass das Ergebniss nur falsch skaliert ist.\\
 Dieser Fehler wurde noch nicht behoben. \\
 Ein klarer Vorteil dieser Rechnung zeigt sich schon beim Test,
 die Formel funktioniert auch für negative Beschleunigungen.
-Der Wert sinkt am Ende der Teststrecke nicht auf, sondern bleibt
+Der Wert sinkt am Ende der Teststrecke nicht ab, sondern bleibt
 auf seinem hohen Wert.\\
 Folgend der Code-Ausschnitt der Integral-Rechnung:
 \begin{verbatim}

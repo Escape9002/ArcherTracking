@@ -1,22 +1,19 @@
 Um die Distanz aus der gemessenen Beschleunigung zu berechnen
-gibt es 2 mögliche Wege. \\
+fand ich zwei verschiedene Formeln. Die wohl bekannteste Umrechnung 
+benutzt Integrale, die zweite Formel ist die der gleichm"aßigen 
+Beschleunigung.\\
 \\
-Der erste Weg berechnet die Distanz 
-mittels der Formel für gleichmäsig Beschleunigte Bewegungen.
-Die gemessene Bewegung ist allerdings nicht gleichmäßig, womit
-dieser Ansatz prinzipeill falsch ist.\\
-Allerdings lieferte diese Formel die besseren Ergebnisse 
-bei Tests.\\
-\\
-Der zweite Weg verwendet Integrale, ein Ansatz der auch von
-verschiedenen anderen Forschern auf diesem Gebiet verfolgt wird.
-Um von Beschleunigung auf Distanz zu kommen muss man zwei mal 
-integrieren.\\
-Das Problem das schon beim ersten Integral auftritt ist, 
-das Mess-Fehler von sogennanten Rauschen zu Drift wechseln.
-Dieser Fehler verstärkt sich beim zweiten integrieren weiter 
-und liefert so schnell ungenaue Werte.\\
+Während die Integration von allen mir bekannten Forschnugsprojekten
+verwendet werden sind ihre Fehler bekannt. Man muss eine Doppelintegration
+ausführen um von Beschleunigung auf Distanz zu kommen, hierbei verwandelt 
+sich das Rauschen des Sensors in Drift und so einen exponentiell steigenden
+Fehler. \\ 
+Die gleichmäßige Formel kann im Gegensatz zum Integrall nur positive 
+Beschleunigungen verwerten, hat in den folgenden Tests allerdings 
+deutlich genauere Werte und einen geringeren Fehler bei Stillstand 
+aufgezeigt. So wird in diesem Projekt die gleichmäßige Beschleunigungsformel 
+verwendet.\\
 \\
 Als Zeit wird die Frequenz mit der der Sensor Daten misst 
-genommen. Hierfür wird die Frequenz in Zeitabschnitte||Zeitperioden
-umgerechnet.
+genommen. Hierfür wird die Frequenz in Zeitabschnitte umgerechnet mit 
+der die Formeln letzendlich arbeiten.
