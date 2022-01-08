@@ -6,7 +6,7 @@ oder schlechtem Schuss zu unterscheiden.\\
 Somit galt es einen Punkt zu finden bei dem Fehler auffällig sind, so das ich die Daten auch im 
 Leben nachvollziehen kann.\\
 \\
-Der MPU9250 bietet 9 Freiheitsgrade (Degress Of Freedom - DOF). Aus welchen diese bestehen wird
+Der MPU9250 bietet 9 Freiheitsgrade (Degrees Of Freedom - DOF). Aus welchen diese bestehen wird
 im Kapitel zum MPU9250 erläutert. Diese Freiheitsgrade lassen es zu, die Orientierung des Sensors 
 und damit die Orientierung des Körpers an der er befestigt ist genau zu messen. Sogar die Distanz 
 die der Sensor sich bewegt ist in der Theorie messbar.\\
@@ -19,8 +19,8 @@ ihrer Schüsse vergleichen. Unterschiede werden ersichtlich, genau wie Gemeinsam
 
 \section{3D-Darstellung(Theorie)}
 Die benötigten Daten für ein 3D-Modell varierien je nach gewollter Genauigkeit der Darstellung.
-Mithilfe von Euler Winkeln ist es möglich die Orientierung des Sensors zu berechnen und so nur
-die gemessene Beschleunigung "ubertragen zu m"ussen. Allerdings verliert die Darstellung so einen
+Mithilfe von Euler Winkeln ist es möglich aus Beschleunigungsdaten die Orientierung des Sensors zu berechnen.
+Somit müsste man nur noch einen Datensatz übertragen. Allerdings verliert die Darstellung so einen
 Freiheitsgrad durch den sogennanten ``Gimbal-Lock''. Die Euler Winkel drehen das Objekt um gedachte
 Achsen herum, wenn dabei eine Axe um 180° gedreht wird würde es zu einer zweimaligen Drehung
 um die selbe Axe kommen. Ebenfalls gestalltet sich die Berechnung der Gier-Axe schwer, da hier
@@ -33,14 +33,13 @@ das es sich um einen bestimmten Winkel in diese oder die andere Richtung gedreht
 Deshalb muss man die Daten des Beschleunigungsensors und des Gyroskops fusionieren. So kann man 
 die Drehung in jede Rechnung erfassen. Der ``Gimbal-Lock'' bleibt jedoch bestehen.\\
 \\
-Dieses Problem kann man mithilfe von Quaternionen als Orientierung lösen, da ich jedoch keine 
-Winkel von 180° erwahrte und Euler-Winkel für mich einfacher in der Anwendung sind verwendet
-dieses Projekt die Euler-Winkel. 
+Dieses Problem kann man mithilfe von Quaternionen als Orientierung lösen. Da ich jedoch keine 
+Winkel von 180° erwahrte sind die Euler Winkel meine Problemlösung.
 
 \section {Bewegung}
 Eine Interessante Bewegung stellt vor allem der Zugarm des 
 Schüzten dar. Der Auszug verläuft nahezu linear, der häufigere Fehler 
-an dieser Stelle versteckt sich allerdings in der Höhe des Zugarms. 
+an dieser Stelle versteckt sich in der Höhe des Zugarms. 
 Um diese zu messen muss man die Erdanziehungskraft der Z-Achse herausrechnen.\\
 Möglich ist ebenso die Neigung des Armes über die Euler-Winkel zu berechnen. Sollte 
 der Arm zu hoch sein wird sich die Ausrichtung des Sensors stark verändern.\\
