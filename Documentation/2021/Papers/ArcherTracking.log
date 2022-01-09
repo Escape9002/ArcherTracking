@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.17)  8 JAN 2022 23:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.17)  9 JAN 2022 12:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -619,6 +619,402 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 
-{d:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-!pdfTeX error: pdflatex.exe (file d:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map): fflush() failed (Invalid argument)
- ==> Fatal error occurred, no output PDF file produced!
+{d:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Bilder/IMG_9973 (4).JPG>] (./ArcherTracking.toc)
+\tf@toc=\write4
+\openout4 = `ArcherTracking.toc'.
+
+ [2
+
+]
+\openout2 = `Vorwort.aux'.
+
+ (./Vorwort.tex
+chapter 1.
+
+Class scrreprt Warning: \float@addtolists detected!
+(scrreprt)              Implementation of \float@addtolist became
+(scrreprt)              deprecated in KOMA-Script v3.01 2008/11/14 and
+(scrreprt)              has been replaced by several more flexible
+(scrreprt)              features of package `tocbasic`.
+(scrreprt)              Since Version 3.12 support for deprecated
+(scrreprt)              \float@addtolist interface has been
+(scrreprt)              restricted to only some of the KOMA-Script
+(scrreprt)              features and been removed from others.
+(scrreprt)              Loading of package `scrhack' may help to
+(scrreprt)              avoid this warning, if you are using a
+(scrreprt)              a package that still implements the
+(scrreprt)              deprecated \float@addtolist interface.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--17
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--17
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--48
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--48
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--48
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--48
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--48
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--48
+
+ []
+
+
+Overfull \hbox (0.67603pt too wide) in paragraph at lines 20--48
+\OT1/cmr/m/n/12 Der Raum, den die-se Mess-me-tho-de in Be-schlag nimmt, ist eben-falls nicht zu un-tersch[]atzen. 
+ []
+
+[3
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 50--63
+
+ []
+
+) [4]
+chapter 2.
+(./Arduino.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 1--60
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--60
+
+ []
+
+(./MPU9250.tex
+Missing character: There is no ∞ in font cmr12!
+Missing character: There is no ∞ in font cmr12!
+Missing character: There is no ∞ in font cmr12!
+Missing character: There is no ∞ in font cmr12!
+Missing character: There is no ∞ in font cmr12!
+Missing character: There is no ∞ in font cmr12!
+Missing character: There is no ∞ in font cmr12!
+Missing character: There is no ∞ in font cmr12!
+Missing character: There is no ∞ in font cmr12!
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 18.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 18.
+
+Missing character: There is no ∞ in font cmr12!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 18.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 18.
+
+Missing character: There is no ∞ in font cmr12!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 18.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 18.
+
+Missing character: There is no ∞ in font cmr12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+\OMS/cmsy/m/n/12 ^^F\OT1/cmr/m/n/12 1000\OML/cmm/m/it/12 = []$\OT1/cmr/m/n/12 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+[]|$\OMS/cmsy/m/n/12 ^^F\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 g$\OT1/cmr/m/n/12 , $\OMS/cmsy/m/n/12 ^^F\OT1/cmr/m/n/12 4\OML/cmm/m/it/12 g$\OT1/cmr/m/n/12 , $\OMS/cmsy/m/n/12 ^^F\OT1/cmr/m/n/12 8\OML/cmm/m/it/12 g$\OT1/cmr/m/n/12 ,
+ []
+
+
+Underfull \hbox (badness 6675) in paragraph at lines 18--18
+[]|\OT1/cmr/m/n/12 full-scale ran-ge of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--28
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--28
+
+ []
+
+) (./Strom.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--5
+
+ []
+
+[5
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 16--20
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--39
+[]|\OT1/cmr/m/n/12 Laufzeit(in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--39
+[]|\OT1/cmr/m/n/12 Cut-Off-
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 27--64
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--64
+
+ []
+
+[6]
+chapter 3.
+(./Ble.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--22
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--22
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--22
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--22
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--22
+
+ []
+
+[7
+
+]) [8]
+\openout2 = `BewAnalSys.aux'.
+
+ (./BewAnalSys.tex
+chapter 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--38
+
+ []
+
+[9
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 40--51
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--51
+
+ []
+
+) [10]
+chapter 5.
+(./Daten√ºbertragung.tex) (./ArdFirmware.tex)
+Overfull \hbox (3.3692pt too wide) in paragraph at lines 1--80
+\OT1/cmr/m/n/12 Sobald ein Ger[]at sich mit dem Ar-dui-no ver-bin-det be-ginnt die-ser mit der Da-ten[]ubertragung. 
+ []
+
+(./AndroidApp.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--17
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--17
+
+ []
+
+[11
+
+
+
+]
+<Bilder/Graph.jpg, id=140, 1084.05pt x 2348.775pt>
+File: Bilder/Graph.jpg Graphic file (type jpg)
+<use Bilder/Graph.jpg>
+Package pdftex.def Info: Bilder/Graph.jpg  used on input line 26.
+(pdftex.def)             Requested size: 131.32098pt x 284.52756pt.
+
+Underfull \hbox (badness 3907) in paragraph at lines 30--38
+\OT1/cmr/m/n/12 Neue Da-ten wer-den rechts ge-schrie-ben,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--38
+
+ []
+
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 25--40
+$[]$  $[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--40
+
+ []
+
+<Bilder/GraphRec.jpg, id=141, 1084.05pt x 2348.775pt>
+File: Bilder/GraphRec.jpg Graphic file (type jpg)
+<use Bilder/GraphRec.jpg>
+Package pdftex.def Info: Bilder/GraphRec.jpg  used on input line 48.
+(pdftex.def)             Requested size: 131.32098pt x 284.52756pt.
+
+Underfull \hbox (badness 3148) in paragraph at lines 52--58
+\OT1/cmr/m/n/12 Na-men der Da-tei. Die Da-tei-en wer-den
+ []
+
+
+Underfull \hbox (badness 1112) in paragraph at lines 52--58
+\OT1/cmr/m/n/12 der Sch[]utze mo-men-tan aus-le-sen um den
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--58
+
+ []
+
+)
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 47--82
+$[]$  $[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--82
+
+ []
+
+[12 <./Bilder/Graph.jpg>] (./constIntVel.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 1--84
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--84
+
+ []
+
+(./constVel.tex [13 <./Bilder/GraphRec.jpg>]) (./integralVel.tex) (./distMess.tex
+Underfull \hbox (badness 10000) in paragraph at lines 2--7
+
+ []
+
+<Bilder/_DistanzVergleich.png, id=151, 1312.467pt x 638.604pt>
+File: Bilder/_DistanzVergleich.png Graphic file (type png)
+<use Bilder/_DistanzVergleich.png>
+Package pdftex.def Info: Bilder/_DistanzVergleich.png  used on input line 10.
+(pdftex.def)             Requested size: 426.79134pt x 207.66077pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Bilder/_integralDistance001.png, id=153, 1322.541pt x 631.158pt>
+File: Bilder/_integralDistance001.png Graphic file (type png)
+<use Bilder/_integralDistance001.png>
+Package pdftex.def Info: Bilder/_integralDistance001.png  used on input line 21.
+(pdftex.def)             Requested size: 426.79134pt x 203.66968pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Bilder/_constDistance001.png, id=154, 1303.926pt x 636.633pt>
+File: Bilder/_constDistance001.png Graphic file (type png)
+<use Bilder/_constDistance001.png>
+Package pdftex.def Info: Bilder/_constDistance001.png  used on input line 28.
+(pdftex.def)             Requested size: 426.79134pt x 208.37984pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) [14] [15 <./Bilder/_DistanzVergleich.png> <./Bilder/_integralDistance001.png> <./Bilder/_constDistance001.png>]
+chapter 6.
+[16
+
+]
+\openout2 = `Fazit.aux'.
+
+ (./Fazit.tex) [17
+
+]
+\openout2 = `Danksagung.aux'.
+
+ (./Danksagung.tex)
+No file ArcherTracking.bbl.
+(./ArcherTracking.aux (./Vorwort.aux) (./BewAnalSys.aux) (./Fazit.aux) (./Danksagung.aux))
+Package rerunfilecheck Info: File `ArcherTracking.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+ ) 
+Here is how much of TeX's memory you used:
+ 19692 strings out of 478599
+ 378697 string characters out of 5858100
+ 822531 words of memory out of 5000000
+ 37189 multiletter control sequences out of 15000+600000
+ 412304 words of font info for 62 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 108i,11n,108p,10734b,909s stack positions out of 5000i,500n,10000p,200000b,80000s
+{d:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on ArcherTracking.pdf (17 pages, 2988823 bytes).
+PDF statistics:
+ 336 PDF objects out of 1000 (max. 8388607)
+ 287 compressed objects within 3 object streams
+ 65 named destinations out of 1000 (max. 500000)
+ 303 words of extra memory for PDF output out of 10000 (max. 10000000)
+
