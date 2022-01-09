@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.18)  9 JAN 2022 14:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.18)  9 JAN 2022 15:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -895,7 +895,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--17
 
 
 ]
-<Bilder/Graph.jpg, id=146, 1084.05pt x 2348.775pt>
+<Bilder/Graph.jpg, id=148, 1084.05pt x 2348.775pt>
 File: Bilder/Graph.jpg Graphic file (type jpg)
 <use Bilder/Graph.jpg>
 Package pdftex.def Info: Bilder/Graph.jpg  used on input line 26.
@@ -920,7 +920,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--40
 
  []
 
-<Bilder/GraphRec.jpg, id=147, 1084.05pt x 2348.775pt>
+<Bilder/GraphRec.jpg, id=149, 1084.05pt x 2348.775pt>
 File: Bilder/GraphRec.jpg Graphic file (type jpg)
 <use Bilder/GraphRec.jpg>
 Package pdftex.def Info: Bilder/GraphRec.jpg  used on input line 48.
@@ -972,12 +972,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
 
-<Bilder/_DistanzVergleich.png, id=161, 1312.467pt x 638.604pt>
+<Bilder/_DistanzVergleich.png, id=163, 1312.467pt x 638.604pt>
 File: Bilder/_DistanzVergleich.png Graphic file (type png)
 <use Bilder/_DistanzVergleich.png>
 Package pdftex.def Info: Bilder/_DistanzVergleich.png  used on input line 12.
 (pdftex.def)             Requested size: 426.79134pt x 207.66077pt.
-<Bilder/_integralDistance001.png, id=163, 1322.541pt x 631.158pt>
+<Bilder/_integralDistance001.png, id=165, 1322.541pt x 631.158pt>
 File: Bilder/_integralDistance001.png Graphic file (type png)
 <use Bilder/_integralDistance001.png>
 Package pdftex.def Info: Bilder/_integralDistance001.png  used on input line 23.
@@ -985,7 +985,7 @@ Package pdftex.def Info: Bilder/_integralDistance001.png  used on input line 23.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Bilder/_constDistance001.png, id=164, 1303.926pt x 636.633pt>
+<Bilder/_constDistance001.png, id=166, 1303.926pt x 636.633pt>
 File: Bilder/_constDistance001.png Graphic file (type png)
 <use Bilder/_constDistance001.png>
 Package pdftex.def Info: Bilder/_constDistance001.png  used on input line 30.
@@ -1002,7 +1002,38 @@ chapter 7.
 ]
 \openout2 = `Fazit.aux'.
 
- (./Fazit.tex) [18
+ (./Fazit.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 1--96
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--96
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--96
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--96
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--96
+
+ []
+
+[18
+
+]
+chapter 8.
+[19
+
+
 
 ]
 \openout2 = `Danksagung.aux'.
@@ -1014,18 +1045,18 @@ Package rerunfilecheck Info: File `ArcherTracking.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 19707 strings out of 478599
- 378926 string characters out of 5858100
+ 19710 strings out of 478599
+ 378948 string characters out of 5858100
  822615 words of memory out of 5000000
- 37199 multiletter control sequences out of 15000+600000
+ 37200 multiletter control sequences out of 15000+600000
  413595 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,11n,108p,10745b,909s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ArcherTracking.pdf (18 pages, 3011837 bytes).
+Output written on ArcherTracking.pdf (19 pages, 3014589 bytes).
 PDF statistics:
- 359 PDF objects out of 1000 (max. 8388607)
- 304 compressed objects within 4 object streams
- 68 named destinations out of 1000 (max. 500000)
- 311 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 369 PDF objects out of 1000 (max. 8388607)
+ 313 compressed objects within 4 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 319 words of extra memory for PDF output out of 10000 (max. 10000000)
 
