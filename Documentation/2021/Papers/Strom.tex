@@ -2,16 +2,27 @@ Der Stromverbrauch wurde mit einem Multimeter am Batterieanschluss in
 verschiedenen Modi gemessen. Die Ergebnisse stehen in der Tabelle:\\
 %Tabelle: Werte: 
 %200mA Auslösung:
-
 %BLE aus: 5
 %BLE an: 10.2
 %BLE Verbunden: 13
 %MPU9250 an: 5
 %Bereich: 200 | Auflösung : 0,1 uA | +-1% des Messwerts +- 2 Ziffern
 %Quelle:https://github.com/Escape9002/ArcherTracking/issues/5
-
-Der Stromverbrauch lässt so berechnen und erleichter die Korrekte Batterie-Wahl.
-Die Verwendeten Formeln: 
+\\
+\begin{tabularx}{0.8\textwidth}{l|X|XX}
+    Modul & An/Aus & Verbrauch(in mA) \\
+    \hline
+    BLE & aus & 5 \\
+    \hline
+    BLE & an & 10.2 \\
+    \hline
+    BLE & an und verbunden & 13 \\
+    \hline
+    MPU9250 & an & 5 \\
+\end{tabularx}\\
+\\
+Der Stromverbrauch lässt sich so berechnen und erleichtert die korrekte Batterie-Wahl.
+Die verwendeten Formeln: 
 \begin{equation}
     $$
     P = U / I \\
@@ -19,14 +30,14 @@ Die Verwendeten Formeln:
     Wh / W = t $\rightarrow$ (U*I*t) / U*I = t \\
     $$
 \end{equation}
-So verbraucht der Arduino:
+So hat der Arduino eine Leistung von:
 \begin{equation}
     $$
     0,005 A * 7,4 V = 0,037 W
     $$
 \end{equation}
 \\
-Die Verschiedenen Batterien-Typen stehen in der folgenden Tabelle:\\
+Die verschiedenen Batterien-Typen stehen in der folgenden Tabelle:\\
 \\
 \begin{tabularx}{0.8\textwidth}{l|X|X|X|XX}
     Typ & Laufzeit(in Stunden) & Gewicht & Cut-Off-Spannung & Differenz\\
@@ -42,10 +53,10 @@ Die Verschiedenen Batterien-Typen stehen in der folgenden Tabelle:\\
 % CR2025 : 12h , 0,0025 Kg, CutoffVolt: 2V (3-2 = 1)
 % CR2025 * 2 = 48,6 h, 0,005 Kg, CutoffVolt: 2V (6-2 = 4)
 \\
-Um eine Stromversorgung des Arduinos sicher zu stellen benötigt man 2 Knopfzellen
+Um eine Stromversorgung des Arduinos sicher zu stellen, benötigt man 2 Knopfzellen
 des Typs CR2025. Dennoch hat die Knopfzelle CR2025 nicht nur eine bessere 
 Laufzeit sondern ebenfalls weniger Gewicht, braucht weniger Platz und eine bessere 
-Differenz zwischen Cut-Off-Spannung zu angenotener Spannung.
+Differenz zwischen Cut-Off-Spannung zu angebotener Spannung.
 \\
-Gegen das umrüsten auf die Knopfbatterie spricht einzig der Umweltschutz. 
+Gegen das Umrüsten auf die Knopfbatterie spricht einzig der Umweltschutz.
 Denn im Gegensatz zu 9-Volt-Batterien gibt es keine Akkus für Knopfzellen.
