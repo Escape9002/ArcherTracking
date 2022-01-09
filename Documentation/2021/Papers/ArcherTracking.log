@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.17)  9 JAN 2022 12:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.17)  9 JAN 2022 12:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -890,7 +890,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--17
 
 
 ]
-<Bilder/Graph.jpg, id=140, 1084.05pt x 2348.775pt>
+<Bilder/Graph.jpg, id=142, 1084.05pt x 2348.775pt>
 File: Bilder/Graph.jpg Graphic file (type jpg)
 <use Bilder/Graph.jpg>
 Package pdftex.def Info: Bilder/Graph.jpg  used on input line 26.
@@ -915,7 +915,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--40
 
  []
 
-<Bilder/GraphRec.jpg, id=141, 1084.05pt x 2348.775pt>
+<Bilder/GraphRec.jpg, id=143, 1084.05pt x 2348.775pt>
 File: Bilder/GraphRec.jpg Graphic file (type jpg)
 <use Bilder/GraphRec.jpg>
 Package pdftex.def Info: Bilder/GraphRec.jpg  used on input line 48.
@@ -955,43 +955,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--84
 
  []
 
-(./constVel.tex [13 <./Bilder/GraphRec.jpg>]) (./integralVel.tex) (./distMess.tex
-Underfull \hbox (badness 10000) in paragraph at lines 2--7
+(./constVel.tex [13 <./Bilder/GraphRec.jpg>]) (./integralVel.tex) [14]
+chapter 6.
+(./distMess.tex
+Underfull \hbox (badness 10000) in paragraph at lines 2--6
 
  []
 
-<Bilder/_DistanzVergleich.png, id=151, 1312.467pt x 638.604pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+<Bilder/_DistanzVergleich.png, id=157, 1312.467pt x 638.604pt>
 File: Bilder/_DistanzVergleich.png Graphic file (type png)
 <use Bilder/_DistanzVergleich.png>
-Package pdftex.def Info: Bilder/_DistanzVergleich.png  used on input line 10.
+Package pdftex.def Info: Bilder/_DistanzVergleich.png  used on input line 12.
 (pdftex.def)             Requested size: 426.79134pt x 207.66077pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Bilder/_integralDistance001.png, id=153, 1322.541pt x 631.158pt>
+<Bilder/_integralDistance001.png, id=159, 1322.541pt x 631.158pt>
 File: Bilder/_integralDistance001.png Graphic file (type png)
 <use Bilder/_integralDistance001.png>
-Package pdftex.def Info: Bilder/_integralDistance001.png  used on input line 21.
+Package pdftex.def Info: Bilder/_integralDistance001.png  used on input line 23.
 (pdftex.def)             Requested size: 426.79134pt x 203.66968pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Bilder/_constDistance001.png, id=154, 1303.926pt x 636.633pt>
+<Bilder/_constDistance001.png, id=160, 1303.926pt x 636.633pt>
 File: Bilder/_constDistance001.png Graphic file (type png)
 <use Bilder/_constDistance001.png>
-Package pdftex.def Info: Bilder/_constDistance001.png  used on input line 28.
+Package pdftex.def Info: Bilder/_constDistance001.png  used on input line 30.
 (pdftex.def)             Requested size: 426.79134pt x 208.37984pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [14] [15 <./Bilder/_DistanzVergleich.png> <./Bilder/_integralDistance001.png> <./Bilder/_constDistance001.png>]
-chapter 6.
-[16
+) [15
+
+ <./Bilder/_DistanzVergleich.png>] [16 <./Bilder/_integralDistance001.png> <./Bilder/_constDistance001.png>]
+chapter 7.
+[17
 
 ]
 \openout2 = `Fazit.aux'.
 
- (./Fazit.tex) [17
+ (./Fazit.tex) [18
 
 ]
 \openout2 = `Danksagung.aux'.
@@ -1003,18 +1009,18 @@ Package rerunfilecheck Info: File `ArcherTracking.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 19692 strings out of 478599
- 378697 string characters out of 5858100
+ 19695 strings out of 478599
+ 378719 string characters out of 5858100
  822531 words of memory out of 5000000
- 37189 multiletter control sequences out of 15000+600000
+ 37190 multiletter control sequences out of 15000+600000
  412304 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,11n,108p,10734b,909s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ArcherTracking.pdf (17 pages, 2988823 bytes).
+Output written on ArcherTracking.pdf (18 pages, 2989431 bytes).
 PDF statistics:
- 336 PDF objects out of 1000 (max. 8388607)
- 287 compressed objects within 3 object streams
- 65 named destinations out of 1000 (max. 500000)
- 303 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 346 PDF objects out of 1000 (max. 8388607)
+ 296 compressed objects within 3 object streams
+ 67 named destinations out of 1000 (max. 500000)
+ 311 words of extra memory for PDF output out of 10000 (max. 10000000)
 
