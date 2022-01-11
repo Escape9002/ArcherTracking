@@ -44,7 +44,9 @@ Somit brauche ich für das Senden aller Sensoren mindestens 3 Characteristics.
 Das Sendeprotokoll von Bluetooth schreibt vor, das ein Datenpaket von
 leeren Datenpaketen eingepackt wird, ebenso ist eine kurze Wartezeit vorgeschrieben. 
 Diese beträgt 150 Mikrosekunden und wird abgekürt mit IFS.
-Der Arduino Nano unterstützt 2Mbps bei der BLE-Übertragung, dies ist also die Datenrate.\\
+Der Arduino Nano unterstützt 2Mbps bei der BLE-Übertragung, dies ist also die Datenrate.
+Des weiteren wird nicht auf eine Antwort des \textit{Client´s} gewartet, was die 
+Übertragungsgeschwindigkeit weiter erh"oht.\\
 \\
 Somit beträgt die optimale Sendezeit pro Datenpaket:\\
 \textit{Zeit = Sendedauer[Leer] + IFS + Sendedauer[Voll] + IFS\\
@@ -70,4 +72,6 @@ liegt bei 512Hz.
 
 \section{Tatsächliche Übetragunsgeschwindigkeit}
 Die ausgerechnete Datenrate kann in der Praxis kaum erreicht werden, weshalb ein Test zur 
-tats"achlichen Datenrate Pflicht ist. Gemessen wurde 
+tats"achlichen Datenrate Pflicht ist. Gemessen wurde die Wartezeit am Handy zwischen zwei
+Datenpaketen. Da momentan zwei \textit{Characteristic´s} abgefragt werden multipliziere ich die 
+Zeit mit zwei. So erhalte ich die Frequenz für ein einziges Datenpaket.
