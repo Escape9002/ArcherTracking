@@ -22,72 +22,52 @@ zu versendendes Paket. \\
 
 \section{Datengröse}
 Die Daten werden als String versendet, diese werden von Arduino mit einer
-Null Terminiert. Die Größer der Sensordaten beträgt:
-\begin{equation}
-    $$
-Vorkommastellen (3) + Komma (1) + Dezimalstellen (2) + Terminierung (1) = 7 Char
-$$
-\end{equation}
-1 Char entspricht 1 Byte, somit gilt:
-\begin{equation}$$
+Null Terminiert. \\
+\\
+Die Größer der Sensordaten beträgt:\\
+\textit{Vorkommastellen (3) + Komma (1) + Dezimalstellen (2) + Terminierung (1) = 7 Char}\\
+\\
+1 Char entspricht 1 Byte, somit gilt:\\
+\textit{
 9 Sensoren * 7 Byte = 63 Byte \\
 63 Byte / 27 Byte = 2,3 Datenpakete pro alle Sensoren
-$$
-\end{equation}
+}\\
+\\
 Somit brauche ich für das Senden aller Sensoren mindestens 3 Characteristics.
 
 
 \section{Datendurchsatz per BLE}
-%Etwas stimmt hier nicht an der Rechnung, Fehlersuche!
 %Quelle:
 %https://www.novelbits.io/bluetooth-5-speed-maximum-throughput/
 %--------------------------------------------------------------
-2Mbps, steht in Prozessor Doku, lieber nochmal in BLELib nachlesen!
-\\
+
 Das Sendeprotokoll von Bluetooth schreibt vor, das ein Datenpaket von
-leeren Datenpakten eingepackt wird, somit beträgt die Sendezeit pro 
-Datenpaket:
-
-\begin{equation} 
-$$
-Zeit = Leer + IFS + Data + IFS
-Leer = leerespacket(größe) / datarate
-$$
-\end{equation}
-
-Für mich heißt das:
-\begin{equation} 
-    $$
-leerGröße = 2 + 4 + 2 + 3 = 11 Bytes == 88 bits
-$$
-\end{equation}
-
-und die Sendezeit für das leere Paket beträgt damit:
-
-\begin{equation}
-    $$
-leerZeit = 88/2Mpbs = 44 Mikro Sekunden.
-$$
-\end{equation}
-
-
-Für ein volles Datenpaket brauche ich:
-\begin{equation}
-    $$
-Voll = 44 + 2*150+ 2+4+2+4+20+3 = 44+300+35 = 379Bytes *8 ==3032 Bits
-Vollzeit = 3032 / 2 = 1,516 Mikrosekunden
-$$
-\end{equation}
-
-Für ein gesamtes Datenpaket brauche ich damit mindestens:
-\begin{equation}
-$$
-Zeit = 44 + 2*150 + 1,516 = 345,516 Mikrosekunden
-88/2 + 2*150 + (2 + 4 + 2 + 4 + 20 + 3)*8/2
-$$
-\end{equation}
+leeren Datenpaketen eingepackt wird, ebenso ist eine kurze Wartezeit vorgeschrieben. 
+Diese beträgt 150 Mikrosekunden und wird abgekürt mit IFS.
+Der Arduino Nano unterstützt 2Mbps bei der BLE-Übertragung, dies ist also die Datenrate.\\
+\\
+Somit beträgt die optimale Sendezeit pro Datenpaket:\\
+\textit{Zeit = Sendedauer[Leer] + IFS + Sendedauer[Voll] + IFS\\
+Sendedauer[Leer] = Leerespacket / Datarate}\\
+\\
+Für mich heißt das:\\
+\textit{Leerespacket = 2 + 4 + 2 + 3 = 11 Bytes * 8 = 88 bit}\\
+\\
+und die Sendezeit für das leere Paket beträgt damit:\\
+\textit{Sendedauer[Leer] = 88 bit / 2Mpbs = 44 Mikro-Sekunden}\\
+\\
+Für ein volles Datenpaket brauche ich:\\
+\textit{2+4+2+4+27+3 = 42 Byte * 8 = 336 bit\\
+Sendedauer[Voll] = 336 bit / 2Mbps = 168 Mikro-Sekunden}\\
+\\
+Für ein gesamtes Datenpaket brauche ich somit mindestens:\\
+\textit{Zeit = 44 + 150 + 168 + 150 = 512 Mikro-Sekunden}\\
+\\
+beziehungsweise 0,512 Millisekunden. Die maximal erreichbare Datenübetragungs-Frequenz
+liegt bei 512Hz.
 
 %-----------------------------------------------------------------
 
 \section{Tatsächliche Übetragunsgeschwindigkeit}
-%Führe Test durch!
+Die ausgerechnete Datenrate kann in der Praxis kaum erreicht werden, weshalb ein Test zur 
+tats"achlichen Datenrate Pflicht ist. Gemessen wurde 
