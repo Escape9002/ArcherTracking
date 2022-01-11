@@ -60,8 +60,8 @@ long oldTime = 0;
 //-------------------------------------------------------------------------------------VARIABLEN
 //-------------------------------------------------------------------------------------BLE_SETUP
 BLEService SendingService("c54beb4a-40c7-11eb-b378-0242ac130002");
-BLEStringCharacteristic accelXChar("d6b78de4-40c7-11eb-b378-0242ac130002", BLERead | BLENotify, fixed_length);
-BLEStringCharacteristic gyroXChar("d6a507ce-5489-11ec-bf63-0242ac130002", BLERead | BLENotify, fixed_length);
+BLEStringCharacteristic accelXChar("d6b78de4-40c7-11eb-b378-0242ac130002", BLERead | BLENotify | BLEWriteWithoutResponse, fixed_length);
+BLEStringCharacteristic gyroXChar("d6a507ce-5489-11ec-bf63-0242ac130002", BLERead | BLENotify | BLEWriteWithoutResponse, fixed_length);
 //-------------------------------------------------------------------------------------BLE_SETUP
 //-------------------------------------------------------------------------------------DATA FOR ML
 const float accelerationThreshold = 26; // threshold of significant in G's || normal movement == up to 20-23 G (added up)
@@ -148,6 +148,7 @@ void loop() {
       if (getallData()) {
         send_String_acc();
         send_String_gyro();
+       transRate();
       }
 
       //transRate();

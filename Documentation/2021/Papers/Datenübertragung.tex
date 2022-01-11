@@ -1,9 +1,9 @@
-Die Daten werden wie in Kapitel zur BLE-Datenübetragung beschrieben in maximal
-3 verschiedenen Charakteristiken gesendet und empfangen. \\
-Eine Instanz muss hierbei sicherstellen das Daten
+Die Daten werden, wie in Kapitel zur BLE-Datenübetragung beschrieben, in maximal
+drei verschiedenen \textit{Charakteristiken} gesendet und empfangen. \\
+Eine Instanz muss hierbei sicherstellen, dass Daten
 nicht doppelt gesendet oder empfangen werden.\\
 Dies wird beim Arduino durch die Abfrage einer bibliothekseigenen Funktion
-sichergestellt, die erst auslöst wenn neue Daten des MPU9250 erzeugt wurden. Dies bewirkt
+sichergestellt, die erst auslöst, wenn neue Daten des MPU9250 erzeugt wurden. Dies bewirkt
 das Bereitstellen der Daten in den Characteristics.\\
 Sobald diese Daten gesendet wurden, bekommt das Handy ein Signal und liest
 daraufhin die neuen Daten.

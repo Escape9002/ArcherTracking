@@ -1,54 +1,49 @@
 \chapter{Bewegungen, Analyse und bekannte Systeme}
 \section{Analyse}
 Da der Schussablauf eines Bogenschützen viele Stationen mit verschiedenen Bewegungen 
-beinhaltet fällt es häufig sogar den Trainern schwer zwischen einem technisch guten
+beinhaltet fällt es häufig sogar den Trainern schwer, zwischen einem technisch guten
 oder schlechtem Schuss zu unterscheiden.\\ 
-Somit galt es einen Punkt zu finden bei dem Fehler auffällig sind, so das ich die Daten auch im 
-Leben nachvollziehen kann.\\
+Somit galt es einen Punkt zu finden bei dem Fehler auffällig sind, so dass ich die Daten auch in 
+der Praxis nachvollziehen kann.\\
 \\
-Der MPU9250 bietet 9 Freiheitsgrade (Degrees Of Freedom - DOF). Aus welchen diese bestehen wird
+Der MPU9250 bietet 9 Freiheitsgrade (Degrees Of Freedom - DOF). Aus welchen diese bestehen, wird
 im Kapitel zum MPU9250 erläutert. Diese Freiheitsgrade lassen es zu, die Orientierung des Sensors 
-und damit die Orientierung des Körpers an der er befestigt ist genau zu messen. Sogar die Distanz 
+und damit die Orientierung des Körpers an der er befestigt ist, genau zu messen. Sogar die Distanz 
 die der Sensor sich bewegt ist in der Theorie messbar.\\
 \\
-So ist eine Darstellung als 3D-Modell möglich an der der Schütze seine Fehler sieht und Unterschiede
+So ist eine Darstellung als 3D-Modell möglich, an der der Schütze seine Fehler sieht und Unterschiede
 zu vorangegangen Schüssen hervorgehoben werden. \\
-Denkbar wäre eine Klassifiezierung der einzelnen Schüsse um wie in einem Videospiel die Genauigkeit
+Denkbar wäre eine Klassifizierung der einzelnen Schüsse, um, wie in einem Videospiel, die Genauigkeit
 der Wiederholung in Prozent anzugeben. Interessant wird es, sobald mehrere Schützen Datensätze
 ihrer Schüsse vergleichen. Unterschiede werden ersichtlich, genau wie Gemeinsamkeiten.\\
 
-\section{3D-Darstellung(Theorie)}
-Die benötigten Daten für ein 3D-Modell varierien je nach gewollter Genauigkeit der Darstellung.
-Mithilfe von Euler Winkeln ist es möglich aus Beschleunigungsdaten die Orientierung des Sensors zu berechnen.
+\section{3D-Darstellung (Theorie)}
+Die benötigten Daten für ein 3D-Modell variiern je nach gewollter Genauigkeit der Darstellung.
+Mithilfe von Euler-Winkeln ist es möglich, aus Beschleunigungsdaten die Orientierung des Sensors zu berechnen.
 Somit müsste man nur noch einen Datensatz übertragen. Allerdings verliert die Darstellung so einen
-Freiheitsgrad durch den sogennanten ``Gimbal-Lock''. Die Euler Winkel drehen das Objekt um gedachte
-Achsen herum, wenn dabei eine Axe um 180° gedreht wird würde es zu einer zweimaligen Drehung
-um die selbe Axe kommen. Ebenfalls gestalltet sich die Berechnung der Gier-Axe schwer, da hier
-keine Veränderung in eine der gemessenen Axen für Beschleunigung erkennbar ist.
+Freiheitsgrad durch den sogennanten \textit{Gimbal-Lock}. Die Euler Winkel drehen das Objekt um gedachte
+Achsen herum, wenn dabei eine Achse um 180° gedreht wird würde es zu einer zweimaligen Drehung
+um die selbe Achse kommen. Ebenfalls gestalltet sich die Berechnung der Gier-Achse schwer, da hier
+keine Veränderung in eine der gemessenen Achsen für Beschleunigung erkennbar ist.
 \\
-Um dieses Problem zu lösen muss man das Gyroskop mit einbeziehen, dieses kann die Beschleunigung
+Um dieses Problem zu lösen, muss man das Gyroskop mit einbeziehen, dieses kann die Beschleunigung
 in Winkeln bemessen. Damit könnte man die Orientierung eines Objekt bestimmen, allerdings ohne 
-Bezug zur Orientierung in der echten Welt. Man wüsste nicht wie das Objekt steht, man weiß nur 
-das es sich um einen bestimmten Winkel in diese oder die andere Richtung gedreht hat. \\
+Bezug zur Orientierung in der echten Welt. Man wüsste nicht wie das Objekt steht, man weiß nur, 
+dass es sich um einen bestimmten Winkel in diese oder die andere Richtung gedreht hat. \\
 Deshalb muss man die Daten des Beschleunigungsensors und des Gyroskops fusionieren. So kann man 
-die Drehung in jede Rechnung erfassen. Der ``Gimbal-Lock'' bleibt jedoch bestehen.\\
+die Drehung in jeder Richtung erfassen. Der \textit{Gimbal-Lock} bleibt jedoch bestehen.\\
 \\
 Dieses Problem kann man mithilfe von Quaternionen als Orientierung lösen. Da ich jedoch keine 
-Winkel von 180° erwahrte sind die Euler Winkel meine Problemlösung.
+Winkel von 180° erwarte sind die Euler-Winkel meine Problemlösung.
 
 \section {Bewegung}
-Eine Interessante Bewegung stellt vor allem der Zugarm des 
-Schüzten dar. Der Auszug verläuft nahezu linear, der häufigere Fehler 
+Eine interessante Bewegung stellt vor allem der Zugarm des 
+Schützen dar. Der Auszug verläuft nahezu linear, der häufigere Fehler 
 an dieser Stelle versteckt sich in der Höhe des Zugarms. 
-Um diese zu messen muss man die Erdanziehungskraft der Z-Achse herausrechnen.\\
-Möglich ist ebenso die Neigung des Armes über die Euler-Winkel zu berechnen. Sollte 
-der Arm zu hoch sein wird sich die Ausrichtung des Sensors stark verändern.\\
+Um diese zu messen, muss man die Erdanziehungskraft der Z-Achse herausrechnen.\\
+Möglich ist ebenso, die Neigung des Armes über die Euler-Winkel zu berechnen. Sollte 
+der Arm zu hoch sein, wird sich die Ausrichtung des Sensors stark verändern.\\
 \\
-Um den Schützen möglichst genau zu tracken sind mehrere Sensoren an eine Schützen denkbar und
+Um den Schützen möglichst genau zu tracken, sind mehrere Sensoren an eine, Schützen denkbar und
 wünschenswert. So könnten Fehler der einzelnen MPUs herausgerechnet werden.
-Auch die Klassifiezierung der Schüsse liefe so auf einem hörerem Standard.
-\\
-
-
-
-
+Auch die Klassifizierung der Schüsse liefe so auf einem höherem Standard.

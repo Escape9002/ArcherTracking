@@ -28,6 +28,13 @@
     pdfpagemode=FullScreen,
     }
 
+    \makeatletter
+    \renewcommand\chapter{\thispagestyle{plain}%
+    \global\@topnum\z@
+    \@afterindentfalse
+    \secdef\@chapter\@schapter}
+    \makeatother
+
 % !TEX program = xelatex
 \begin{document}
 % \include{Title}
@@ -42,7 +49,7 @@
 
 \author{Antonio Rehwinkel}
 
-\publishers{Unterstützende Lehrer: Herr Czernohous \\ Herr Dierle \\  \texttt{Emails?} \\
+\publishers{Unterstützende Lehrer: Herr Czernohous \\ \texttt{m.czernohous@schiller-og.de}\\ Herr Dierle \\  \texttt{s.dierle@schiller-og.de} \\
 \vspace*{2ex} und Professoren: Hochschule1 \\ Hochschule2\\ \texttt{Emails?}}
 %- \\ Schiller-Gymnasium Offenburg}
 
@@ -68,11 +75,11 @@
 \include{BewAnalSys}
 
 \chapter{Software}
-Die Anzeige für Daten erfolgt am Handy, hier habe ich genug Rechenpower
-nicht nur Nachkommastellen genau zu berechnen, sondern kann ebenfalls 
+Die Anzeige der Daten erfolgt am Handy, hier habe ich genug Rechenpower
+nicht nur Nachkommastellen genau zu berechnen, sondern auch um 
 visuelle Darstellungen erzeugen. Die Daten werden hierfür über das bereits
 erklärte BLE an das Handy gesendet.
-Somit brauchte ich sowohl eine Android App als auch ein Programm für den Arduino.
+Somit brauchte ich sowohl eine Android-App als auch ein Programm für den Arduino.
 \section{Datenübertragung}
 \input{Datenübertragung}
 \section{Arduino Firmware}
@@ -92,7 +99,6 @@ Somit brauchte ich sowohl eine Android App als auch ein Programm für den Arduin
 %\input{MLData}
 %\section{Modell und Funktion}
 %\input{MLModNFunk}
-\chapter{Fazit}
 \include{Fazit}
 \chapter{Danksagung}
 \include{Danksagung}
