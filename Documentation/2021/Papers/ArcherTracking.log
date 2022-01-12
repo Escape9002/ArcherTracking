@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.17)  12 JAN 2022 21:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.17)  12 JAN 2022 21:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -604,13 +604,13 @@ File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
 <Bilder/IMG_9973 (4).jpg, id=4, 3876.4825pt x 2497.33pt>
 File: Bilder/IMG_9973 (4).jpg Graphic file (type jpg)
 <use Bilder/IMG_9973 (4).jpg>
-Package pdftex.def Info: Bilder/IMG_9973 (4).jpg  used on input line 57.
+Package pdftex.def Info: Bilder/IMG_9973 (4).jpg  used on input line 58.
 (pdftex.def)             Requested size: 426.79134pt x 274.93579pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 57.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 58.
  (d:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 57.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 58.
  (d:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -787,12 +787,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--50
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 38--71
+Underfull \hbox (badness 10000) in paragraph at lines 38--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--71
+Underfull \hbox (badness 10000) in paragraph at lines 38--72
 
  []
 
@@ -896,7 +896,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--38
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 40--75
+Underfull \hbox (badness 10000) in paragraph at lines 40--76
 
  []
 
@@ -976,22 +976,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--58
  []
 
 )
-Overfull \hbox (2.43333pt too wide) in paragraph at lines 47--89
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 47--90
 $[]$  $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--89
+Underfull \hbox (badness 10000) in paragraph at lines 47--90
 
  []
 
 [12 <./Bilder/Graph.jpg>] (./constIntVel.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 1--91
+Underfull \hbox (badness 10000) in paragraph at lines 1--92
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--91
+Underfull \hbox (badness 10000) in paragraph at lines 1--92
 
  []
 
@@ -1044,27 +1044,27 @@ chapter 7.
  (./Fazit.tex
 chapter 8.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 2--103
+Underfull \hbox (badness 10000) in paragraph at lines 2--104
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--103
+Underfull \hbox (badness 10000) in paragraph at lines 2--104
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--103
+Underfull \hbox (badness 10000) in paragraph at lines 2--104
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--103
+Underfull \hbox (badness 10000) in paragraph at lines 2--104
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--103
+Underfull \hbox (badness 10000) in paragraph at lines 2--104
 
  []
 
@@ -1125,7 +1125,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  108i,11n,108p,10734b,910s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb><d:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on ArcherTracking.pdf (22 pages, 3068042 bytes).
+Output written on ArcherTracking.pdf (22 pages, 3068301 bytes).
 PDF statistics:
  408 PDF objects out of 1000 (max. 8388607)
  343 compressed objects within 4 object streams
