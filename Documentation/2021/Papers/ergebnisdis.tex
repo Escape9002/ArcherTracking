@@ -1,4 +1,13 @@
 \chapter{Ergebnissdiskussion}
 Die Genauigkeit der gemessenen Distanz des MPU9250 hat zu hohe Fehlerwerte als 
 das sie momentan ohne Vorverarbeitung im dreidimensionalen Tracking verwendet werden könnte.
-Ich 
+Allerdings sind momentan keine Filter oder Fusionen der Sensoren des MPU9250 implementiert,
+weshalb eine Steigerung der Messgenauigkeit noch möglich ist.\\
+Die Winkel hingegen können genau gemessen werden, was die Darstellung der Orientierung 
+ermöglicht.\\
+Die Frage die sich momentan stellt, ist ob die Distanz überhaupt benötigt wird. Hierzu 
+muss der generelle Bewegungsablauf des Bogenschützen weiter analysiert werden. Der klare
+Vorteil gegen"uber anderen Sportarten liegt darin das der Bogenschütze steht. Somit ist 
+für die Bewegung des Schützen sebst keine Distanz benötigt. Da die Arme alle relativ zu 
+einander orientiert sein m"ussen, sollte die Position der Arme berechenbar sein, solange 
+alle Gliedmaßen getrackt werden.
