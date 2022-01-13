@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.18)  13 JAN 2022 10:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.18)  13 JAN 2022 10:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -772,27 +772,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--26
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 27--31
+Underfull \hbox (badness 10000) in paragraph at lines 27--32
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--50
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
 []|\OT1/cmr/m/n/10.95 Laufzeit(in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--50
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
 []|\OT1/cmr/m/n/10.95 Cut-Off-
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 38--72
+Underfull \hbox (badness 10000) in paragraph at lines 39--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--72
+Underfull \hbox (badness 10000) in paragraph at lines 39--72
 
  []
 
@@ -1125,7 +1125,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  108i,11n,108p,10745b,910s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on ArcherTracking.pdf (22 pages, 3069343 bytes).
+Output written on ArcherTracking.pdf (22 pages, 3069361 bytes).
 PDF statistics:
  408 PDF objects out of 1000 (max. 8388607)
  343 compressed objects within 4 object streams
