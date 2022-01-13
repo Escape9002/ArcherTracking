@@ -1,9 +1,9 @@
 \chapter{Bewegungen, Analyse und bekannte Systeme}
 \section{Analyse}
 Da der Schussablauf eines Bogenschützen viele Stationen mit verschiedenen Bewegungen 
-beinhaltet fällt es häufig sogar den Trainern schwer, zwischen einem technisch guten
-oder schlechtem Schuss zu unterscheiden.\\ 
-Somit galt es einen Punkt zu finden bei dem Fehler auffällig sind, so dass ich die Daten auch in 
+beinhaltet, fällt es häufig sogar den Trainern schwer, zwischen einem technisch guten
+oder schlechten Schuss zu unterscheiden.\\ 
+Somit galt es einen Punkt zu finden, bei dem Fehler auffällig sind, so dass ich die Daten auch in 
 der Praxis nachvollziehen kann.\\
 \\
 Der MPU9250 bietet 9 Freiheitsgrade (Degrees Of Freedom - DOF). Aus welchen diese bestehen, wird
@@ -23,11 +23,11 @@ Mithilfe von Euler-Winkeln ist es möglich, aus Beschleunigungsdaten die Orienti
 Somit müsste man nur noch einen Datensatz übertragen. Allerdings verliert die Darstellung so einen
 Freiheitsgrad durch den sogennanten \textit{Gimbal-Lock}. Die Euler Winkel drehen das Objekt um gedachte
 Achsen herum, wenn dabei eine Achse um 180° gedreht wird würde es zu einer zweimaligen Drehung
-um die selbe Achse kommen. Ebenfalls gestalltet sich die Berechnung der Gier-Achse schwer, da hier
+um die selbe Achse kommen. Ebenfalls gestaltet sich die Berechnung der Gier-Achse schwer, da hier
 keine Veränderung in eine der gemessenen Achsen für Beschleunigung erkennbar ist.
 \\
 Um dieses Problem zu lösen, muss man das Gyroskop mit einbeziehen, dieses kann die Beschleunigung
-in Winkeln bemessen. Damit könnte man die Orientierung eines Objekt bestimmen, allerdings ohne 
+in Winkeln bemessen. Damit könnte man die Orientierung eines Objekts bestimmen, allerdings ohne 
 Bezug zur Orientierung in der echten Welt. Man wüsste nicht wie das Objekt steht, man weiß nur, 
 dass es sich um einen bestimmten Winkel in diese oder die andere Richtung gedreht hat. \\
 Deshalb muss man die Daten des Beschleunigungsensors und des Gyroskops fusionieren. So kann man 
@@ -44,6 +44,6 @@ Um diese zu messen, muss man die Erdanziehungskraft der Z-Achse herausrechnen.\\
 Möglich ist ebenso, die Neigung des Armes über die Euler-Winkel zu berechnen. Sollte 
 der Arm zu hoch sein, wird sich die Ausrichtung des Sensors stark verändern.\\
 \\
-Um den Schützen möglichst genau zu tracken, sind mehrere Sensoren an eine, Schützen denkbar und
+Um den Schützen möglichst genau zu tracken, sind mehrere Sensoren an einem Schützen denkbar und
 wünschenswert. So könnten Fehler der einzelnen MPUs herausgerechnet werden.
-Auch die Klassifizierung der Schüsse liefe so auf einem höherem Standard.
+Auch die Klassifizierung der Schüsse liefe so auf einem höheren Standard.

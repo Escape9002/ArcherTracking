@@ -1,15 +1,15 @@
 Mit Bluetooth 5.0 wurde eine neue "Ubertragunsweise zu 
 Bluetooth hinzugefügt. Diese nennt sich Bluetooth-Low-Energy und zeichnet
-sich durch einen geringen Stromverbrauch und dennoch einem höherem 
+sich durch einen geringen Stromverbrauch und dennoch einem höheren 
 Datendurchsatz aus. \\
 \\
 Bluetooth sendet Daten in Paketen. Hierbei ist bei Bluetooth-Low-Energy
 (zukünftig BLE) der Sender als Server ausgewiesen und der Empfänger als Client.\\
 \\
-Die Server bieten \textit{Services} an die mit \textit{Characteristics} befüllt sind.
-So bietet mein Arduino den Service \textit{MPU9250} an mit dem Characteristis \textit{Accl}, \textit{Gyro}
+Die Server bieten \textit{Services} an, die mit \textit{Characteristics} befüllt sind.
+So bietet mein Arduino den Service \textit{MPU9250} an, mit dem Characteristis \textit{Accl}, \textit{Gyro}
 und \textit{Mag}.\\
-Der Nachteil dieser Verteilung der einzelnen Daten besteht hierbei in der Zeit die für die
+Der Nachteil dieser Verteilung der einzelnen Daten besteht hierbei in der Zeit, die für die
 Abfrage gebraucht wird. Jede \textit{Characteristic} muss einzeln abgefragt werden, hierbei kann ein
 Großteil des Datensatzes des MPU9250 verloren gehen.\\
 \\
@@ -20,11 +20,11 @@ auf verschiedene \textit{Characteristics} aufgeteilt werden. Alle Daten passen n
 zu versendendes Paket. \\
 \\
 
-\section{Datengröse}
+\section{Datengröße}
 Die Daten werden als String versendet, diese werden von Arduino mit einer
 Null terminiert. \\
 \\
-Die Größer der Sensordaten beträgt:\\
+Die Größe der Sensordaten beträgt:\\
 \textit{Vorkommastellen (3) + Komma (1) + Dezimalstellen (2) + Terminierung (1) = 7 Char}\\
 \\
 1 Char entspricht 1 Byte, somit gilt:\\
@@ -41,11 +41,11 @@ Somit brauche ich für das Senden aller Sensoren mindestens drei \textit{Charact
 %https://www.novelbits.io/bluetooth-5-speed-maximum-throughput/
 %--------------------------------------------------------------
 
-Das Sendeprotokoll von Bluetooth schreibt vor, das ein Datenpaket von
+Das Sendeprotokoll von Bluetooth schreibt vor, dass ein Datenpaket von
 leeren Datenpaketen eingepackt wird, ebenso ist eine kurze Wartezeit vorgeschrieben. 
-Diese beträgt 150 Mikrosekunden und wird abgekürt mit \textit{IFS}.
+Diese beträgt 150 Mikrosekunden und wird abgekürzt mit \textit{IFS}.
 Der Arduino Nano unterstützt \textit{2Mbps} bei der BLE-Übertragung, dies ist also die Datenrate.
-Des weiteren wird nicht auf eine Antwort des \textit{Clients} gewartet, was die 
+Des Weiteren wird nicht auf eine Antwort des \textit{Clients} gewartet, was die 
 Übertragungsgeschwindigkeit weiter erh"oht.\\
 \\
 Somit beträgt die optimale Sendezeit pro Datenpaket:\\
@@ -53,17 +53,17 @@ Somit beträgt die optimale Sendezeit pro Datenpaket:\\
 Sendedauer[Leer] = Leerespacket / Datarate}\\
 \\
 Für mich heißt das:\\
-\textit{Leerespacket = 2 + 4 + 2 + 3 = 11 Bytes * 8 = 88 bit}\\
+\textit{Leerespacket = 2 + 4 + 2 + 3 = 11 Bytes = 88 bit}\\
 \\
 und die Sendezeit für das leere Paket beträgt damit:\\
-\textit{Sendedauer[Leer] = 88 bit / 2Mpbs = 44 Mikro-Sekunden}\\
+\textit{Sendedauer[Leer] = 88 bit / 2Mbps = 44 Mikrosekunden}\\
 \\
 Für ein volles Datenpaket brauche ich:\\
 \textit{2+4+2+4+27+3 = 42 Byte * 8 = 336 bit\\
-Sendedauer[Voll] = 336 bit / 2Mbps = 168 Mikro-Sekunden}\\
+Sendedauer[Voll] = 336 bit / 2Mbps = 168 Mikrosekunden}\\
 \\
 Für ein gesamtes Datenpaket brauche ich somit mindestens:\\
-\textit{Zeit = 44 + 150 + 168 + 150 = 512 Mikro-Sekunden}\\
+\textit{Zeit = 44 + 150 + 168 + 150 = 512 Mikrosekunden}\\
 \\
 beziehungsweise 0,512 Millisekunden. Die maximal erreichbare Datenübetragungs-Frequenz
 liegt bei 512Hz.
