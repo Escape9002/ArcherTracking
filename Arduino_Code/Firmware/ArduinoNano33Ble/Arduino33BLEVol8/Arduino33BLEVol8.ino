@@ -88,7 +88,7 @@ void setup() {
   }
   /* Set the sample rate divider */
   
-    if (!imu.ConfigSrd(0)) { //19
+    if (!imu.ConfigSrd(9)) { //19
     Serial.println("Error configured SRD");
     while (1) {}
     }
