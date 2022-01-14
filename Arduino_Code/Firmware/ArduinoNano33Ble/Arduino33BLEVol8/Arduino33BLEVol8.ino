@@ -87,12 +87,12 @@ void setup() {
     while (1) {}
   }
   /* Set the sample rate divider */
-  /*
-    if (!imu.ConfigSrd(herz(1000))) {
+  
+    if (!imu.ConfigSrd(0)) { //19
     Serial.println("Error configured SRD");
     while (1) {}
     }
-  */
+  
   //---------------------------------------------------BLE Setup
 
   if (!BLE.begin()) {
