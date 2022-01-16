@@ -41,7 +41,7 @@ void setup() {
   // -------------------------------------------------------------HZ of the sensor
   //(9 works ok, 0 zero is to high (rauschen), 19 is too low(ungenügende Daten))
   /* Set the sample rate divider */
-  if (!imu.ConfigSrd(9)) {
+  if (!imu.ConfigSrd(19)) {
     Serial.println("Error configured SRD");
     while (1) {}
   }
@@ -80,11 +80,11 @@ void loop() {
 
     //---------------------------------------------------which formula to use
     // function takes the acceleration and true Hz to work.
-    constDistance_m(aY, hz);
+    //constDistance_m(aY, hz);
     //constDistance_cm(aY, hz);
 
-    //integralDistance_m(aY, hz);
-    //integralDistance_cm(aY, hz);
+    integralDistance_m(aY, hz);
+    //integralDistance_m_second(aY, hz);
 
 
   }
@@ -158,9 +158,9 @@ double velocityOld = 0;
 double integralDistance_m(float acc, float freq) {
   t = (freq / 1000); // hz to time
 
-  velocity = t * ((acc + accOld) / 2) + velocity;
+  velocity = t * ((acc*0.5 + accOld*0.5) ) + velocity;
   accOld = acc;
-  distance = t * ((velocity + velocityOld) / 2) + distance;
+  distance = t * ((velocity*0.5 + velocityOld*0.5) ) + distance;
   velocityOld = velocity;
 
 #ifdef CSVDISTANCE
@@ -201,9 +201,9 @@ double integralDistance_m_second(float acc, float freq) {
 double integralDistance_cm(double acc, double freq) {
   t = (freq / 1000); // hz to time
 
-  velocity = 0.02 * ((acc + accOld) / 2) + velocity;
+  velocity = t * ((acc + accOld) / 2) + velocity;
   accOld = acc;
-  distance = 0.02 * ((velocity + velocityOld) / 2) + distance;
+  distance = t * ((velocity + velocityOld) / 2) + distance;
   velocityOld = velocity;
 
 
@@ -222,15 +222,15 @@ double integralDistance_cm(double acc, double freq) {
 void calibAccel(int coun) {
   //Serial.println("Calib");
   int rounds = 0;
-  while (rounds < coun) {
+  while (rounds <= coun) {
     if (imu.Read()) {
       aX = imu.accel_x_mps2();
       aY = imu.accel_y_mps2();
       aZ = imu.accel_z_mps2();
 
-      aXOFF = (aX + aXOFF) / 2;
-      aYOFF = (aY + aYOFF) / 2;
-      aZOFF = (aZ + aZOFF) / 2;
+      aXOFF = (aX + aXOFF) ;
+      aYOFF = (aY + aYOFF) ;
+      aZOFF = (aZ + aZOFF) ;
 
       //  Serial.print(aXOFF, 16);
       // Serial.print("\t");
@@ -250,5 +250,8 @@ void calibAccel(int coun) {
     }
 
   }
+  aXOFF = aXOFF / coun;
+  aYOFF = aYOFF / coun;
+  aZOFF = aZOFF / coun;
   //  Serial.println("PROCEEED");
 }
