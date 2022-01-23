@@ -1,3 +1,6 @@
+#source: https://www.youtube.com/watch?v=brwgBf6VB0I&list=PLjNZVyGQ-hJcHQqr95fWKAOWVrV2eFiIJ&index=4&t=2202s
+
+
 import cv2
 from cv2 import waitKey
 import mediapipe as mp
@@ -16,9 +19,15 @@ while True:
     succes, img = cap.read()
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     results = pose.process(imgRGB)
-    print(results.pose_landmarks)
+    #print(results.pose_landmarks)
+
     if results.pose_landmarks:
         mpDraw.draw_landmarks(img, results.pose_landmarks, mpPose.POSE_CONNECTIONS)
+        for id, lm in enumerate(results.pose_landmarks.landmark):
+            h,w,c = img.shape
+            print(id, lm)
+            cx, cy = int(lm.x*w), int(lm.y*h)
+            cv2.circle(img, (cx, cy), 5, (255,0,0), cv2.FILLED)
     
     cTime = time.time()
     fps = 1/(cTime-pTime)
