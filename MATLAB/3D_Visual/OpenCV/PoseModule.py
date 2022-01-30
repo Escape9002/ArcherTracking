@@ -77,7 +77,7 @@ class poseDetector():
 #Main function, runs the Code
 
 def main():
-    cap = cv2.VideoCapture('PoseVideos/3.mp4')  #load video
+    cap = cv2.VideoCapture('PoseVideos/4.mp4')  #load video
     pTime = 0
 
     detector = poseDetector()                   #init the class
@@ -85,7 +85,7 @@ def main():
     while True:                                 # infinite loop till the video ends
         succes, img = cap.read()                #read the video(frame)
         img = detector.findPose(img)            #find the pose
-        lmList = detector.findPosition(img)     #mark and store datapoints
+        lmList = detector.findPosition(img, 14)     #mark and store datapoints
         if len(lmList) != 0:
             print(lmList[14])
 
