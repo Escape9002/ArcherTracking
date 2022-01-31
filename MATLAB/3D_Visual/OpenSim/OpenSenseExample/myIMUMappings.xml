@@ -5,7 +5,7 @@
 		<trial_prefix>Shooting</trial_prefix>
 		<!--List of Experimental sensors and desired associated names in resulting tables-->
 		<ExperimentalSensors>
-			<ExperimentalSensor name="_8">
+			<ExperimentalSensor name="_7">
 				<!--The name of the PhysicalFrame representing a sensor (IMU) in Model. When loading sensor data, it will be used as a table column label.-->
 				<name_in_model>pelvis_imu</name_in_model>
 			</ExperimentalSensor>
