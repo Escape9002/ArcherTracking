@@ -23,6 +23,7 @@ while(toc<stopTimer)
     % For other axes, rotate around that axis.
     [accel,gyro,mag] = read(imu);
     magReadings = [magReadings;mag];
+    timer = stopTimer - toc
 end
 
 % For y axis, use magReadings (:,2) and for z axis use magReadings(:,3)
@@ -43,20 +44,6 @@ stopTimer = 50;
 dataList = [];
 sampleTimeFine = 9.141516;
 count = 0;
-
-
-years = 0;
-month= 0;
-days= 0;
-sec= 0;
-utc= 0;
-utcyear= 0;
-utcmonth= 0;
-utcd= 0;
-utch= 0;
-utcmin= 0;
-utcsec= 0;
-utcval= 0;
 
 % visualize
 % Use ahrsfilter to estimate orientation and update the viewer as the
@@ -102,7 +89,7 @@ while(toc < stopTimer)
     count = count + 1;
 
 
-    dataList = [dataList;[count , sampleTimeFine ,years,month,days,sec,utc,utcyear,utcmonth,utcd,utch,utcmin,utcsec,utcval, aX ,aY  ,aZ,Mat11 , Mat21, Mat31 , Mat12 ,Mat22 , Mat32 , Mat13 , Mat23 ,Mat33 ]]
+    dataList = [dataList;[count , sampleTimeFine, aX ,aY  ,aZ,Mat11 , Mat21, Mat31 , Mat12 ,Mat22 , Mat32 , Mat13 , Mat23 ,Mat33 ]]
 
 
 
@@ -110,4 +97,4 @@ while(toc < stopTimer)
 end
 disp(dataList)
 %%
-writematrix(dataList, 'Test.csv', 'Delimiter', 'tab');
+writematrix(dataList, 'Shooting.txt', 'Delimiter', 'tab');
