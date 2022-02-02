@@ -1,0 +1,69 @@
+
+--------------------------------------------------------------------------------
+                Assertion detected at 2022-02-02 22:11:58 +0100
+--------------------------------------------------------------------------------
+
+Configuration:
+  Crash Decoding           : Disabled - No sandbox or build area path
+  Crash Mode               : continue (default)
+  Default Encoding         : windows-1252
+  Deployed                 : false
+  Graphics Driver          : Unknown hardware 
+  Graphics card 1          : Intel Corporation ( 0x8086 ) Intel(R) UHD Graphics 630 Version 25.20.100.6446 (2018-11-19)
+  Graphics card 2          : NVIDIA ( 0x10de ) NVIDIA GeForce GTX 1050 Ti Version 30.0.15.1165 (2022-1-28)
+  Java Version             : Java 1.8.0_202-b08 with Oracle Corporation Java HotSpot(TM) 64-Bit Server VM mixed mode
+  MATLAB Architecture      : win64
+  MATLAB Entitlement ID    : 9833074
+  MATLAB Root              : D:\Program Files\Matlab
+  MATLAB Version           : 9.11.0.1837725 (R2021b) Update 2
+  OpenGL                   : hardware
+  Operating System         : Microsoft Windows 10 Home
+  Process ID               : 10932
+  Processor ID             : x86 Family 6 Model 158 Stepping 10, GenuineIntel
+  Session Key              : e1f89751-f7b0-49a0-ae4f-e1e19e5b81dd
+  Window System            : Version 10.0 (Build 19044)
+
+Fault Count: 1
+
+
+Additional Log Files:
+  Java Crash Report        : C:\Users\anton\AppData\Local\Temp\hs_error_pid10932.log
+
+
+Assertion in void __cdecl `anonymous-namespace'::mwJavaAbort(void) at B:\matlab\src\jmi\jmi\javainit.cpp line 1409:
+Fatal Java Exception. See this file for details: C:\Users\anton\AppData\Local\Temp\hs_error_pid10932.log
+
+Current Thread: 'MCR 0 interpreter thread' id 14720
+
+Register State (captured):
+  RAX = 00007ffbed7cd9d8  RBX = 00007ffbed7cd9d8
+  RCX = 000000cdbe9f51b0  RDX = 0000000000000000
+  RSP = 000000cdbe9f50f0  RBP = 0000000000000581
+  RSI = 00000279a83752f0  RDI = 00007ffbed7cd9d8
+ 
+   R8 = 0000000000000003   R9 = 000000cdbe9f5068
+  R10 = 0000000000000014  R11 = 00007ffbed7bda86
+  R12 = 000000cdbe9f57e0  R13 = 0000000000000000
+  R14 = 00007ffbb832ed88  R15 = 00007ffbed7bd918
+ 
+  RIP = 00007ffbed6a138a  EFL = 00000206
+ 
+   CS = 0033   FS = 0053   GS = 002b
+
+Stack Trace (captured):
+[  0] 0x00007ffbed69a043      D:\Program Files\Matlab\bin\win64\libmwfl.dll+00041027
+[  1] 0x00007ffbed697338      D:\Program Files\Matlab\bin\win64\libmwfl.dll+00029496
+[  2] 0x00007ffbed69d87d      D:\Program Files\Matlab\bin\win64\libmwfl.dll+00055421
+[  3] 0x00007ffbed69c161      D:\Program Files\Matlab\bin\win64\libmwfl.dll+00049505
+[  4] 0x00007ffbed6a0c0b      D:\Program Files\Matlab\bin\win64\libmwfl.dll+00068619
+[  5] 0x00007ffbb82a5a00          D:\Program Files\Matlab\bin\win64\jmi.dll+00678400
+[  6] 0x0000000064db9ead D:\Program Files\Matlab\sys\java\jre\win64\jre\bin\server\jvm.dll+02727597
+[  7] 0x0000000064da208b D:\Program Files\Matlab\sys\java\jre\win64\jre\bin\server\jvm.dll+02629771
+[  8] 0x0000000064dbac26 D:\Program Files\Matlab\sys\java\jre\win64\jre\bin\server\jvm.dll+02731046
+[  9] 0x0000000064dbf52d D:\Program Files\Matlab\sys\java\jre\win64\jre\bin\server\jvm.dll+02749741
+[ 10] 0x0000000064e55d98 D:\Program Files\Matlab\sys\java\jre\win64\jre\bin\server\jvm.dll+03366296
+[ 11] 0x00007ffc470720cf                      C:\WINDOWS\SYSTEM32\ntdll.dll+00663759
+[ 12] 0x00007ffc47021454                      C:\WINDOWS\SYSTEM32\ntdll.dll+00332884
+[ 13] 0x00007ffc47070bfe                      C:\WINDOWS\SYSTEM32\ntdll.dll+00658430
+[ 14] 0x00007ffc44d36cbc                   C:\WINDOWS\System32\ucrtbase.dll+00158908
+
