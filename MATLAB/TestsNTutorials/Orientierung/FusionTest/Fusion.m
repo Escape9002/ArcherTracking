@@ -26,6 +26,7 @@ imu = mpu9250(a, 'OutputFormat',"matrix")
 %    'The given code snippet can be used to find the correction values for compensating Hard Iron Distortions. When the code '...
 %    'is executing, rotate the sensor around x axis from 0 to 360 degree. For other axes, modify the code accordingly and rotate the ' ...
 %    'sensor along that axis'],'Compensating Hard Iron Distortions');
+%{
 tic;
 stopTimer = 50;
 magReadings=[];
@@ -42,7 +43,7 @@ end
 magx_min = min(magReadings(:,1));
 magx_max = max(magReadings(:,1));
 magx_correction = (magx_max+magx_min)/2;
-
+%}
 
 %% fuse
 
@@ -54,7 +55,7 @@ FUSE = ahrsfilter('SampleRate',imu.SampleRate, 'GyroscopeNoise',GyroscopeNoiseMP
 stopTimer = 100;
 
 dataList = [];
-sampleTimeFine =imu.SampleRate / (1 * 1000000 );
+sampleTimeFine = (imu.SampleRate / (1 * 1000000 ));
 count = 0;
 
 % visualize

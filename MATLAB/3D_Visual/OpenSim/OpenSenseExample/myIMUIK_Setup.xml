@@ -4,7 +4,7 @@
     <!--The time range for the study.-->
     <time_range>7.25 15</time_range>
     <!--Space fixed Euler angles (XYZ order) from IMU Space to OpenSim. Default to (0, 0, 0).-->
-    <sensor_to_opensim_rotations>-1.570796 0 0</sensor_to_opensim_rotations>
+    <sensor_to_opensim_rotations>0 0 0</sensor_to_opensim_rotations>
     <!--Name/path to the xml .osim file used to load a model to be analyzed.-->
     <model_file>Rajagopal_2015_calibrated.osim</model_file>
     <!--Name/path to a .sto file of sensor frame orientations as quaternions.-->

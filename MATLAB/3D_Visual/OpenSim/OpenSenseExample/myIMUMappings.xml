@@ -6,21 +6,21 @@
         <trial_prefix>Shooting</trial_prefix>
         <!--List of Experimental sensors and desired associated names in resulting tables-->
         <ExperimentalSensors>
-            <ExperimentalSensor name="_16">
+            <ExperimentalSensor name="_PELVIS1">
                 <!--The name of the PhysicalFrame representing a sensor (IMU) in Model. When loading sensor data, it will be used as a table column label.-->
                 <name_in_model>pelvis_imu</name_in_model>
             </ExperimentalSensor>
 
-            <ExperimentalSensor name="_17">
+            <ExperimentalSensor name="_HUMERUS1">
                 <!--The name of the PhysicalFrame representing a sensor (IMU) in Model. When loading sensor data, it will be used as a table column label.-->
                 <name_in_model>humerus_r_imu</name_in_model>
             </ExperimentalSensor>
-<!--
-            <ExperimentalSensor name="_12">
+
+            <ExperimentalSensor name="_TORSO1">
                 <!--The name of the PhysicalFrame representing a sensor (IMU) in Model. When loading sensor data, it will be used as a table column label.-->
-<!--                <name_in_model>ulna_l_imu</name_in_model>
+                <name_in_model>torso_imu</name_in_model>
             </ExperimentalSensor>
--->
+
         </ExperimentalSensors>
     </XsensDataReaderSettings>
 </OpenSimDocument>
