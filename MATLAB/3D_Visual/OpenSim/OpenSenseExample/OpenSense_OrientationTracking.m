@@ -28,10 +28,10 @@ import org.opensim.modeling.*
 
 %% Set variables to use
 modelFileName = 'Rajagopal_2015_calibrated.osim';                % The path to an input model
-orientationsFileName = 'Shooting_orientations.sto';   % The path to orientation data for calibration 
+orientationsFileName = 'OwnShooting_orientations2.sto';   % The path to orientation data for calibration 
 sensor_to_opensim_rotation = Vec3(-pi/2, 0, 0); % The rotation of IMU data to the OpenSim world frame 
 visualizeTracking = true;  % Boolean to Visualize the tracking simulation
-startTime = 7.25;          % Start time (in seconds) of the tracking simulation. 
+startTime = 5;          % Start time (in seconds) of the tracking simulation. 
 endTime = 15;              % End time (in seconds) of the tracking simulation.
 resultsDirectory = 'IKResults';
 
