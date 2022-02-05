@@ -18,6 +18,9 @@
   gyro:
   d6a507ce-5489-11ec-bf63-0242ac130002
 
+  mag:
+  11cf4eb8-86d0-11ec-a8a3-0242ac120002
+
    Note:
    - no need for multiple characteristics
    - only sends Strings(decoding by Receiver needed)
@@ -37,7 +40,9 @@
     contained in [Lvel_String]
 */
 
-double aXOFF, aYOFF, aZOFF;
+double aXOFF = 0.00;
+double aYOFF = 0.00;
+double aZOFF = 0.00;
 //-------------------------------------------------------------------------------------BIBLIOTHEK
 //---------------------------------------------------BLE
 #include <ArduinoBLE.h>
@@ -49,7 +54,7 @@ bfs::Mpu9250 imu(&Wire, 0x68);
 //-------------------------------------------------------------------------------------VARIABLEN
 float ac_x, ac_y, ac_z; //Accelerometer
 float gy_x, gy_y, gy_z; //Gyroscope
-//float ma_x, ma_y, ma_z; //Magnetometer
+float ma_x, ma_y, ma_z; //Magnetometer
 // volatile int tempInt = 1;  //Temperature Guy
 
 String Level_String;  //Storage for BLE-Data
@@ -62,6 +67,7 @@ long oldTime = 0;
 BLEService SendingService("c54beb4a-40c7-11eb-b378-0242ac130002");
 BLEStringCharacteristic accelXChar("d6b78de4-40c7-11eb-b378-0242ac130002", BLERead | BLENotify | BLEWriteWithoutResponse, fixed_length);
 BLEStringCharacteristic gyroXChar("d6a507ce-5489-11ec-bf63-0242ac130002", BLERead | BLENotify | BLEWriteWithoutResponse, fixed_length);
+BLEStringCharacteristic magXChar("11cf4eb8-86d0-11ec-a8a3-0242ac130002", BLERead | BLENotify |BLEWriteWithoutResponse, fixed_length);
 //-------------------------------------------------------------------------------------BLE_SETUP
 //-------------------------------------------------------------------------------------DATA FOR ML
 const float accelerationThreshold = 26; // threshold of significant in G's || normal movement == up to 20-23 G (added up)
@@ -109,8 +115,8 @@ void setup() {
 
   SendingService.addCharacteristic(accelXChar);
   SendingService.addCharacteristic(gyroXChar);
-  // SendingService.addCharacteristic(accelYChar);
-  // SendingService.addCharacteristic(accelZChar);
+  SendingService.addCharacteristic(magXChar);
+  // SendingService.addCharacteristic(tempXChar);
 
   BLE.addService(SendingService);
 
@@ -148,6 +154,7 @@ void loop() {
       if (getallData()) {
         send_String_acc();
         send_String_gyro();
+        send_String_mag();
        transRate();
       }
 
@@ -187,10 +194,16 @@ void send_String_gyro() {
   gyroXChar.writeValue(Level_String);
 }
 
+void send_String_mag() {
+  Level_String = /*String(ac_x, 2) + "," + String(ac_y, 2) + "," + String(ac_z, 2) + "/" + String(gy_x, 2) + "," + String(gy_y, 2) + "," + String(gy_z, 2)/* + "/" +*/ String(ma_x,2) + "," + String(ma_y,2) + "," + String(ma_z,2);
+  magXChar.writeValue(Level_String);
+}
+
 void send_String_empty() {
   Level_String = "/n, /n, /n";
   gyroXChar.writeValue(Level_String);
   accelXChar.writeValue(Level_String);
+  magXChar.writeValue(Level_String);
 }
 
 //--------------------------------------------------- Send Bytes
@@ -222,11 +235,11 @@ bool getallData() {
     gy_y = imu.gyro_y_radps();
     gy_z = imu.gyro_z_radps();
 
-    /*
-      ma_x = IMU.getMagX_uT();  //look these guys up, this is not the correct way
-      ma_y = IMU.getMagY_uT();
-      ma_z = IMU.getMagZ_uT();
-    */
+    
+    ma_x = imu.mag_x_ut();  
+    ma_y = imu.mag_y_ut();
+    ma_z = imu.mag_z_ut();
+    
     return true;
   }
   else {
