@@ -1,0 +1,79 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Step 1: Capture
+The Data are captured in 'FusionTest\FusionQuat.m'. 
+
+Info on how the Sensor-Data has to be structured can be read here:
+https://de.mathworks.com/help/supportpkg/arduinoio/ref/mpu9250-system-object.html
+
+
+The Output-File is stored under 'FusionTest\IMUData\ShootingQuat_TEST.txt', if this file already exists, its overwritten.
+Format (Delemiter: tab):
+
+    0.01	0.335519811154871	0.705822462542093	0.397070637879537	-0.481223457686294
+    0.02	0.336752341057119	0.706154846931129	0.396921565385659	-0.479996316527556
+    0.03	0.338450166545752	0.706274387214777	0.396256018006081	-0.479175482389812
+
+Where the first collumn represents the timedifference of each measure and the rest represents the orientation in quaternions.
+A maximum of two sensors can be read at the same time.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Step 2:
+The data needs to be converted into an .sto file usable by OpenSim. This is done with 'FusionTest\dataConversion.m'.
+The Input-Files have to have the format of the 'ShootingQuat_TEST.txt'-file. 
+The Output-Fiels are stored under 'FusionTest\STOFiles\' with the names you define in the 'writetable' command.
+The data is disconnected from their time stamps, this is stored individually. All files are stored as .txt except for the time, which is a .csv .
+
+Data
+Format (Delemiter: comma):
+
+0.00946462639110307,0.113816047674197,0.664279308593034,0.738707877522815
+0.00868743907346312,0.114345261962312,0.664280162232707,0.7386349271008
+0.00815369156982238,0.114768960931577,0.664324440311292,0.738535470323233
+0.00762302466885138,0.115041235236699,0.664353350799284,0.73847276792843
+0.00735361156096059,0.114924071283394,0.664291289536735,0.738549568331254
+
+Time
+Format (csv):
+0.01
+0.02
+0.03
+0.04
+0.05
+0.06
+0.07
+
+The data needs to be formatted with a programm like Excel. 
+1: Import the 'time.csv' as txt format as the 'xx.xxx'-values needs to be stored as is without any roundings or comma deletions.
+2: Copy the quaternions into the free columns. The Data should correspond the following header:
+
+    	time	pelvis_imu	humerus_r_imu	torso_imu
+Notice, that the quaternions for the pelvis_imu are comma-seperated, while the data-sets for pelvis_imu and humerus_r_imu are tab-seperated. 
+Keep this in mind for the final export of your file.
+
+Format (Delimiter: tab) :
+//work in progress
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Step 3: Write the correct header:
+
+    DataRate=100.000000
+    DataType=Quaternion
+    version=3
+    OpenSimVersion=4.3-2021-08-27-4bc7ad9
+    endheader
+    endheader
+    time	pelvis_imu	humerus_r_imu	torso_imu
+
+I experienced problems switching the pelivs_imu and humer_r_imu positions, try it out. 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Step 4: Export (Excel-specific: export as .txt (Delemiter: tab).)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Step 5: rename the .txt-file into .sto and copy it into your main-OpenSenseExample-folder ('OpenSenseExample\').
+Set all variable names (.xml and .m files) and run 'OpenSenseExample\OpenSense_calibModel.m' and 'OpenSenseExample\OpenSense_OrientationTracking.m'
+
+
+
+
+
