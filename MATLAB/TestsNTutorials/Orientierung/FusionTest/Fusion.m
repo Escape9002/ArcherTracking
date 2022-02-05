@@ -1,8 +1,15 @@
-%% SampleTimeFine
+%% Purpose
+
+%   !!!!! not fully working, keep away !!!!!
+%   This Programm formats the Sensor-Data to an XSens output. The
+%   corresponding values have to be evaluated again within the DataConversion.m before the display of this is possible.
+%   Within this process, the Quaternions are calculated again, (quaternion to
+%   quaterion) which end in very low and buggy final dataSets. 
+
+% SampleTimeFine
 % For the correct dispaly of data, the SampleTimeFine is to be set corresponding to the Hz the Sensor is running on.
 % For more information see: https://www.xsens.com/hubfs/Downloads/Manuals/Xsens%20DOT%20User%20Manual.pdf [page 25]
 % Hz to Microseconds: hz / (seconds * 1000000 )
-% 
 
 %% Clear the Workspace variables. 
 clear all; close all; clc;
@@ -10,40 +17,10 @@ clear all; close all; clc;
 %% Arduino Init
 a = arduino
 %% MPU init
-%imu = mpu6050(a)
-
 %fs = 100;
 %imu = mpu9250(a,"SampleRate",fs, 'OutputFormat',"matrix")
 
-
 imu = mpu9250(a, 'OutputFormat',"matrix")
-
-
-
-%% Sensor Fusion Plot Function
-%% Calib
-%displayMessage(['Fusion algorithms use magnetometer readings which need to compensate for magnetic distortions.' ...
-%    'The given code snippet can be used to find the correction values for compensating Hard Iron Distortions. When the code '...
-%    'is executing, rotate the sensor around x axis from 0 to 360 degree. For other axes, modify the code accordingly and rotate the ' ...
-%    'sensor along that axis'],'Compensating Hard Iron Distortions');
-%{
-tic;
-stopTimer = 50;
-magReadings=[];
-while(toc<stopTimer)
-    % Rotate the sensor around x axis from 0 to 360 degree.
-    % Take 2-3 rotations to improve accuracy.
-    % For other axes, rotate around that axis.
-    [accel,gyro,mag] = read(imu);
-    magReadings = [magReadings;mag];
-    timer = stopTimer - toc
-end
-
-% For y axis, use magReadings (:,2) and for z axis use magReadings(:,3)
-magx_min = min(magReadings(:,1));
-magx_max = max(magReadings(:,1));
-magx_correction = (magx_max+magx_min)/2;
-%}
 
 %% fuse
 
@@ -103,9 +80,6 @@ while(toc < stopTimer)
 
 
     dataList = [dataList;[count , sampleTimeFine, aX ,aY  ,aZ,Mat11 , Mat21, Mat31 , Mat12 ,Mat22 , Mat32 , Mat13 , Mat23 ,Mat33 ]]
-
-
-
 
 end
 disp(dataList)
