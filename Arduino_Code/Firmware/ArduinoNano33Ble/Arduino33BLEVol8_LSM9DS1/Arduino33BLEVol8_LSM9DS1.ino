@@ -4,10 +4,9 @@
         [Movement tracker for archers]
 
    Used Devices:
-    -Arduino Nano 33 BLE
-    -MPU9250
+    -Arduino Nano 33 BLE Sense
 
-   Device Name: MPU9250
+   Device Name: LSM9DS1
 
    Service Uuid: c54beb4a-40c7-11eb-b378-0242ac130002
 
@@ -47,9 +46,7 @@ double aZOFF = 0.00;
 //---------------------------------------------------BLE
 #include <ArduinoBLE.h>
 //---------------------------------------------------MPU9250
-#include "mpu9250.h"
-// an MPU9250 object with the MPU-9250 sensor on I2C bus 0 with address 0x68
-bfs::Mpu9250 imu(&Wire, 0x68);
+#include <Arduino_LSM9DS1.h>
 //-------------------------------------------------------------------------------------BIBLIOTHEK
 //-------------------------------------------------------------------------------------VARIABLEN
 float ac_x, ac_y, ac_z; //Accelerometer
@@ -67,7 +64,7 @@ long oldTime = 0;
 BLEService SendingService("c54beb4a-40c7-11eb-b378-0242ac130002");
 BLEStringCharacteristic accelXChar("d6b78de4-40c7-11eb-b378-0242ac130002", BLERead | BLENotify | BLEWriteWithoutResponse, fixed_length);
 BLEStringCharacteristic gyroXChar("d6a507ce-5489-11ec-bf63-0242ac130002", BLERead | BLENotify | BLEWriteWithoutResponse, fixed_length);
-BLEStringCharacteristic magXChar("11cf4eb8-86d0-11ec-a8a3-0242ac130002", BLERead | BLENotify |BLEWriteWithoutResponse, fixed_length);
+BLEStringCharacteristic magXChar("11cf4eb8-86d0-11ec-a8a3-0242ac130002", BLERead | BLENotify | BLEWriteWithoutResponse, fixed_length);
 //-------------------------------------------------------------------------------------BLE_SETUP
 //-------------------------------------------------------------------------------------DATA FOR ML
 const float accelerationThreshold = 26; // threshold of significant in G's || normal movement == up to 20-23 G (added up)
@@ -80,25 +77,13 @@ void setup() {
   Serial.begin(115200);
   //while (!Serial)
 
-  //---------------------------------------------------MPU9250 Setup
-  /* Serial to display data */
-  Serial.begin(115200);
-  // while (!Serial) {}
-  /* Start the I2C bus */
-  Wire.begin();
-  Wire.setClock(400000);
-  /* Initialize and configure IMU */
-  if (!imu.Begin()) {
-    Serial.println("Error initializing communication with IMU");
-    while (1) {}
+  //---------------------------------------------------LSM9DS1 Setup
+
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+    while (1);
   }
-  /* Set the sample rate divider */
-  
-    if (!imu.ConfigSrd(9)) { //19
-    Serial.println("Error configured SRD");
-    while (1) {}
-    }
-  
+
   //---------------------------------------------------BLE Setup
 
   if (!BLE.begin()) {
@@ -108,7 +93,7 @@ void setup() {
   }
 
 
-  BLE.setLocalName("MPU9250");
+  BLE.setLocalName("LSM9DS1");
   BLE.setAdvertisedService(SendingService);
 
   //BLE.setAdvertisedServiceUuid("c54beb4a-40c7-11eb-b378-0242ac130002");
@@ -155,7 +140,7 @@ void loop() {
         send_String_acc();
         send_String_gyro();
         send_String_mag();
-       transRate();
+        transRate();
       }
 
       //transRate();
@@ -195,7 +180,7 @@ void send_String_gyro() {
 }
 
 void send_String_mag() {
-  Level_String = /*String(ac_x, 2) + "," + String(ac_y, 2) + "," + String(ac_z, 2) + "/" + String(gy_x, 2) + "," + String(gy_y, 2) + "," + String(gy_z, 2)/* + "/" +*/ String(ma_x,2) + "," + String(ma_y,2) + "," + String(ma_z,2);
+  Level_String = /*String(ac_x, 2) + "," + String(ac_y, 2) + "," + String(ac_z, 2) + "/" + String(gy_x, 2) + "," + String(gy_y, 2) + "," + String(gy_z, 2)/* + "/" +*/ String(ma_x, 2) + "," + String(ma_y, 2) + "," + String(ma_z, 2);
   magXChar.writeValue(Level_String);
 }
 
@@ -226,27 +211,25 @@ void send_String_empty() {
 */
 //--------------------------------------------------- get all data except temperatur
 bool getallData() {
-  if (imu.Read()) {
-    ac_x = (imu.accel_x_mps2() - aXOFF);
-    ac_y = (imu.accel_y_mps2() - aYOFF);
-    ac_z = (imu.accel_z_mps2() - aZOFF)* (-1);
+  if (IMU.accelerationAvailable()) {
+    IMU.readAcceleration(ac_x, ac_y, ac_z);
 
-    gy_x = imu.gyro_x_radps();
-    gy_y = imu.gyro_y_radps();
-    gy_z = imu.gyro_z_radps();
-
-    
-    ma_x = imu.mag_x_ut();  
-    ma_y = imu.mag_y_ut();
-    ma_z = imu.mag_z_ut();
-    
-    return true;
-  }
-  else {
-    return false;
+    ac_x = ac_x * 9.81;
+    ac_y = ac_y * 9.81;
+    ac_z = ac_z * 9.81;
   }
 
+  if (IMU.gyroscopeAvailable()) {
+    IMU.readGyroscope( gy_x , gy_y , gy_z );
 
+  }
+
+  if (IMU.magneticFieldAvailable()) {
+    IMU.readMagneticField(ma_x, ma_y, ma_z);
+
+  }
+
+  return true;
 }
 //--------------------------------------------------- LED ( Connection status)
 void connectedLight() {
@@ -264,85 +247,6 @@ void transRate() {
   oldTime = newTime;
 }
 
-//-------------------------------------------------- IMU_Capture
-boolean IMU_Capture_wait() {
-  // wait for significant motion
-  if (samplesRead == numSamples) {
-    // if (IMU.accelerationAvailable()) {
-    // read the acceleration data
-
-    if (!getallData()) {
-      return false;
-    }
-
-    // sum up the absolutes
-    float aSum = fabs(ac_x) + fabs(ac_y) + fabs(ac_z);
-    //Serial.println(aSum);
-
-    // check if it's above the threshold
-    if (aSum >= accelerationThreshold) {
-      // reset the sample read count
-      samplesRead = 0;
-      return true;
-    }
-    return false;
-  }
-  return false;
-}
-void IMU_Capture_send() {
-  // check if the all the required samples have been read since
-  // the last time the significant motion was detected
-  while (samplesRead < numSamples) {
-    // read the acceleration and gyroscope data
-    if (getallData()) {
-      samplesRead++;
-
-      send_String_acc();
-      send_String_gyro();
-    }
-
-
-
-    if (samplesRead == numSamples) {
-      // add an empty line if it's the last sample
-      send_String_empty();
-    }
-  }
-}
-
-void calibAccel(int coun) {
-  //Serial.println("Calib");
-  int rounds = 0;
-  while (rounds < coun) {
-    if (imu.Read()) {
-      ac_x = imu.accel_x_mps2();
-      ac_y = imu.accel_y_mps2();
-      ac_z = imu.accel_z_mps2();
-
-      aXOFF = (ac_x + aXOFF) / 2;
-      aYOFF = (ac_y + aYOFF) / 2;
-      aZOFF = (ac_z + aZOFF) / 2;
-
-      //  Serial.print(aXOFF, 16);
-      // Serial.print("\t");
-      //Serial.print(aYOFF, 16);
-      //Serial.print("\t");
-      //Serial.println(aZOFF, 16);
-      /*
-              Serial.print(aX);
-          Serial.print("\t");
-          Serial.print(aY);
-          Serial.print("\t");
-          Serial.println(aZ);
-      */
-      rounds ++;
-    } else {
-
-    }
-
-  }
-  //  Serial.println("PROCEEED");
-}
 //------------------------------------------------------------------------------------------------------ Debugging
 //--------------------------------------------------- accelerator
 /*
