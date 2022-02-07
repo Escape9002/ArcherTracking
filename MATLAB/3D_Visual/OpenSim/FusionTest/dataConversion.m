@@ -35,7 +35,7 @@ clear all; close all; clc;
 pelvis = readtable('IMUData\ShootingQuat_PELVIS.txt');
 torso = readtable('IMUData\ShootingQuat_TORSO.txt');
 humerus = readtable('IMUData\ShootingQuat_HUMERUS.txt');
-ulna = readtable('IMUData\ShootingHandy_ulna_r.txt');
+ulna = readtable('IMUData\ShootingQuat_ULNA.txt');
 
 msg = 'read files'
 
@@ -52,6 +52,7 @@ humerus_imu = [humerus(:,2), humerus(:,3),humerus(:,4), humerus(:,5)];
 msg = 'humerus done'
 
 ulna_imu = [ulna(:,2), ulna(:,3),ulna(:,4), ulna(:,5) ];
+msg = 'ulna done'
 %% Ausgabe der Dateien
 msg = 'Creating files'
 writetable(time, 'STOFiles\time.csv', 'Delimiter', 'comma', 'WriteVariableNames',false);

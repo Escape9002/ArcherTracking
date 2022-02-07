@@ -14,11 +14,11 @@ clear all; close all; clc;
 
 %% Init tables
 % these are data of the humerus movement
-accl = readmatrix('IMUData\6755_Accl.txt');
+accl = readmatrix('HandyIMU\6755_Accl.txt');
 msg = 'read accl fin'
-gyro = readmatrix('IMUData\6755_Gyro.txt');
+gyro = readmatrix('HandyIMU\6755_Gyro.txt');
 msg = 'read gyro fin'
-mag = readmatrix('IMUData\6755_mag.txt');
+mag = readmatrix('HandyIMU\6755_mag.txt');
 msg = 'read mag fin'
 
 
@@ -41,8 +41,10 @@ msg = ['Taking data for: ', num2str(height(accl)), ' sets']
 %%
 while(count < height(accl))
     % get data
+
+    multiply = [-1,1,-1];
  
-    imu_read_acc = accl(count,:);
+    imu_read_acc = accl(count,:).* multiply;
     imu_read_gyro = gyro(count,:);
     imu_read_mag = mag(count,:);
 
@@ -60,4 +62,4 @@ while(count < height(accl))
 end
 %% Print file
 msg = ["Printing file"]
-writematrix(dataList, 'IMUData\ShootingHandy_ulna_r.txt', 'Delimiter', 'tab');
+writematrix(dataList, 'HandyIMU\ShootingQuat_ULNA.txt', 'Delimiter', 'tab');
