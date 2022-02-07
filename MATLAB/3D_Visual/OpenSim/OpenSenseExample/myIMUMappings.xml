@@ -6,19 +6,24 @@
         <trial_prefix>Shooting</trial_prefix>
         <!--List of Experimental sensors and desired associated names in resulting tables-->
         <ExperimentalSensors>
-            <ExperimentalSensor name="_PELVIS1">
+            <ExperimentalSensor name="_PELVIS">
                 <!--The name of the PhysicalFrame representing a sensor (IMU) in Model. When loading sensor data, it will be used as a table column label.-->
                 <name_in_model>pelvis_imu</name_in_model>
             </ExperimentalSensor>
 
-            <ExperimentalSensor name="_HUMERUS1">
+            <ExperimentalSensor name="_HUMERUS">
                 <!--The name of the PhysicalFrame representing a sensor (IMU) in Model. When loading sensor data, it will be used as a table column label.-->
                 <name_in_model>humerus_r_imu</name_in_model>
             </ExperimentalSensor>
 
-            <ExperimentalSensor name="_TORSO1">
+            <ExperimentalSensor name="_TORSO">
                 <!--The name of the PhysicalFrame representing a sensor (IMU) in Model. When loading sensor data, it will be used as a table column label.-->
                 <name_in_model>torso_imu</name_in_model>
+            </ExperimentalSensor>
+
+            <ExperimentalSensor name="_ULNA">
+                <!--The name of the PhysicalFrame representing a sensor (IMU) in Model. When loading sensor data, it will be used as a table column label.-->
+                <name_in_model>ulna_r_imu</name_in_model>
             </ExperimentalSensor>
 
         </ExperimentalSensors>
