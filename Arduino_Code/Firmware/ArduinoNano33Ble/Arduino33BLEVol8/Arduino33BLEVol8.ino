@@ -22,22 +22,23 @@
   11cf4eb8-86d0-11ec-a8a3-0242ac120002
 
    Note:
-   - no need for multiple characteristics
    - only sends Strings(decoding by Receiver needed)
 
   current Errors:
    none
 
-  compatible with BLETestVol6.apk
+  compatible with BLETestVol11.apk and above
 
   Datenübertragung:
 
-    "[Wert(accelX)]|[Wert(accelY)]|[Wert(accelZ)]|
-     [Wert(gyroX)]|[Wert(gyroY)]|[Wert(gyroZ)]|
-     [Wert(magnetX)]|[Wert(magnetY)]|[Wert(magnetZ)]
-    "
+  acclXChar = "[Wert(accelX)]|[Wert(accelY)]|[Wert(accelZ)]"
+  gyroXChar = "[Wert(gyroX)]|[Wert(gyroY)]|[Wert(gyroZ)]"
+  magXChar =  "[Wert(magnetX)]|[Wert(magnetY)]|[Wert(magnetZ)]"
+    
 
-    contained in [Lvel_String]
+    contained in [Level_String]
+
+    ! Last compatible MPU9250 library is 5.3.1!
 */
 
 double aXOFF = 0.00;
