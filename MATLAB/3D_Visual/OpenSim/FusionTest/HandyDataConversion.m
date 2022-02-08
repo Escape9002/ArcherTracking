@@ -12,51 +12,41 @@ Dataformat of the produced .txt:
 clear all; close all; clc;
 
 
-%% Arduino Init
+%% Init tables
+% these are data of the humerus movement
+accl = readmatrix('HandyIMU\6755_Accl.txt');
+msg = 'read accl fin'
+gyro = readmatrix('HandyIMU\6755_Gyro.txt');
+msg = 'read gyro fin'
+mag = readmatrix('HandyIMU\6755_mag.txt');
+msg = 'read mag fin'
 
-a = arduino
 
-
-%% MPU init
-%imu = mpu6050(a)
-imu = mpu9250(a, 'OutputFormat',"matrix")
 
 %% fuse
 % Mat1, Mat2, Mat3, Mat4 are temporary variables which are often
 % overwritten, there should be no passing-on-value problem with them
-stopTimer = 5;
-count = 1;
-
-dataList = [];
-
-timeperiod = 1 / imu.SampleRate;
 
 % GyroscopeNoise and AccelerometerNoise is determined from datasheet.
 GyroscopeNoiseMPU9250 = 3.0462e-06; % GyroscopeNoise (variance value) in units of rad/s
 AccelerometerNoiseMPU9250 = 0.0061; % AccelerometerNoise(variance value)in units of m/s^2
-FUSE = ahrsfilter('SampleRate',imu.SampleRate, 'GyroscopeNoise',GyroscopeNoiseMPU9250,'AccelerometerNoise',AccelerometerNoiseMPU9250, 'OrientationFormat', 'quaternion');
+sampleRate = 100; % Sample Rate while the data was taken (IMU)
+FUSE = ahrsfilter('SampleRate',sampleRate, 'GyroscopeNoise',GyroscopeNoiseMPU9250,'AccelerometerNoise',AccelerometerNoiseMPU9250, 'OrientationFormat', 'quaternion');
+count = 1;
+timeperiod = 0.01;
+dataList = [];
 
+msg = ['Taking data for: ', num2str(height(accl)), ' sets']
 
-msg = ['Taking data for: ', num2str((timeperiod * stopTimer)), ' seconds']
-
-
-while(count < stopTimer)
+%%
+while(count < height(accl))
     % get data
-    imu_read_acc = imu.readAcceleration;
-    imu_read_gyro = imu.readAngularVelocity;
-    imu_read_mag = imu.readMagneticField;
 
-    %aX = imu_read_acc(1);
-    %aY = imu_read_acc(2);
-    %aZ = imu_read_acc(3);
-
-    %gX = imu_read_gyro(1);
-    %gY = imu_read_gyro(2);
-    %gZ = imu_read_gyro(3);
-
-    %magX = imu_read_mag(1);
-    %magY = imu_read_mag(2);
-    %magZ = imu_read_mag(3);
+    multiply = [-1,1,-1];
+ 
+    imu_read_acc = accl(count,:).* multiply;
+    imu_read_gyro = gyro(count,:);
+    imu_read_mag = mag(count,:);
 
     %fuse and evaluate data for final file
     rotators = FUSE(imu_read_acc,imu_read_gyro,imu_read_mag);
@@ -67,11 +57,9 @@ while(count < stopTimer)
 
     dataList = [dataList;[(timeperiod*count), quats ]];
 
-    count = count + 1
+    count = count + 1;
 
 end
-
-disp(dataList)
 %% Print file
-
-writematrix(dataList, 'IMUData\ShootingQuat_TEST.txt', 'Delimiter', 'tab');
+msg = ["Printing file"]
+writematrix(dataList, 'HandyIMU\ShootingQuat_ULNA.txt', 'Delimiter', 'tab');
