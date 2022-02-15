@@ -14,7 +14,7 @@ clear all; close all; clc;
 
 %% Arduino Init
 
-a = arduino
+a = arduino()
 
 
 %% MPU init
@@ -24,7 +24,7 @@ imu = mpu9250(a, 'OutputFormat',"matrix")
 %% fuse
 % Mat1, Mat2, Mat3, Mat4 are temporary variables which are often
 % overwritten, there should be no passing-on-value problem with them
-stopTimer = 5;
+stopTimer = 2000;
 count = 1;
 
 dataList = [];
@@ -74,4 +74,4 @@ end
 disp(dataList)
 %% Print file
 
-writematrix(dataList, 'IMUData\ShootingQuat_TEST.txt', 'Delimiter', 'tab');
+writematrix(dataList, 'IMUData\ShootingQuat_TORSO1.txt', 'Delimiter', 'tab');

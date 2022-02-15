@@ -32,10 +32,10 @@ needed Header:
 clear all; close all; clc;
 
 %% Einlesen der Daten
-pelvis = readtable('IMUData\ShootingQuat_PELVIS.txt');
-torso = readtable('IMUData\ShootingQuat_TORSO.txt');
+pelvis = readtable('IMUData\ShootingQuat_PELVIS1.txt');
+torso = readtable('IMUData\ShootingQuat_TORSO1.txt');
 humerus = readtable('IMUData\ShootingQuat_HUMERUS.txt');
-ulna = readtable('IMUData\ShootingQuat_ULNA.txt');
+ulna = readtable('IMUData\ShootingQuat_TEST.txt');
 
 msg = 'read files'
 
