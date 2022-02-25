@@ -2539,3 +2539,10 @@
 [2022-02-17 20:16:29.967] [info] Loading orientations as quaternions from 'Shooting_orientations.sto'...
 [2022-02-17 20:16:30.520] [info] InverseKinematicsSolver found 4 model frames to track.
 [2022-02-17 20:16:58.150] [info] Wrote IK with IMU tracking results to: 'ik_Shooting_orientations.mot'.
+[2022-02-24 09:06:02.894] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015_calibrated.osim
+[2022-02-24 09:06:02.951] [info] Loading orientations as quaternions from 'Shooting_orientations.sto'...
+[2022-02-24 09:06:03.626] [info] InverseKinematicsSolver found 4 model frames to track.
+[2022-02-24 09:06:21.079] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015_calibrated.osim
+[2022-02-24 09:06:21.120] [info] Loading orientations as quaternions from 'Shooting_orientations.sto'...
+[2022-02-24 09:06:21.598] [info] InverseKinematicsSolver found 4 model frames to track.
+[2022-02-24 09:06:49.255] [info] Wrote IK with IMU tracking results to: 'ik_Shooting_orientations.mot'.

@@ -32,7 +32,7 @@ bfs::Mpu9250 imu(&Wire, 0x68);
 
 #include "model.h"
 
-const float accelerationThreshold = 25; // threshold of significant in G's
+const float accelerationThreshold = 24; // threshold of significant in G's
 const int numSamples = 119;
 
 int samplesRead = numSamples;
@@ -89,17 +89,17 @@ void setup() {
     while(1) {}
   }
 
-  /*
+  // srd means sample rate divider; rate = 1000/ (srd+1)
   // print out the samples rates of the IMUs
   Serial.print("Accelerometer sample rate = ");
-  Serial.print(IMU.accelerationSampleRate());
+  Serial.print(1000/(imu.srd()+1));
   Serial.println(" Hz");
   Serial.print("Gyroscope sample rate = ");
-  Serial.print(IMU.gyroscopeSampleRate());
+  Serial.print(1000/(imu.srd()+1));
   Serial.println(" Hz");
 
   Serial.println();
-*/
+
   // get the TFL representation of the model byte array
   tflModel = tflite::GetModel(model);
   if (tflModel->version() != TFLITE_SCHEMA_VERSION) {
