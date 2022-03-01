@@ -1,4 +1,5 @@
-\documentclass[11pt, titlepage]{scrreprt}
+%\documentclass[11pt, titlepage]{scrreprt}
+\documentclass[11pt, titlepage, parskip=half-]{scrreprt}
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{color}
@@ -18,6 +19,15 @@
 \usepackage[official]{eurosym}
 \usepackage{url}
 \renewcommand\citeform[1]{[#1]}
+
+\RedeclareSectionCommand[
+  style=section,
+  %indent=0pt,% kann ab KOMA-Script Version 3.24 weggelassen werden (Overleaf hat noch eine ältere Version)
+  beforeskip = -1\baselineskip plus -1ex minus -.2ex,
+  afterskip = 0.25\baselineskip plus -1sp minus 1sp,
+  font = \LARGE,
+]{chapter}
+
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
@@ -27,37 +37,30 @@
     pdftitle={Overleaf Example},
     pdfpagemode=FullScreen,
     }
-%{
-%    \makeatletter
-%    \renewcommand\chapter{\thispagestyle{plain}%
-%    \global\@topnum\z@
-%    \@afterindentfalse
-%    \secdef\@chapter\@schapter}
-%    \makeatother
-%}
+
 % !TEX program = xelatex
 \begin{document}
 % \include{Title}
 \begin{titlepage}
+  \title{Archer-Tracking}
+  \subtitle{Bewegungstracking für Bogensch"utzen}
+  \titlehead{\centering\includegraphics[width=9cm]{Bilder/IMG_9973 (4)}}
+  
+  \author{Projekt von Antonio Rehwinkel}
+  \publishers{ Angefertigt am Schiller-Gymnasium Offenburg \\
+    \vspace*{2ex} Unterstützende Lehrer:\\ Herr Czernohous, Herr Dierle\\
+    \vspace*{2ex} und Mitarbeiter der Hochschule Offenburg:\\ R. Hilterhaus, R. Echle\\
+    
+    \vspace*{2ex} \input{abstract}\\
+    
+  }
+  \date{\today}
+\end{titlepage}
 
-	
-
-\title{Archer-Tracking}
-\subtitle{Bewegungstracking für Bogensch"utzen}
-\titlehead{\centering\includegraphics[width=15cm]{Bilder/IMG_9973 (4)}}
-
-
-\author{Antonio Rehwinkel}
-
-\publishers{Unterstützende Lehrer:\\ Herr Czernohous \\ \texttt{m.czernohous@schiller-og.de}\\ Herr Dierle \\  \texttt{s.dierle@schiller-og.de} \\
-\vspace*{2ex} und Mitarbeiter der Hochschule Offenburg:\\ R. Hilterhaus \\ \texttt{ralf.hilterhaus@hs-offenburg.de}\\ R. Echle\\ \texttt{reinhard.echle@hs-offenburg.de}}
-%- \\ Schiller-Gymnasium Offenburg}
-%
-%
 \maketitle
 
-\end{titlepage}
 \tableofcontents
+
 \include{Vorwort}
 
 %\chapter{IMU vs Kameratracking}
@@ -105,6 +108,7 @@ Somit brauchte ich sowohl eine Android-App als auch ein Programm für den Arduin
 \input{ergebnisdis}
 \chapter{Fazit}
 \input{Fazit}
+\newpage
 \chapter{Danksagung}
 \input{Danksagung}
 \chapter{Quellen}

@@ -1,68 +1,65 @@
-\chapter[Kurzfassung]{Kurzfassung}
+\chapter{Einleitung}
+%\subsection{Problemlage}
+%Als Bogenschütze bekommt man schnell mit, auf welch hohem Niveau andere Schützen es 
+%schaffen, immer wieder dasselbe zu tun. Dies bezieht sich nicht nur auf den allgemeinen 
+%Aufbau, bei dem diese Eigenschaft sogar von Nöten ist, sondern auch auf Fehler im Aufbau.\\
+%\\
+%Da ich selbst schieße und die Möglichkeit hatte in zwei unterschiedlichen Vereinen zu 
+%trainieren, ergab sich schnell das Problem, dass meine Schussform drohte schlechter zu 
+%werden. Ohne Trainer, der meinen persönlichen Aufbau kannte, konnte ich nicht feststellen, 
+%wann ich Fehler wiederholte oder sogar neue einbaute. Eine Lösung musste her, die es mir 
+%erlaubte meinen Schussablauf selbst nachzuverfolgen und Unterschiede oder Fehler selbst zu 
+%finden.\\
+%\\
+%Bei Profi-Schützen wird schon seit langem "Ahnliches getan. Mit Hilfe von mindestens zwei 
+%Hochgeschwindigkeitskameras und Punkten am Schützen, ist man in der Lage, den 
+%Bewegungsablauf eines Schützen zu analysieren und dreidimensional darzustellen.\\
+%\\
+%Die wohl bekanntesten Aufnahmen werden derzeit vorrangig zum Perfektionieren der 
+%mechanischen Ausrüstung und als Lehrmaterial verwendet. Da Profi-Schützen häufig einen 
+%nahezu perfekten Aufbau haben, werden die Daten selten zum Korrigieren von Aufbaufehlern 
+%eingesetzt.\\
+%\\
+%Zur Auswertung der Daten ist eine weitere Person von Nöten, die speziell darauf geschult 
+%wurde, die erzeugten Daten auszuwerten.\\
+%\\
+%Die Hochgeschwindigkeitskameras, welche bei den ersten Aufnahmen von Bogenschützen 
+%benutzt wurden, sind in der Lage 6000 bis 8000 Fotos in der Sekunde zu schießen. Kameras 
+%dieser Qualität kosten selbst heute noch über 100 000 \euro{}.\\
+%\\
+%Der Raum, den diese Messmethode in Beschlag nimmt, ist ebenfalls nicht zu unterschätzen.
+\section{Problemlage}
+Boegnschießen, der Sport der perfekten Wiederholung. Je besser ein Schütze seinen Schussablauf wiederholen kann, 
+desto einfacher ist es für den Trainer, Fehler zu finden und das Visier einzustellen. Sehr gute Trefferbilder sind 
+die Folge.\\
+Doch was, wenn der Trainer durch Corona-Regelungen oder Solo-Training nicht dabei sein kann? Der Schütze muss sich
+selbst kontrollieren, um keine Gewöhnungsfehler einzutrainieren und schlechter zu werden. Ohne Spiegel oder andere 
+Hilfsmittel ist dies jedoch kaum möglich. In genau dieser Situation befand ich mich als Schütze im Frühling 2020.\\ 
+\\
+Bei professionellen Schützen wird der Bewegungsablauf mittels Hochgeschwindigkeitskameras überprüft und selbst kleinste
+Fehler werden entdeckt. Benötigt wird dazu jedoch neben Kamera, Licht und Platz häufig auch eine dritte Person, die die
+Datenmenge auswerten kann. All dies macht es kleinen Vereinen unmöglich auch nur an ein ähnliches System zu denken.\\
+Das Ziel meiner Arbeit ist es, ein System zu entwickeln, das es dem Schützen ermöglicht, seinen eigenen Schussaufbau 
+zu sehen und zuverlässig zu bewerten. 
 
-Mithilfe eines Bewegungssensors kann man viele 
-Bewegungen erforschen und vermessen.
-Mit meinem System sollen mehrere Beschleunigungssensoren 
-dazu eingesetzt werden, Bewegungsabläufe aufzunehmen, 
-miteinander zu vergleichen und zu erkennen.\\
+\section{Anforderungen}
+Um dieses Problem zu lösen, muss das System nicht zwingend die Genauigkeit der Hochgeschwindigkeitskameras erreichen. \\
 \\
-Die Daten werden über Bluetooth-Low-Energy an ein Handy 
-geschickt, wo Sie sowohl gespeichert als auch ausgewertet 
-werden können. Als Beispiel gilt hier für mich das Bogenschießen, 
-bei dem selbst kleine Bewegungen immer wieder auf gleiche Weise 
-ausgeführt werden müssen. Mit meinem Sensor soll hier die Anschaffung teurer 
-Kamerasysteme vermieden werden und es so jedem\footnote{Aus Gründen der Lesbarkeit wird das Gendern weggelassen} ermöglichen, 
-selbst ohne Bogen oder Trainer bei sich Zuhause
-den Bewegungsablauf zu trainieren.\\
-
-\section{Einleitung}
-\subsection{Problemlage}
-Als Bogenschütze bekommt man schnell mit, auf welch hohem Niveau andere Schützen es 
-schaffen, immer wieder dasselbe zu tun. Dies bezieht sich nicht nur auf den allgemeinen 
-Aufbau, bei dem diese Eigenschaft sogar von Nöten ist, sondern auch auf Fehler im Aufbau.\\
-\\
-Da ich selbst schieße und die Möglichkeit hatte in zwei unterschiedlichen Vereinen zu 
-trainieren, ergab sich schnell das Problem, dass meine Schussform drohte schlechter zu 
-werden. Ohne Trainer, der meinen persönlichen Aufbau kannte, konnte ich nicht feststellen, 
-wann ich Fehler wiederholte oder sogar neue einbaute. Eine Lösung musste her, die es mir 
-erlaubte meinen Schussablauf selbst nachzuverfolgen und Unterschiede oder Fehler selbst zu 
-finden.\\
-\\
-Bei Profi-Schützen wird schon seit langem "Ahnliches getan. Mit Hilfe von mindestens zwei 
-Hochgeschwindigkeitskameras und Punkten am Schützen, ist man in der Lage, den 
-Bewegungsablauf eines Schützen zu analysieren und dreidimensional darzustellen.\\
-\\
-Die wohl bekanntesten Aufnahmen werden derzeit vorrangig zum Perfektionieren der 
-mechanischen Ausrüstung und als Lehrmaterial verwendet. Da Profi-Schützen häufig einen 
-nahezu perfekten Aufbau haben, werden die Daten selten zum Korrigieren von Aufbaufehlern 
-eingesetzt.\\
-\\
-Zur Auswertung der Daten ist eine weitere Person von Nöten, die speziell darauf geschult 
-wurde, die erzeugten Daten auszuwerten.\\
-\\
-Die Hochgeschwindigkeitskameras, welche bei den ersten Aufnahmen von Bogenschützen 
-benutzt wurden, sind in der Lage 6000 bis 8000 Fotos in der Sekunde zu schießen. Kameras 
-dieser Qualität kosten selbst heute noch über 100 000 \euro{}.\\
-\\
-Der Raum, den diese Messmethode in Beschlag nimmt, ist ebenfalls nicht zu unterschätzen.
-
-\subsection{Anforderungen}
-Wenn man es nun schafft, den Kostenpunkt zu drücken und weniger Platz zu benötigen,
-ergeben sich völlig neue Möglichkeiten. Dies würde vor allem den kleinen Vereinen zu Gunsten 
-kommen. Sie wären endlich in der Lage, den Schussaufbau aller Schützen auf kleinste Fehler 
-zu prüfen und eintrainierte Fehler einfach festzustellen.\\
-\\
-Die Anforderungen an mein Projekt wären damit, dass eine kostengünstige Alternative 
+Die Anforderungen an mein Projekt sind, dass eine kostengünstige Alternative 
 geschaffen wird, die wenig Platz benötigt und schnelle Ergebnisse liefert. Dabei müssen diese 
 Ergebnisse genau und für jeden verständlich sein.\\
 Desweiteren darf der Schütze auf keinen Fall gestört werden.
 Dies wirkte sich bei meiner Idee vor allem auf die Größe, das Gewicht und die 
 Datenübertragung aus.\\
+\\
+Durch Größe und Preis soll es selbst kleinen Vereinen möglich sein, den Bogenschützen zu vermessen und gezielte Hilfe
+auch ohne Trainer zu bieten. Auch Privatpersonen könnten sich so ein System sinnvoll zulegen.\\
+\\
 Entwickelt und gebaut wurde dieses Projekt im Schuljahr 2020/21 von Zuhause aus und wurde 
 im Schuljahr 2021/22 weitergeführt.
 
-\section{Vorgehensweise}
-\subsection{Möglichkeiten}
+\chapter{Vorgehensweise}
+\section{Möglichkeiten}
 Auf meiner Suche hatte ich die Idee, einen Ultraschallsensor am Schützen zu befestigen. Der 
 Ultraschallsensor hätte am Boden befestigt werden können, um die Höhe der einzelnen 
 Punkte des Schützen zu bestimmen. Ebenfalls wäre eine Kabelführung für schnellere 
@@ -72,12 +69,16 @@ lösbar nur durch weitere Technik, die zu kaufen gewesen wäre.
 Auch die Verwendung einer günstigeren Kamera wäre möglich gewesen. Dabei vereint man 
 allerdings alle Nachteile, die das Kamera-Tracking hat. Man braucht viel Platz und trotz sehr 
 günstiger Kameras treibt man die Kosten in die Höhe.
-Meine finale Idee war, einen Beschleunigungssensor und einen BLE-Chip\footnote{Näheres hierzu in \textit{Kapitel 3 Bluetooth-Low-Energy}} zu kombinieren.
+Meine finale Idee war, eine IMU \footnote{Näheres hierzu in \textit{Kapitel 2.2 MPU9250}} und einen 
+BLE-Chip\footnote{Näheres hierzu in \textit{Kapitel 3 Bluetooth-Low-Energy}} zu kombinieren. \\
+Der IMU sollte mir die Beschleunigsdaten in alle Richtungen liefern, aus dehnen ich die Distanz berechnen wollte.
+Als weitere Möglichkeit bot sich an, mittels des IMU die Orientierung des Sensors zu berechnen.
+
 
 %\subsection{IMU vs Kameratracking}
 %\input{Imu_vs_Kameratracking}
 
-\subsection{Materialsuche}
+\section{Materialsuche}
 Es galt nun, zu den genannten Kriterien die passende Hardware zu finden. Um die Bewegungen des 
 Schützen nachzuverfolgen, muss ich wissen, wo die einzelnen wichtigen Punkte des Aufbaus 
 sind. Dies betrifft beide Arme und die Schultern. Da sich die Arme viel bewegen, schien es mir 
