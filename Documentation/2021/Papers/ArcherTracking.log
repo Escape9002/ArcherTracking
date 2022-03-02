@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.3.1)  2 MAR 2022 16:55
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.3.1)  2 MAR 2022 21:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -624,7 +624,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write4
 \openout4 = `ArcherTracking.toc'.
 
- [2]
+ [2] [3]
 \openout2 = `Vorwort.aux'.
 
  (./Vorwort.tex
@@ -633,23 +633,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--44
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 46--60
+Underfull \hbox (badness 10000) in paragraph at lines 46--62
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 46--60
+Underfull \hbox (badness 10000) in paragraph at lines 46--62
 
  []
 
+[4
 
-Underfull \hbox (badness 10000) in paragraph at lines 46--60
-
- []
-
-[3
-
-]) [4] (./Arduino.tex
+]) [5] (./Arduino.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--21
 
  []
@@ -692,95 +687,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--29
 
  []
 
-) (./Strom.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--26
+) (./Ble.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--22
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--26
+Underfull \hbox (badness 10000) in paragraph at lines 1--22
 
  []
 
-[5
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--22
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--22
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--22
+
+ []
+
+[6
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 27--32
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--51
-[]|\TU/lmr/m/n/10.95 Laufzeit(in
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--51
-[]|\TU/lmr/m/n/10.95 Cut-Off-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--51
-[]|\TU/lmr/m/n/10.95 Differenz:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--51
-\TU/lmr/m/n/10.95 Cut-Off-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--51
-\TU/lmr/m/n/10.95 Spannung
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--51
-\TU/lmr/m/n/10.95 <–> an-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--51
-\TU/lmr/m/n/10.95 gebotene
- []
-
-)
-Underfull \hbox (badness 10000) in paragraph at lines 39--75
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--75
-
- []
-
-(./Ble.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--22
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1--22
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1--22
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1--22
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1--22
-
- []
-
-[6]
 Underfull \hbox (badness 10000) in paragraph at lines 24--37
 
  []
@@ -826,26 +761,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 44--70
  []
 
 [7]) (./BewAnalSys.tex
-Underfull \hbox (badness 10000) in paragraph at lines 2--18
+Underfull \hbox (badness 10000) in paragraph at lines 2--21
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--18
+Underfull \hbox (badness 10000) in paragraph at lines 2--21
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--18
+Underfull \hbox (badness 10000) in paragraph at lines 2--21
 
  []
 
-[8])
-Underfull \hbox (badness 10000) in paragraph at lines 50--81
+(./Integrale.tex
+Underfull \hbox (badness 10000) in paragraph at lines 2--21
 
  []
 
-(./OpenSimNMatlab.tex [9]) (./Datenübertragung.tex) (./ArdFirmware.tex) (./AndroidApp.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--21
+
+ []
+
+[8] [9]) (./Orientierungen.tex))
+Underfull \hbox (badness 10000) in paragraph at lines 44--79
+
+ []
+
+[10] (./OpenSimNMatlab.tex) (./Datenübertragung.tex) [11] (./ArdFirmware.tex) (./AndroidApp.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--17
 
  []
@@ -855,7 +800,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--17
 
  []
 
-[10]
 File: Bilder/Graph.jpg Graphic file (type bmp)
 <Bilder/Graph.jpg>
 
@@ -888,7 +832,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--40
 
  []
 
-[11]
+[12]
 File: Bilder/GraphRec.jpg Graphic file (type bmp)
 <Bilder/GraphRec.jpg>
 
@@ -907,26 +851,51 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--58
  []
 
 )
-Overfull \hbox (2.43091pt too wide) in paragraph at lines 47--97
+Overfull \hbox (2.43091pt too wide) in paragraph at lines 47--95
 $[]$  $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--97
+Underfull \hbox (badness 10000) in paragraph at lines 47--95
 
  []
 
-(./constIntVel.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 1--99
+[13] (./Strom.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--28
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--99
+Underfull \hbox (badness 10000) in paragraph at lines 1--28
 
  []
 
-(./constVel.tex [12]) (./integralVel.tex) (./distMess.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--53
+[]|\TU/lmr/m/n/10.95 Laufzeit(in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--53
+[]|\TU/lmr/m/n/10.95 Cut-Off-
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 41--97
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--97
+
+ []
+
+[14] (./distMess.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--6
 
  []
@@ -938,44 +907,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
 File: Bilder/_DistanzVergleich.png Graphic file (type bmp)
 <Bilder/_DistanzVergleich.png>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 File: Bilder/_integralDistance001.png Graphic file (type bmp)
 <Bilder/_integralDistance001.png>
-[13]
+[15]
 File: Bilder/_constDistance001.png Graphic file (type bmp)
 <Bilder/_constDistance001.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) (./ergebnisdis.tex) [14] (./Fazit.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 2--114
+) (./ergebnisdis.tex) [16] (./Fazit.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 2--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--114
+Underfull \hbox (badness 10000) in paragraph at lines 2--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--114
+Underfull \hbox (badness 10000) in paragraph at lines 2--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--114
+Underfull \hbox (badness 10000) in paragraph at lines 2--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--114
+Underfull \hbox (badness 10000) in paragraph at lines 2--109
 
  []
 
-[15] [16] (./Danksagung.tex
+[17] (./Danksagung.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--2
 
  []
@@ -992,17 +954,17 @@ Overfull \hbox (238.73698pt too wide) in paragraph at lines 9--11
 
 )
 No file ArcherTracking.bbl.
-[17] (./ArcherTracking.aux (./Vorwort.aux))
+[18] (./ArcherTracking.aux (./Vorwort.aux))
 Package rerunfilecheck Info: File `ArcherTracking.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 20165 strings out of 476180
- 402533 string characters out of 5813083
+ 20160 strings out of 476180
+ 402455 string characters out of 5813083
  838047 words of memory out of 5000000
- 40570 multiletter control sequences out of 15000+600000
+ 40568 multiletter control sequences out of 15000+600000
  479301 words of font info for 84 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 108i,11n,106p,10700b,818s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 108i,14n,106p,10700b,905s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on ArcherTracking.pdf (17 pages).
+Output written on ArcherTracking.pdf (18 pages).

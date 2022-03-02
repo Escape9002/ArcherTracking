@@ -1,0 +1,65 @@
+\subsection{Gleichmäßige und ungleichmäßige Beschleunigung}
+Um die Distanz aus der gemessenen Beschleunigung zu berechnen,
+fand ich zwei verschiedene Formeln. Die wohl bekannteste Umrechnung 
+benutzt Integrale, die zweite Formel ist die der gleichm"aßigen 
+Beschleunigung.\\
+\\
+Die Integration wird von allen mir bekannten Forschungen verwendet. 
+Man muss eine Doppelintegration
+ausführen um von Beschleunigung auf Distanz zu kommen, hierbei verwandelt 
+sich das Rauschen des Sensors in Drift und so einen exponentiell steigenden
+Fehler. \\ 
+Die gleichmäßige Formel kann im Gegensatz zum Integral, nur positive 
+Beschleunigungen verwerten, hat in den Tests allerdings 
+deutlich genauere Werte und einen geringeren Fehler bei Stillstand 
+aufgezeigt. \\
+\\
+Als Zeit wird die Frequenz, mit der der Sensor Daten misst, 
+genommen. Hierfür wird die Frequenz in Zeitabschnitte umgerechnet, mit 
+der die Formeln letzendlich arbeiten. Den Testaufbau und Durchführung 
+sehe sie im Kapitel \textit{ 7.1 Distanz-Testaufbau}.
+
+\subsection{Gleichmäßige Formel}
+Die angepasste Formel f"ur gleichm"aßige Beschleunigung berechnete
+die Distanz in meinen Versuchen mit einer Genauigkeit von
+$\pm8$ cm auf 30cm Teststrecke.\\
+Die physikalisch richtige Formel lautet 
+$s + v * t  + a * t^2 * 0.5$,
+allerdings wurden mit der Formel $s + a * t^2 * 0.5$ 
+bessere Testergebnisse erzielt.\\
+Da die negative Beschleunigung den Wert der Distanz wieder nullierte,
+wurden zu dieser Formel nur positive Distanzmessungen zugelassen.\\
+Hier der Code-Ausschnitt:
+\begin{verbatim}
+    if (acc > 0) {
+    t = (freq / 1000); //hz is not time but frequenzy
+
+    distance = (distance) + (acc * (t * t) * 0.5);
+    velocity = acc * t;
+    }
+\end{verbatim}
+F"ur die Tests wurde dieser Code statt der BLE-"Ubetragung auf dem Arduino ausgef"uhrt. 
+
+\subsection{Integral}
+Die Berechnung der Distanz über Integrale ist der Standard 
+in der Wissenschaft. Da etwaige Messfehler des Sensors in Drift verwandelt 
+werden, steigt die Fehlerrate pro Integral enorm.\\
+Die Testergebnisse ergaben einen Fehler von $\pm15$cm auf einer Strecke
+von 30cm. Ebenso war das Ergebnis sofort in Zentimetern, statt wie erwartet in Metern. 
+Wurde der Sensor zurückbewegt an seinen Startpunkt, sank
+der Wert jedoch wieder auf Null ab. Somit kann man schließen,
+dass das Ergebniss nur falsch skaliert ist.\\
+Dieser Fehler wurde noch nicht behoben. \\
+Ein klarer Vorteil dieser Rechnung zeigt sich schon beim Test,
+die Formel funktioniert auch für negative Beschleunigungen.
+Der Wert sinkt am Ende der Teststrecke nicht ab, sondern bleibt
+auf seinem hohen Wert.\\
+Folgend der Code-Ausschnitt der Integral-Rechnung:
+\begin{verbatim}
+    t = (freq / 1000); // hz to time
+
+    velocity = t * ((acc + accOld) / 2) + velocity;
+    accOld = acc;
+    distance = t * ((velocity + velocityOld) / 2) + distance;
+    velocityOld = velocity;  
+\end{verbatim}

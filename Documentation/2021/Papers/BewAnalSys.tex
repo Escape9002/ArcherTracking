@@ -14,9 +14,19 @@ So ist eine Darstellung als 3D-Modell möglich, an der der Schütze seine Fehler
 zu vorangegangen Schüssen hervorgehoben werden. \\
 Denkbar wäre eine Klassifizierung der einzelnen Schüsse, um, wie in einem Videospiel, die Genauigkeit
 der Wiederholung in Prozent anzugeben. Interessant wird es, sobald mehrere Schützen Datensätze
-ihrer Schüsse vergleichen. Unterschiede werden ersichtlich, genau wie Gemeinsamkeiten.\\
+ihrer Schüsse vergleichen. Unterschiede werden ersichtlich, genau wie Gemeinsamkeiten. \\
+\\
+Dieses Kapitel beschäftigt sich folgenden mit der dreidimensionalen Visualisierung. Hierzu ist ein Ansatz mithilfe 
+der zurückgelegten Distanz in alle Richtungen als auch ein Ansatz mittels Orientierungen denkbar.
 
-\section{3D-Darstellung (Theorie)}
+\section{Integrale}
+Die Distanz, berechenbar aus den Werten des Beschleunigungssensors, kann uns die Differenz zwischen einem Startpunkt
+und ihrem jetzigen Punkt angeben. Durch die drei Achsen meines Sensors ginge dies sogar in alle Richtungen. Damit 
+könnte man ein Modell erzeugen, das den betreffenden Punkt in die einzelnen Richtungen verschiebt, bis der finale
+neue Standort des Sensors erreicht wird. 
+\input{Integrale}
+
+\section{Orientierungen}
 Um die Orientierung des Sensors zu berechnen geht man auf die Grundaussagen der Sensoren zurück. Der 
 Beschleunigungssensor teilt mir die G-Kräfte mit, daraus lassen sich Rückschlüsse über die Orientierung 
 der Pitch- und Roll-Achse ziehen. Das Gyroskop gibt Drehmoment-Werte zurück, worüber sich der Beschleunigungssensor
@@ -27,24 +37,8 @@ ist ein erweiterter Kalman-Filter. Er passt seine Fehlerwerte über Zeit dem Dri
 auf lange Zeit gute Ergebnisse.}. \\
 Für die Darstellung der Orientierung im Dreidimensionalen Raum gibt es mehrere Ansätze, die zwei bekanntesten 
 sind wohl die Euler-Winkel und die Quaternionen. Die Vor- und Nachteile werden im folgenden erläutert.
+\input{Orientierungen}
 
-\subsection{Euler-Winkel}
-Bei Euler-Winkeln wird das Objekt um die einzelnen Achsen in einer festeglegten Reihenfolge gedreht. Sollten hierbei 
-nach einer Drehung zwei Achsen aufeinander liegen, entseht der sogenannte \textit{Gimbal-Lock} und die Darstellung
-der Bewegung findet fehlerhaft statt. Für reele Systeme wie Gimbal an einer Drohne ist dieser Fehler vernachlässigbar,
-da er nur selten vorkommt und die Euler-Winkel den tatsächlich benötigten Drehwinkeln der Motoren entsprechen.
-Da ich jedoch keine Motoren ansteuern muss, steht vor allem der Fehler im Mittelpunkt und ist der Grund, das ich nicht
-die Euler-Winkel verwende.  
-
-\subsection{Quaternionen}
-Um die Position eines Körpers im dreidimensionalen Raum darzustellen reichen drei Koordinaten, 
-die Möglichkeit der Orientierung verlangt jedoch nach einer vierten Koordinate und damit vier Dimensionen. 
-Die Quaternionen stellen diese vierte Koordinate dar. Quaternionen finden damit im vierdimensionalen Raum statt
-und sind damit für wenige Menschen vollständig nachvollziehbar. Ein Überprüfen der Rohdaten fällt hiermit für mich aus.
-Allerdings schaffen es die Quaternionen durch diese weitere Dimension jegliche Orientierung im Raum darzustellen ohne
-etwas ähnliches wie einen \textit{Gimbal-Lock} zu erzeugen. Die Vollständige Erklärung der Quaternionen sprengt momentan
-leider meinen Wissenstand. Die einfache Eingabe meiner Daten in fast alle läufige 3D-Visualisierungsprogramme und 
-der fehlende \textit{Gimbal-Lock} sind der Grund für mich, zukünftig die Quaternionen zu verwenden.
 
 \section {Bewegung}
 Eine interessante Bewegung stellt vor allem der Zugarm des 
@@ -54,6 +48,7 @@ Um diese zu messen, muss man die Erdanziehungskraft der Z-Achse herausrechnen.\\
 Möglich ist ebenso, die Neigung des Armes über die Euler-Winkel zu berechnen. Sollte 
 der Arm zu hoch sein, wird sich die Ausrichtung des Sensors stark verändern.\\
 \\
-Um den Schützen möglichst genau zu tracken, sind mehrere Sensoren an einem Schützen denkbar und
-wünschenswert. So könnten Fehler der einzelnen MPUs herausgerechnet werden.
-Auch die Klassifizierung der Schüsse liefe so auf einem höheren Standard.
+Um den vollen Bewegungsablauf eines Schützen zu tracken, wird an jedem Körperteil ein Sensor
+benötigt. Dies ermöglicht nicht nur das gegenseitige Überprüfen auf Sinnhaftigkeit der Orientation
+(menschliches Skelett hat beschränkte Bewegungsfreiräume), sondern auch die Klassifizierung der 
+einzelen Abläufe könnte auf Grund von mehr Daten genauer Ablaufen.
