@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.3.1)  1 MAR 2022 18:26
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.3.1)  2 MAR 2022 16:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -840,17 +840,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--18
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--37
-
- []
-
 [8])
-Underfull \hbox (badness 10000) in paragraph at lines 39--81
+Underfull \hbox (badness 10000) in paragraph at lines 50--81
 
  []
 
-(./Datenübertragung.tex) (./ArdFirmware.tex) (./AndroidApp.tex
+(./OpenSimNMatlab.tex [9]) (./Datenübertragung.tex) (./ArdFirmware.tex) (./AndroidApp.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--17
 
  []
@@ -860,7 +855,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--17
 
  []
 
-[9]
+[10]
 File: Bilder/Graph.jpg Graphic file (type bmp)
 <Bilder/Graph.jpg>
 
@@ -893,7 +888,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--40
 
  []
 
-[10]
+[11]
 File: Bilder/GraphRec.jpg Graphic file (type bmp)
 <Bilder/GraphRec.jpg>
 
@@ -912,26 +907,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--58
  []
 
 )
-Overfull \hbox (2.43091pt too wide) in paragraph at lines 47--94
+Overfull \hbox (2.43091pt too wide) in paragraph at lines 47--97
 $[]$  $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--94
+Underfull \hbox (badness 10000) in paragraph at lines 47--97
 
  []
 
 (./constIntVel.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 1--96
+Underfull \hbox (badness 10000) in paragraph at lines 1--99
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--96
+Underfull \hbox (badness 10000) in paragraph at lines 1--99
 
  []
 
-(./constVel.tex [11]) (./integralVel.tex) (./distMess.tex
+(./constVel.tex [12]) (./integralVel.tex) (./distMess.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--6
 
  []
@@ -948,39 +943,39 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 File: Bilder/_integralDistance001.png Graphic file (type bmp)
 <Bilder/_integralDistance001.png>
-[12]
+[13]
 File: Bilder/_constDistance001.png Graphic file (type bmp)
 <Bilder/_constDistance001.png>
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (./ergebnisdis.tex) [13] (./Fazit.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 2--111
+) (./ergebnisdis.tex) [14] (./Fazit.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 2--114
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--111
+Underfull \hbox (badness 10000) in paragraph at lines 2--114
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--111
+Underfull \hbox (badness 10000) in paragraph at lines 2--114
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--111
+Underfull \hbox (badness 10000) in paragraph at lines 2--114
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--111
+Underfull \hbox (badness 10000) in paragraph at lines 2--114
 
  []
 
-[14] [15] (./Danksagung.tex
+[15] [16] (./Danksagung.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--2
 
  []
@@ -997,17 +992,17 @@ Overfull \hbox (238.73698pt too wide) in paragraph at lines 9--11
 
 )
 No file ArcherTracking.bbl.
-[16] (./ArcherTracking.aux (./Vorwort.aux))
+[17] (./ArcherTracking.aux (./Vorwort.aux))
 Package rerunfilecheck Info: File `ArcherTracking.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 20154 strings out of 476180
- 402377 string characters out of 5813083
- 837047 words of memory out of 5000000
- 40562 multiletter control sequences out of 15000+600000
+ 20165 strings out of 476180
+ 402533 string characters out of 5813083
+ 838047 words of memory out of 5000000
+ 40570 multiletter control sequences out of 15000+600000
  479301 words of font info for 84 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  108i,11n,106p,10700b,818s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on ArcherTracking.pdf (16 pages).
+Output written on ArcherTracking.pdf (17 pages).

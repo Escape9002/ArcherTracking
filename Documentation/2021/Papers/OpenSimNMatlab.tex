@@ -1,0 +1,18 @@
+Die Darstellung erfolgt momentan über Matlab und OpenSim. In Matlab werden die IMU-Daten
+fusioniert, die Orientierung in Quaternionen berechnet und in das korrekte Daten-Format geschrieben. 
+OpenSim schreibt den Sensor-Daten dann den angegeben Knochen eines Skellets zu und Orientiert diese anhand 
+der Orientierungsdaten neu.
+
+\subsection{Matlab und OpenSim}
+Matlab ist ein kostenpflichtiges Programm und wurde mir von meiner Schule im Rahmen der MakerSpace-AG zur Verfügung 
+gestellt. Ich benutze es, um einerseits Live-Daten des Sensors zu verwerten als auch um die gespeicherten Handy-Daten 
+umzuformen und für spätere Benutzung vorzubereiten. Matlab stellt mir hierbei eine einfache verwendung des AHRS-Filters
+bereit. Der AHRS-Filter berechnet hierbei die Orientierung in Quaternionen. \\ 
+Die Sensorwerte werden für OpenSim in das Datenformat \textit{.sto} umgeschrieben. OpenSim ließt aus dieser Datei die 
+manuell zugewiesenen Messpunkte wie Ober-/Unterarm aus und weißt die folgenden Orientierungen mit zeitlicher Kennnummer
+den verschiedenen Körperteilen zu. Mithilfe von Inversivers Kinematik berechnet OpenSim den aufgenommenen Bewegungsablauf.
+Neben den Sensoren zur Bewegungsaufnahme empfiehlt es sich, einen Sensor an der Hüfte zu platzieren. Dieser dient durch
+wenig Bewegung in jegliche Richtung als Null-Punkt und kann als Relationspunkt für die anderen Sensoren verwendet werden.
+
+\subsection{Inversive Kinematik}
+In Arbeit...

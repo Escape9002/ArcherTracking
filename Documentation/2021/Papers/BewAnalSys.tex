@@ -17,23 +17,34 @@ der Wiederholung in Prozent anzugeben. Interessant wird es, sobald mehrere Schü
 ihrer Schüsse vergleichen. Unterschiede werden ersichtlich, genau wie Gemeinsamkeiten.\\
 
 \section{3D-Darstellung (Theorie)}
-Die benötigten Daten für ein 3D-Modell variieren je nach gewollter Genauigkeit der Darstellung.
-Mit Hilfe von Euler-Winkeln ist es möglich, aus Beschleunigungsdaten die Orientierung des Sensors zu berechnen.
-Somit müsste man nur noch einen Datensatz übertragen. Allerdings verliert die Darstellung so einen
-Freiheitsgrad durch den sogennanten \textit{Gimbal-Lock}. Die Euler Winkel drehen das Objekt um gedachte
-Achsen herum, wenn dabei eine Achse um 180° gedreht wird würde es zu einer zweimaligen Drehung
-um die selbe Achse kommen. Ebenfalls gestaltet sich die Berechnung der Gier-Achse schwer, da hier
-keine Veränderung in eine der gemessenen Achsen für Beschleunigung erkennbar ist.
-\\
-Um dieses Problem zu lösen, muss man das Gyroskop mit einbeziehen, dieses kann die Beschleunigung
-in Winkeln bemessen. Damit könnte man die Orientierung eines Objekts bestimmen, allerdings ohne 
-Bezug zur Orientierung in der echten Welt. Man wüsste nicht wie das Objekt steht, man weiß nur, 
-dass es sich um einen bestimmten Winkel in diese oder die andere Richtung gedreht hat. \\
-Deshalb muss man die Daten des Beschleunigungsensors und des Gyroskops fusionieren. So kann man 
-die Drehung in jeder Richtung erfassen. Der \textit{Gimbal-Lock} bleibt jedoch bestehen.\\
-\\
-Dieses Problem kann man mithilfe von Quaternionen als Orientierung lösen. Da ich jedoch keine 
-Winkel von 180° erwarte sind die Euler-Winkel meine Problemlösung.
+Um die Orientierung des Sensors zu berechnen geht man auf die Grundaussagen der Sensoren zurück. Der 
+Beschleunigungssensor teilt mir die G-Kräfte mit, daraus lassen sich Rückschlüsse über die Orientierung 
+der Pitch- und Roll-Achse ziehen. Das Gyroskop gibt Drehmoment-Werte zurück, worüber sich der Beschleunigungssensor
+überprüfen lässt und eine Drehung um die Yaw-Achse messbar macht. Das Magnetomenter setzt schließlich alle Werte in
+Relation zum Erdmagnetfeld und kann sowohl das Gyroskop als auch den Beschleunigungssensor überprüfen. Diese Überprüfung
+findet über Filter statt, in meinem Projekt verwende ich hierfür den AHRS-Filter\footnote{Der AHRS-Filter 
+ist ein erweiterter Kalman-Filter. Er passt seine Fehlerwerte über Zeit dem Drift der Sensorik an und bietet so auch 
+auf lange Zeit gute Ergebnisse.}. \\
+Für die Darstellung der Orientierung im Dreidimensionalen Raum gibt es mehrere Ansätze, die zwei bekanntesten 
+sind wohl die Euler-Winkel und die Quaternionen. Die Vor- und Nachteile werden im folgenden erläutert.
+
+\subsection{Euler-Winkel}
+Bei Euler-Winkeln wird das Objekt um die einzelnen Achsen in einer festeglegten Reihenfolge gedreht. Sollten hierbei 
+nach einer Drehung zwei Achsen aufeinander liegen, entseht der sogenannte \textit{Gimbal-Lock} und die Darstellung
+der Bewegung findet fehlerhaft statt. Für reele Systeme wie Gimbal an einer Drohne ist dieser Fehler vernachlässigbar,
+da er nur selten vorkommt und die Euler-Winkel den tatsächlich benötigten Drehwinkeln der Motoren entsprechen.
+Da ich jedoch keine Motoren ansteuern muss, steht vor allem der Fehler im Mittelpunkt und ist der Grund, das ich nicht
+die Euler-Winkel verwende.  
+
+\subsection{Quaternionen}
+Um die Position eines Körpers im dreidimensionalen Raum darzustellen reichen drei Koordinaten, 
+die Möglichkeit der Orientierung verlangt jedoch nach einer vierten Koordinate und damit vier Dimensionen. 
+Die Quaternionen stellen diese vierte Koordinate dar. Quaternionen finden damit im vierdimensionalen Raum statt
+und sind damit für wenige Menschen vollständig nachvollziehbar. Ein Überprüfen der Rohdaten fällt hiermit für mich aus.
+Allerdings schaffen es die Quaternionen durch diese weitere Dimension jegliche Orientierung im Raum darzustellen ohne
+etwas ähnliches wie einen \textit{Gimbal-Lock} zu erzeugen. Die Vollständige Erklärung der Quaternionen sprengt momentan
+leider meinen Wissenstand. Die einfache Eingabe meiner Daten in fast alle läufige 3D-Visualisierungsprogramme und 
+der fehlende \textit{Gimbal-Lock} sind der Grund für mich, zukünftig die Quaternionen zu verwenden.
 
 \section {Bewegung}
 Eine interessante Bewegung stellt vor allem der Zugarm des 
