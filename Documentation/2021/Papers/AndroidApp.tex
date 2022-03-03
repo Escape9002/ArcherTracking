@@ -1,6 +1,6 @@
 Zur Erstellung der Android-App wurde AppInventor und 
 die BLE-Extension verwendet.\\
-Geschrieben wurde das Programm von mir. Ideen und Anregungen wurden in verschiedensten 
+Programmiert wurde das Programm von mir. Ideen und Anregungen wurden in verschiedensten 
 Foren gefunden. \\
 \\
 Beim Start der App wird man aufgefordert Bluetooth und GPS anzuschalten, das GPS
@@ -41,7 +41,7 @@ Es ist möglich die Daten gleichzeitig aufzuzeichnen.
 \subsection{Animation}
 Hier wird die Distanz aus den Beschleunigungsdaten berechnet und mithilfe eines Punktes
 visualisiert. Benutzt werden hierfür die X- und Y-Achse. 
-Die Rechnung ist in Kapitel \textit{5.4.1 Gleichmäßige Formel}  beschrieben.
+Die Rechnung ist in Kapitel \textit{5.2.1 Gleichmäßige Formel}  beschrieben.
 
 \subsection{Aufgezeichnete Daten}
     \begin{minipage}{0.5\textwidth}
@@ -51,7 +51,8 @@ Die Rechnung ist in Kapitel \textit{5.4.1 Gleichmäßige Formel}  beschrieben.
     \begin{minipage}{0.5\textwidth}
         Die von den anderen Funktionen aufgezeichneten Graphen können hier ausgegeben
         werden. Hierzu benötigt der Schütze den Namen der Datei. Die Dateien werden
-        seit kurzem unter Android in einem App-eigenen Ordner gespeichert. Diesen muss
+        seit kurzem unter Android in einem App-eigenen Ordner gespeichert. Von dort muss 
+        die Datei in den öffentlichen Gerätespeicher verschoben werden. Den Datei-Namen muss
         der Schütze momentan auslesen, um den zufälligen Namen der neuen Datei zu kennen.\\
         Die Daten werden als Graph dargestellt. Die Beschleunigungsdaten werden außerdem
         in Rohform über dem Graphen ausgegeben.\\

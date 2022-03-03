@@ -1,24 +1,3 @@
-\subsection{Gleichmäßige und ungleichmäßige Beschleunigung}
-Um die Distanz aus der gemessenen Beschleunigung zu berechnen,
-fand ich zwei verschiedene Formeln. Die wohl bekannteste Umrechnung 
-benutzt Integrale, die zweite Formel ist die der gleichm"aßigen 
-Beschleunigung.\\
-\\
-Die Integration wird von allen mir bekannten Forschungen verwendet. 
-Man muss eine Doppelintegration
-ausführen um von Beschleunigung auf Distanz zu kommen, hierbei verwandelt 
-sich das Rauschen des Sensors in Drift und so einen exponentiell steigenden
-Fehler. \\ 
-Die gleichmäßige Formel kann im Gegensatz zum Integral, nur positive 
-Beschleunigungen verwerten, hat in den Tests allerdings 
-deutlich genauere Werte und einen geringeren Fehler bei Stillstand 
-aufgezeigt. \\
-\\
-Als Zeit wird die Frequenz, mit der der Sensor Daten misst, 
-genommen. Hierfür wird die Frequenz in Zeitabschnitte umgerechnet, mit 
-der die Formeln letzendlich arbeiten. Den Testaufbau und Durchführung 
-sehe sie im Kapitel \textit{ 7.1 Distanz-Testaufbau}.
-
 \subsection{Gleichmäßige Formel}
 Die angepasste Formel f"ur gleichm"aßige Beschleunigung berechnete
 die Distanz in meinen Versuchen mit einer Genauigkeit von
@@ -42,8 +21,13 @@ F"ur die Tests wurde dieser Code statt der BLE-"Ubetragung auf dem Arduino ausge
 
 \subsection{Integral}
 Die Berechnung der Distanz über Integrale ist der Standard 
-in der Wissenschaft. Da etwaige Messfehler des Sensors in Drift verwandelt 
-werden, steigt die Fehlerrate pro Integral enorm.\\
+in der Wissenschaft. Beim integrieren meiner Sensordaten ist zu beachten, 
+das beim mathematischen Integrieren die zu berechnenden Werte gegen den Limes 
+laufen können. Da ich nur begrenzete Datenmengen zur Verfügung habe, ist dies 
+nicht möglich, wodurch allein das Integrieren Fehler erzeugt. Ebenfalls wird das 
+Rauschen meines Sensors nicht beachtet und aufaddiert. Da ich zwei mal integrieren 
+muss, ist dieser Fehler in der Distanz exponentiell.\\
+\\
 Die Testergebnisse ergaben einen Fehler von $\pm15$cm auf einer Strecke
 von 30cm. Ebenso war das Ergebnis sofort in Zentimetern, statt wie erwartet in Metern. 
 Wurde der Sensor zurückbewegt an seinen Startpunkt, sank

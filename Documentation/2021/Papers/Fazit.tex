@@ -1,20 +1,20 @@
-
 Das fertige Modell ist 80 * 60 * 27 mm groß und wiegt mit den 
 neuen Batterietypen ungefähr 30 Gramm. Die Größe und das Gewicht 
 erfüllen die erste Anforderung. Man kann die Box überall am 
 Schützen befestigen ohne das dieser durch zusätzliches Gewicht 
 stark beeinflusst w"urde.\\
-Die zweite Anforderung, der geringe Preis, wurde erfüllt, die
-Kosten belaufen sich auf 25 \euro{} pro Sensor. Die letze Anforderung,
+Die zweite Anforderung, ein geringerer Preis als Kamera, wurde erfüllt, die
+Kosten belaufen sich auf 25 \euro{} pro Sensor und 150 \euro{} für ein 
+Oberkörper-Tracking, bestehend aus je zwei Ober- und Unterarm sowie 
+Brust- und Hüftsensor. Die letze Anforderung,
 die leichte Handhabung nähert sich an, es ist mir nun möglich, Distanzen
 und Winkel in eine bestimmte Richtung zu berechnen und darzustellen.
 Die Auswertung der Graphen ist nach wie vor m"oglich.\\
 \\
 Die BLE-Übertragung funktioniert gut, das Problem der überlaufenden
 Characteristics wurde behoben. Somit kann man alle Daten an das 
-Smartphone senden und empfangen, diese Option muss im Code nur 
-aktiviert werden. Je nach Fehlerwerten der einzelnen Sensoren muss dies 
-jedoch nicht getan werden.\\
+Smartphone senden und empfangen. Die Datenpackete bieten 
+jedoch noch Platz für Verbesserung.\\
 \\
 Die Darstellungen der Daten funktioniert weiterhin, seit Android 11
 m"ussen die gespeicherten Sch"usse manuell in den Gerätespeicher 
@@ -27,18 +27,24 @@ Mit den neuen mathematischen Formeln stellt sich nun ein weiteres
 Problem, die kabellose Übertragung. Je mehr Nachkommastellen übertragen
 werden, desto genauer erfolgt die Berechnung der Winkel und vor allem 
 der Distanz. Der Multi-Chip liefert 16 Nachkommastellen, was pro Achse
-eine Characteristic benötigen w"urde.\\
+eine Characteristic benötigen w"urde, vorraussetzung, das die DLE-Funktion 
+nicht aktiviert wurde.\\
 Momentan sind die berechneten Ergebnisse genau genug mit nur 2 
 Nachkommastellen, weshalb ich dieses Problem vorerst nicht weiter bearbeitete.\\
 \\
+Die Distanz stellte sich im Lauf der diesjährigen Arbeit als interessant, 
+aber nicht zielführend für die Animation aus. Ersetzt wurde diese durch die funktionierende
+Orientierungsberechnung. Die Berechnung und Visualisierung findet momentan 
+mithilfe von Dritt-Software statt. Ein Umstieg von AppInventor auf tatsächlichen
+Code wird dringend benötigt, da AppInventor weder 3D-Animationen noch die 
+von mir benötigen Berechnungen anbieten oder durchführen kann.\\
+Die Darstellung kann momenten nicht live angesehen werden, ein Feature, an dem noch
+gearbeitet wird.\\
+\\
 Die berechneten Winkel und Distanzen haben einen Fehler-Wert, der im Vergleich
 zu momentan benutzten Hochgeschwindigkeitskameras enorm ist, jedoch 
-hat die angesprochene Kundschaft andere W"unsche. Es ist m"oglich 
-einen Sch"utzen mit den Rohdaten auf $\pm10$cm genau zu tracken, vielen
-Sch"utzen wird diese Genauigkeit gen"ugen. F"ur eine h"ohere Genauigkeit 
-k"onnen zu diesem Zeitpunkt sowohl der Code als auch die Rechnungen verbessert 
-werden. Es ist noch viel Luft nach oben.\\
+hat die angesprochene Kundschaft andere W"unsche.\\
 \\
-Geplant ist die vollständige Darstellung eines Sch"utzen in der Android-App
-und die Klassifizierung der Sch"usse via Machine-Learning. Hierzu m"ussen
-die Rechnungen verfeinert werden und eine Datenbasis geschaffen werden.
+Geplant ist die vollständige Darstellung eines Sch"utzen in einer Android-App
+und die Klassifizierung der Sch"usse via Machine-Learning. Hierzu steht ein erstes Modell,
+die Datenbasis ist momentan allerdings zu gering, um belastbare Ergebnisse zu berechnen.

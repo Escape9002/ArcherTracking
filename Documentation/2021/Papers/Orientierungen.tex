@@ -3,14 +3,16 @@ Bei Euler-Winkeln wird das Objekt um die einzelnen Achsen in einer festeglegten 
 nach einer Drehung zwei Achsen aufeinander liegen, entseht der sogenannte \textit{Gimbal-Lock} und die Darstellung
 der Bewegung findet fehlerhaft statt. Für reele Systeme wie Gimbal an einer Drohne ist dieser Fehler vernachlässigbar,
 da er nur selten vorkommt und die Euler-Winkel den tatsächlich benötigten Drehwinkeln der Motoren entsprechen.
-Da ich jedoch keine Motoren ansteuern muss, steht vor allem der Fehler im Mittelpunkt und ist der Grund, das ich nicht
+Da ich jedoch keine Motoren ansteuern muss, steht vor allem der Fehler im Mittelpunkt und ist der Grund dafür, das ich nicht
 die Euler-Winkel verwende.  
 
 \subsection{Quaternionen}
 Um die Position eines Körpers im dreidimensionalen Raum darzustellen reichen drei Koordinaten, 
-die Möglichkeit der Orientierung verlangt jedoch nach einer vierten Koordinate und damit vier Dimensionen. 
-Die Quaternionen stellen diese vierte Koordinate dar. Quaternionen finden damit im vierdimensionalen Raum statt
-und sind damit für wenige Menschen vollständig nachvollziehbar. Ein Überprüfen der Rohdaten fällt hiermit für mich aus.
+die Möglichkeit der Orientierung verlangt jedoch nach mindestens einer vierten Koordinate. 
+Hierzu führt man eine weitere Dimension ein, die Formel der Quaternionen sieht eine Reelle und drei imaginäre Zahlen vor.
+Die imaginären Zahlen im Verhältnis zueinander stehen und ihrere Werte, vereinfach gesagt, skaliert werden können, kann 
+ein ''Richtungsvektor'' berechnet werden. Dieser kann in alle Richtungen zeigen. Das Objekt wird an diesem Vektor orientiert.
+Ein Überprüfen der Rohdaten fällt durch die vierte Dimension für mich aus.
 Allerdings schaffen es die Quaternionen durch diese weitere Dimension jegliche Orientierung im Raum darzustellen ohne
 etwas ähnliches wie einen \textit{Gimbal-Lock} zu erzeugen. Die Vollständige Erklärung der Quaternionen sprengt momentan
 leider meinen Wissenstand. Die einfache Eingabe meiner Daten in fast alle läufige 3D-Visualisierungsprogramme und 

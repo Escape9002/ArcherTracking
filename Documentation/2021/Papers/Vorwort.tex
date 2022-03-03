@@ -37,13 +37,16 @@ selbst kontrollieren, um keine Gewöhnungsfehler einzutrainieren und schlechter 
 Hilfsmittel ist dies jedoch kaum möglich. In genau dieser Situation befand ich mich als Schütze im Frühling 2020.\\ 
 \\
 Bei professionellen Schützen wird der Bewegungsablauf mittels Hochgeschwindigkeitskameras überprüft und selbst kleinste
-Fehler werden entdeckt. Benötigt wird dazu jedoch neben Kamera, Licht und Platz häufig auch eine dritte Person, die die
+Fehler werden entdeckt. Dabei liegt der Fokus meistens auf dem Lösvorgang. Dieser ist nur eine kleine Bewegung und 
+dauert nur den Bruchteil einer Sekunde.
+Benötigt wird dazu jedoch neben Kamera, Licht und Platz häufig auch eine dritte Person, die die
 Datenmenge auswerten kann. All dies macht es kleinen Vereinen unmöglich auch nur an ein ähnliches System zu denken.\\
 Das Ziel meiner Arbeit ist es, ein System zu entwickeln, das es dem Schützen ermöglicht, seinen eigenen Schussaufbau 
-zu sehen und zuverlässig zu bewerten. 
+zu sehen und zuverlässig zu bewerten. Damit unterscheidet sich das Ziel meines Systems, ein Full-Body-Tracking, von der
+Punktgenauen beobachtung, wie die Kamera es im obigen System beabsichtigt.
 
 \section{Anforderungen}
-Der Schütze soll seinen Schussablauf auf Grund der Daten und Visualisierun auswerten und bewerten können.
+Der Schütze soll seinen Schussablauf auf Grund der Daten und Visualisierung auswerten und bewerten können.
 Da hierbei der gesamte Bewegungsablauf beobachtet wird, benötigt man keine zentrierte, sehr hohe Genauigkeit wie bei der 
 Beobachtung des Lösens des Schützen. Somit muss die Genauigkeit der Hochgeschwindigkeitskameras nicht erreicht werden.
 \\
@@ -71,8 +74,8 @@ lösbar nur durch weitere Technik, die zu kaufen gewesen wäre.
 Auch die Verwendung einer günstigeren Kamera wäre möglich gewesen. Dabei vereint man 
 allerdings alle Nachteile, die das Kamera-Tracking hat. Man braucht viel Platz und trotz sehr 
 günstiger Kameras treibt man die Kosten in die Höhe.
-Meine finale Idee war, eine IMU \footnote{Näheres hierzu in \textit{Kapitel 2.2 MPU9250}} und einen 
-BLE-Chip\footnote{Näheres hierzu in \textit{Kapitel 3 Bluetooth-Low-Energy}} zu kombinieren. \\
+Meine finale Idee war, eine IMU \footnote{Näheres hierzu in \textit{Kapitel 3.2 MPU9250}} und einen 
+BLE-Chip\footnote{Näheres hierzu in \textit{Kapitel 4 Bluetooth-Low-Energy}} zu kombinieren. \\
 Der IMU sollte mir die Beschleunigsdaten in alle Richtungen liefern, aus dehnen ich die Distanz berechnen wollte.
 Als weitere Möglichkeit bot sich an, mittels des IMU die Orientierung des Sensors zu berechnen.
 
