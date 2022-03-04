@@ -44,7 +44,7 @@ Somit brauche ich für das Senden aller Sensoren mindestens drei \textit{Charact
 Das Sendeprotokoll von Bluetooth schreibt vor, dass ein Datenpaket von
 leeren Datenpaketen eingepackt wird. Ebenso ist eine kurze Wartezeit vorgeschrieben. 
 Diese beträgt 150 Mikrosekunden und wird abgekürzt mit \textit{IFS}.
-Der Arduino Nano unterstützt \textit{2Mbps} bei der BLE-Übertragung, dies ist also die Datenrate.
+Der Arduino Nano unterstützt \textit{2 Mbps} bei der BLE-Übertragung, dies ist also die Datenrate.
 Des Weiteren wird nicht auf eine Antwort des \textit{Clients} gewartet, was die 
 Übertragungsgeschwindigkeit weiter erh"oht.\\
 \\
@@ -56,22 +56,22 @@ Für mich heißt das:\\
 \textit{LeeresPacket = 2 + 4 + 2 + 3 = 11 Bytes = 88 bit}\\
 \\
 und die Sendezeit für das leere Paket beträgt damit:\\
-\textit{Sendedauer[Leer] = 88 bit / 2Mbps = 44 Mikrosekunden}\\
+\textit{Sendedauer[Leer] = 88 bit / 2 Mbps = 44 Mikrosekunden}\\
 \\
 Für ein volles Datenpaket brauche ich:\\
-\textit{2+4+2+4+27+3 = 42 Byte * 8 = 336 bit\\
-Sendedauer[Voll] = 336 bit / 2Mbps = 168 Mikrosekunden}\\
+\textit{2+4+2+4+27+3 = 42 Byte (* 8 Umrechnung in Bit)  = 336 bit\\
+Sendedauer[Voll] = 336 bit / 2 Mbps = 168 Mikrosekunden}\\
 \\
 Für ein gesamtes Datenpaket brauche ich somit mindestens:\\
 \textit{Zeit = 44 + 150 + 168 + 150 = 512 Mikrosekunden}\\
 \\
 beziehungsweise 0,512 Millisekunden. Die maximal erreichbare Datenübetragungs-Frequenz
-liegt bei 1,95kHz. 
+liegt bei 1,95 kHz. 
 
 %-----------------------------------------------------------------
 
 \section{Tatsächliche Übetragunsgeschwindigkeit}
 Die ausgerechnete Datenrate kann in der Praxis kaum erreicht werden, weshalb ein Test zur 
 tats"achlichen Datenrate Pflicht ist. Für den Test wurde der auch später in der Praxis verwendete
-Code verwendet. Die gemessene Datenrate entspricht 50Hz, was der eingestellten Aktualisierungsrate 
+Code verwendet. Die gemessene Datenrate entspricht 50 Hz, was der eingestellten Aktualisierungsrate 
 des MPU9250 entspricht. 
