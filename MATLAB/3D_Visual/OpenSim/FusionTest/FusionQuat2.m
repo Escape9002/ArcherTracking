@@ -29,8 +29,11 @@ imu2 = mpu9250(a2, 'OutputFormat', "matrix")
 stopTimer = 2000;
 count = 1;
 
-dataList1 = [];
-dataList2 = [];
+%dataList1 = [];
+dataList1 =zeros(stopTimer, 3); 
+
+%dataList2 = [];
+dataList2 = zeros(stopTimer);
 
 timeperiod = 1 / imu1.SampleRate;
 
@@ -64,7 +67,7 @@ while(count < stopTimer)
 
     dataList1 = [dataList1;[(timeperiod*count), quats ]];
 
-    [Mat1, Mat2, Mat3, Mat4] = parts(rotators1);
+    [Mat1, Mat2, Mat3, Mat4] = parts(rotators2);
     quats = [Mat1, Mat2, Mat3, Mat4];
     
     dataList2 = [dataList2;[(timeperiod*count), quats ]];

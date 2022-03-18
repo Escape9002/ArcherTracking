@@ -61,7 +61,6 @@ Step 3: Write the correct header:
     version=3
     OpenSimVersion=4.3-2021-08-27-4bc7ad9
     endheader
-    endheader
     time	pelvis_imu	humerus_r_imu	torso_imu
 
 I experienced problems switching the pelivs_imu and humer_r_imu positions, try it out. 
