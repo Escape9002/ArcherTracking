@@ -62,4 +62,4 @@ while(count < height(accl))
 end
 %% Print file
 msg = ["Printing file"]
-writematrix(dataList, 'HandyIMU\ShootingQuat_ZugULNA.txt', 'Delimiter', 'tab');
+writematrix(dataList, 'IMUData\ShootingQuat_ZugULNA.txt', 'Delimiter', 'tab');

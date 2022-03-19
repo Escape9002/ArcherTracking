@@ -74,4 +74,4 @@ end
 disp(dataList)
 %% Print file
 
-writematrix(dataList, 'IMUData\ShootingQuat_ZugArm1.txt', 'Delimiter', 'tab');
+writematrix(dataList, 'IMUData\ShootingQuat_facingForward.txt', 'Delimiter', 'tab');

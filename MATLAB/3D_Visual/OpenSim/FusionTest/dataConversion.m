@@ -32,10 +32,10 @@ needed Header:
 clear all; close all; clc;
 
 %% Einlesen der Daten
-pelvis = readtable('IMUData\ShootingQuat_PELVIS1.txt');
-torso = readtable('IMUData\ShootingQuat_TORSO1.txt');
-humerus = readtable('IMUData\ShootingQuat_BogenArm1.txt');
-ulna = readtable('IMUData\ShootingQuat_BogenULNA.txt');
+pelvis = readtable('IMUData\ShootingQuat_Pelvis2.txt');
+torso = readtable('IMUData\ShootingQuat_Torso2.txt');
+humerus = readtable('IMUData\ShootingQuat_facingForward.txt');
+%ulna = readtable('IMUData\ShootingQuat_ZugULNA.txt');
 
 msg = 'read files'
 
@@ -51,13 +51,13 @@ msg = 'torso done'
 humerus_imu = [humerus(:,2), humerus(:,3),humerus(:,4), humerus(:,5)];
 msg = 'humerus done'
 
-ulna_imu = [ulna(:,2), ulna(:,3),ulna(:,4), ulna(:,5) ];
-msg = 'ulna done'
+%ulna_imu = [ulna(:,2), ulna(:,3),ulna(:,4), ulna(:,5) ];
+%msg = 'ulna done'
 %% Ausgabe der Dateien
 msg = 'Creating files'
 writetable(time, 'STOFiles\time.csv', 'Delimiter', 'comma', 'WriteVariableNames',false);
 writetable(pelvis_imu, 'STOFiles\pelivs.txt', 'Delimiter', 'comma', 'WriteVariableNames',false);
 writetable(torso_imu, 'STOFiles\torso.txt', 'Delimiter', 'comma', 'WriteVariableNames',false);
 writetable(humerus_imu, 'STOFiles\humerus.txt', 'Delimiter', 'comma', 'WriteVariableNames',false);
-writetable(ulna_imu, 'STOFiles\ulna.txt', 'Delimiter', 'comma', 'WriteVariableNames',false);
+%writetable(ulna_imu, 'STOFiles\ulna.txt', 'Delimiter', 'comma', 'WriteVariableNames',false);
 msg = 'Finished'
