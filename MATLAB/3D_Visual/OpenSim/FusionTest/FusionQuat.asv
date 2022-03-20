@@ -18,7 +18,7 @@ a = arduino()
 
 
 %% MPU init
-%imu = mpu6050(a) 
+%imu = mpu6050(a)
 imu = mpu9250(a, 'OutputFormat',"matrix")
 
 %% fuse
@@ -74,5 +74,4 @@ end
 disp(dataList)
 %% Print file
 
-writematrix(dataList, 'IMUData\ShootingQuat_ZugArmULNA.txt', 'Delimiter', 'tab');
-msg = "finished writing dataset"
+writematrix(dataList, 'IMUData\ShootingQuat_BogenArmULNA.txt', 'Delimiter', 'tab');
