@@ -1,4 +1,4 @@
-%% Usage
+ %% Usage
 %   This programm formats the .txt files of FusionQuat into .sto files usable
 %   in OpenSim. In the final .sto file, dont forget the correct header and labels of the
 %   sets, at the current state, the labels have to be in this order
@@ -34,8 +34,8 @@ clear all; close all; clc;
 %% Einlesen der Daten
 pelvis = readtable('IMUData\ShootingQuat_Pelvis2.txt');
 torso = readtable('IMUData\ShootingQuat_Torso2.txt');
-humerus = readtable('IMUData\ShootingQuat_BogenHumerus.txt');
-ulna = readtable('IMUData\ShootingQuat_BogenArmULNA.txt');
+humerus = readtable('IMUData\ShootingQuat_ZugHumerus.txt');
+ulna = readtable('IMUData\ShootingQuat_ZugArmULNA.txt');
 
 msg = 'read files'
 
