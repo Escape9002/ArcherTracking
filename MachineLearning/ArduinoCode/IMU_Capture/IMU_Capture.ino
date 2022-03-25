@@ -64,7 +64,7 @@ void loop() {
 
       // sum up the absolutes
       float aSum = fabs(aX) + fabs(aY) + fabs(aZ);
-
+      //Serial.println(aSum);
       // check if it's above the threshold
       if (aSum >= accelerationThreshold) {
         // reset the sample read count
@@ -94,6 +94,7 @@ void loop() {
       samplesRead++;
 
       // print the data in CSV format
+      
       Serial.print(aX, 3);
       Serial.print(',');
       Serial.print(aY, 3);

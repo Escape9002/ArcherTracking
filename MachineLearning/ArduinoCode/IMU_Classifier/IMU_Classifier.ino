@@ -52,13 +52,13 @@ TfLiteTensor* tflOutputTensor = nullptr;
 
 // Create a static memory buffer for TFLM, the size may need to
 // be adjusted based on the model you are using
-constexpr int tensorArenaSize = 8 * 1024;
+constexpr int tensorArenaSize = 100 * 1024;
 byte tensorArena[tensorArenaSize] __attribute__((aligned(16)));
 
 // array to map gesture index to a name
 const char* GESTURES[] = {
-  "draw",
-  "pull"
+  "punch",
+  "flex"
 };
 
 #define NUM_GESTURES (sizeof(GESTURES) / sizeof(GESTURES[0]))
@@ -99,19 +99,21 @@ void setup() {
   Serial.println(" Hz");
 
   Serial.println();
-
+Serial.println("hello there0");
   // get the TFL representation of the model byte array
   tflModel = tflite::GetModel(model);
   if (tflModel->version() != TFLITE_SCHEMA_VERSION) {
     Serial.println("Model schema mismatch!");
     while (1);
   }
-
+ Serial.println("general Kenobi0");
   // Create an interpreter to run the model
   tflInterpreter = new tflite::MicroInterpreter(tflModel, tflOpsResolver, tensorArena, tensorArenaSize, &tflErrorReporter);
 
+Serial.println("hello there1");
   // Allocate memory for the model's input and output tensors
   tflInterpreter->AllocateTensors();
+  Serial.println("general Kenobi1");
 
   // Get pointers for the model's input and output tensors
   tflInputTensor = tflInterpreter->input(0);
@@ -129,6 +131,8 @@ void loop() {
       aY = imu.accel_y_mps2();
       aZ = imu.accel_z_mps2();
 
+  Serial.println("1");
+
       // sum up the absolutes
       float aSum = fabs(aX) + fabs(aY) + fabs(aZ);
 
@@ -136,6 +140,7 @@ void loop() {
       if (aSum >= accelerationThreshold) {
         // reset the sample read count
         samplesRead = 0;
+        Serial.println("2");
         break;
       }
     }
@@ -166,6 +171,7 @@ void loop() {
       tflInputTensor->data.f[samplesRead * 6 + 5] = (gZ + 2000.0) / 4000.0;
 
       samplesRead++;
+      Serial.println("3");
 
       if (samplesRead == numSamples) {
         // Run inferencing
@@ -181,6 +187,8 @@ void loop() {
           Serial.print(GESTURES[i]);
           Serial.print(": ");
           Serial.println(tflOutputTensor->data.f[i], 6);
+
+          Serial.println("4");
         }
         Serial.println();
       }
