@@ -39,8 +39,7 @@ Format (csv):
 0.03
 0.04
 0.05
-0.06
-0.07
+0.060.07
 
 The data needs to be formatted with a programm like Excel. 
 1: Import the 'time.csv' as txt format as the 'xx.xxx'-values needs to be stored as is without any roundings or comma deletions.
@@ -56,12 +55,12 @@ Format (Delimiter: tab) :
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Step 3: Write the correct header:
 
-    DataRate=100.000000
-    DataType=Quaternion
-    version=3
-    OpenSimVersion=4.3-2021-08-27-4bc7ad9
-    endheader
-    time	pelvis_imu	humerus_r_imu	torso_imu
+DataRate=100.000000
+DataType=Quaternion
+version=3
+OpenSimVersion=4.3-2021-08-27-4bc7ad9
+endheader
+time	pelvis_imu	humerus_r_imu	torso_imu
 
 I experienced problems switching the pelivs_imu and humer_r_imu positions, try it out. 
 

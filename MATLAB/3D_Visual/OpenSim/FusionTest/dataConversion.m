@@ -34,8 +34,8 @@ clear all; close all; clc;
 %% Einlesen der Daten
 pelvis = readtable('IMUData\ShootingQuat_Pelvis2.txt');
 torso = readtable('IMUData\ShootingQuat_Torso2.txt');
-humerus = readtable('IMUData\ShootingQuat_ZugHumerus.txt');
-ulna = readtable('IMUData\ShootingQuat_ZugArmULNA.txt');
+humerus = readtable('IMUData\ShootingQuat_BogenHumerus.txt');
+ulna = readtable('IMUData\ShootingQuat_BogenArmULNA.txt');
 
 msg = 'read files'
 

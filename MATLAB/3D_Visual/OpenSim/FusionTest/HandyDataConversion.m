@@ -14,11 +14,11 @@ clear all; close all; clc;
 
 %% Init tables
 % these are data of the humerus movement
-accl = readmatrix('HandyIMU\5598_Accl.txt');
+accl = readmatrix('HandyIMU\7639_Accl.txt');
 msg = 'read accl fin'
-gyro = readmatrix('HandyIMU\5598_Gyro.txt');
+gyro = readmatrix('HandyIMU\7639_Gyro.txt');
 msg = 'read gyro fin'
-mag = readmatrix('HandyIMU\5598_mag.txt');
+mag = readmatrix('HandyIMU\7639_mag.txt');
 msg = 'read mag fin'
 
 
