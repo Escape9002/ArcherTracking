@@ -31,9 +31,9 @@
 
   Datenübertragung:
 
-  acclXChar = "[Wert(accelX)]|[Wert(accelY)]|[Wert(accelZ)]"
-  gyroXChar = "[Wert(gyroX)]|[Wert(gyroY)]|[Wert(gyroZ)]"
-  magXChar =  "[Wert(magnetX)]|[Wert(magnetY)]|[Wert(magnetZ)]"
+  acclXChar = "[Wert(accelX)],[Wert(accelY)],[Wert(accelZ)]"
+  gyroXChar = "[Wert(gyroX)],[Wert(gyroY)],[Wert(gyroZ)]"
+  magXChar =  "[Wert(magnetX)],[Wert(magnetY)],[Wert(magnetZ)]"
     
 
     contained in [Level_String]
