@@ -51,14 +51,14 @@
   current Errors:
    none
 
-  compatible with BLETestVol11.apk and above
-
+  compatible with BLETestVol10.apk
+  
   Datenübertragung:
 
-  acclXChar = "[Wert(accelX)]|[Wert(accelY)]|[Wert(accelZ)]"
-  gyroXChar = "[Wert(gyroX)]|[Wert(gyroY)]|[Wert(gyroZ)]"
-  magXChar =  "[Wert(magnetX)]|[Wert(magnetY)]|[Wert(magnetZ)]"
-    
+  QuatOne = "[Wert(accelX)],[Wert(accelY)],[Wert(accelZ)]"
+  QuatTwo = "[Wert(gyroX)],[Wert(gyroY)],[Wert(gyroZ)]"
+  magXChar =  "[Wert(magnetX)],[Wert(magnetY)],[Wert(magnetZ)]"
+
 
     contained in [Level_String]
 
@@ -72,23 +72,21 @@
 MPU9250_DMP imu;
 
 //-------------------------------------------------------------------------------------VARIABLEN
-float ac_x, ac_y, ac_z; //Accelerometer
-float gy_x, gy_y, gy_z; //Gyroscope
-float ma_x, ma_y, ma_z; //Magnetometer
+//float ac_x, ac_y, ac_z; //Accelerometer
+//float gy_x, gy_y, gy_z; //Gyroscope
+//float ma_x, ma_y, ma_z; //Magnetometer
 // volatile int tempInt = 1;  //Temperature Guy
 
 String Level_String;  //Storage for BLE-Data
 int fixed_length = 100;
 
-long newTime = 0; //Wir sind für die Abschaffung von Atomuhren, wir sind für den Ausstieg aus der Zeit!
-long oldTime = 0;
 //-------------------------------------------------------------------------------------VARIABLEN
 //-------------------------------------------------------------------------------------BLE_SETUP
 #include <ArduinoBLE.h>
 
 BLEService SendingService("c54beb4a-40c7-11eb-b378-0242ac130002");
-BLEStringCharacteristic accelXChar("d6b78de4-40c7-11eb-b378-0242ac130002", BLERead | BLENotify | BLEWriteWithoutResponse, fixed_length);
-//BLEStringCharacteristic gyroXChar("d6a507ce-5489-11ec-bf63-0242ac130002", BLERead | BLENotify | BLEWriteWithoutResponse, fixed_length);
+BLEStringCharacteristic QuatOne("d6b78de4-40c7-11eb-b378-0242ac130002", BLERead | BLENotify | BLEWriteWithoutResponse, fixed_length);
+BLEStringCharacteristic QuatTwo("d6a507ce-5489-11ec-bf63-0242ac130002", BLERead | BLENotify | BLEWriteWithoutResponse, fixed_length);
 //BLEStringCharacteristic magXChar("11cf4eb8-86d0-11ec-a8a3-0242ac130002", BLERead | BLENotify | BLEWriteWithoutResponse, fixed_length);
 //-------------------------------------------------------------------------------------BLE_SETUP
 
@@ -109,7 +107,7 @@ void setup() {
 
   imu.dmpBegin(DMP_FEATURE_6X_LP_QUAT | // Enable 6-axis quat
                DMP_FEATURE_GYRO_CAL, // Use gyro calibration
-               10); // Set DMP FIFO rate to 10 Hz
+               100); // Set DMP FIFO rate to 100 Hz (10 Hz min to 200Hz max)
   // DMP_FEATURE_LP_QUAT can also be used. It uses the
   // accelerometer in low-power mode to estimate quat's.
   // DMP_FEATURE_LP_QUAT and 6X_LP_QUAT are mutually exclusive
@@ -126,8 +124,8 @@ void setup() {
 
   //BLE.setAdvertisedServiceUuid("c54beb4a-40c7-11eb-b378-0242ac130002");
 
-  SendingService.addCharacteristic(accelXChar);
-  //SendingService.addCharacteristic(gyroXChar);
+  SendingService.addCharacteristic(QuatOne);
+  SendingService.addCharacteristic(QuatTwo);
   //SendingService.addCharacteristic(magXChar);
   // SendingService.addCharacteristic(tempXChar);
 
@@ -159,24 +157,14 @@ void loop() {
 
     while (central.connected()) {
 
-
-
       // Check for new data in the FIFO
-      if ( imu.fifoAvailable() )
-      {
+      if ( imu.fifoAvailable() ) {
         // Use dmpUpdateFifo to update the ax, gx, mx, etc. values
-        if ( imu.dmpUpdateFifo() == INV_SUCCESS)
-        {
-          // computeEulerAngles can be used -- after updating the
-          // quaternion values -- to estimate roll, pitch, and yaw
-          //imu.computeEulerAngles();
+        if ( imu.dmpUpdateFifo() == INV_SUCCESS) {
           sendIMUData();
-
 
         }
       }
-
-
     }
   }
   disconnectedLight();
@@ -196,16 +184,16 @@ void sendIMUData(void) {
   float q2 = imu.calcQuat(imu.qy);
   float q3 = imu.calcQuat(imu.qz);
 
-  String Level_String = String(q0, 2) + ", " +
-                        String(q1, 2) + ", " + String(q2, 2) +
-                        ", " + String(q3, 2);
-  SerialPort.println(Level_String);
-  //SerialPort.println("R/P/Y: " + String(imu.roll) + ", "
-  //                   + String(imu.pitch) + ", " + String(imu.yaw));
-  //SerialPort.println("Time: " + String(imu.time) + " ms");
-  SerialPort.println();
+  /*
+    String Level_String = String(q0, 2) + ", " +
+                          String(q1, 2) + ", " +
+                          String(q2, 2) + ", " +
+                          String(q3, 2);
+  */
 
-  accelXChar.writeValue(Level_String);
+  QuatOne.writeValue(String(q0, 2) + "," + String(q1, 2) + "," + String(q2, 2));
+  QuatTwo.writeValue(String(q3, 2) + ",0.00, 0.00");
+
 }
 
 //--------------------------------------------------- LED ( Connection status)
