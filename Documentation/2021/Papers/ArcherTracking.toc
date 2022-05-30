@@ -1,4 +1,5 @@
 \babel@toc {ngerman}{}\relax 
+\contentsline {paragraph}{\nonumberline Kurzfassung:}{4}{paragraph*.3}%
 \contentsline {chapter}{\numberline {1}Einleitung}{5}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Problemlage}{5}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Anforderungen}{5}{section.1.2}%
@@ -10,35 +11,35 @@
 \contentsline {section}{\numberline {3.2}MPU9250}{7}{section.3.2}%
 \contentsline {chapter}{\numberline {4}Bluetooth-Low-Energy}{8}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Datengröße}{8}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Datendurchsatz per BLE}{8}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Tatsächliche Übetragunsgeschwindigkeit}{9}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Analyse und Visualisierung}{9}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Analyse}{9}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Integrale}{10}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Gleichmäßige Formel}{11}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Integral}{11}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}Orientierungen}{12}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Euler-Winkel}{12}{subsection.5.3.1}%
+\contentsline {section}{\numberline {4.2}Datendurchsatz per BLE}{9}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Tatsächliche Übetragunsgeschwindigkeit}{10}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Analyse und Visualisierung}{10}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Analyse}{10}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Integrale}{11}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Gleichmäßige Formel}{12}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Integral}{12}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Orientierungen}{13}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Euler-Winkel}{13}{subsection.5.3.1}%
 \contentsline {subsection}{\numberline {5.3.2}Quaternionen}{13}{subsection.5.3.2}%
-\contentsline {chapter}{\numberline {6}Software}{13}{chapter.6}%
-\contentsline {section}{\numberline {6.1}3D-Visualisierung}{13}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Matlab und OpenSim}{13}{subsection.6.1.1}%
-\contentsline {section}{\numberline {6.2}Datenübertragung}{14}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Arduino Firmware}{14}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Android-App}{14}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Rohdaten}{15}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Graph}{15}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}Animation}{15}{subsection.6.4.3}%
-\contentsline {subsection}{\numberline {6.4.4}Aufgezeichnete Daten}{16}{subsection.6.4.4}%
-\contentsline {chapter}{\numberline {7}Benötigte Leistung}{16}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Tests}{17}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Distanz-Testaufbau}{17}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}Distanzmessungen}{17}{subsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.1.2}Fehler}{18}{subsection.8.1.2}%
-\contentsline {chapter}{\numberline {9}Ergebnissdiskussion}{18}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Fazit}{19}{chapter.10}%
-\contentsline {paragraph}{\nonumberline Der Verlauf der Arbeit}{20}{paragraph*.6}%
-\contentsline {chapter}{\numberline {11}Danksagung}{21}{chapter.11}%
-\contentsline {chapter}{\numberline {12}Quellen}{21}{chapter.12}%
-\contentsline {chapter}{\numberline {13}Selbständigkeitserklärung}{22}{chapter.13}%
+\contentsline {chapter}{\numberline {6}Software}{14}{chapter.6}%
+\contentsline {section}{\numberline {6.1}3D-Visualisierung}{14}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Matlab und OpenSim}{14}{subsection.6.1.1}%
+\contentsline {section}{\numberline {6.2}Datenübertragung}{15}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Arduino Firmware}{15}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Android-App}{16}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Rohdaten}{16}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Graph}{17}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Animation}{17}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.4}Aufgezeichnete Daten}{18}{subsection.6.4.4}%
+\contentsline {chapter}{\numberline {7}Benötigte Leistung}{18}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Tests}{19}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Distanz-Testaufbau}{19}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Distanzmessungen}{20}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Fehler}{20}{subsection.8.1.2}%
+\contentsline {chapter}{\numberline {9}Ergebnissdiskussion}{21}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Fazit}{21}{chapter.10}%
+\contentsline {paragraph}{\nonumberline Der Verlauf der Arbeit}{23}{paragraph*.8}%
+\contentsline {chapter}{\numberline {11}Danksagung}{24}{chapter.11}%
+\contentsline {chapter}{\numberline {12}Quellen}{24}{chapter.12}%
+\contentsline {chapter}{\numberline {13}Selbständigkeitserklärung}{25}{chapter.13}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
