@@ -67,17 +67,30 @@ void loop()
   }
 }
 
-void printIMUData(void)
+void printIMUData()
 {  
   // After calling dmpUpdateFifo() the ax, gx, mx, etc. values
   // are all updated.
   // Quaternion values are, by default, stored in Q30 long
   // format. calcQuat turns them into a float between -1 and 1
-  float q0 = imu.calcQuat(imu.qw);
-  float q1 = imu.calcQuat(imu.qx);
-  float q2 = imu.calcQuat(imu.qy);
-  float q3 = imu.calcQuat(imu.qz);
+  float q0 = imu.calcQuat(imu.qw)+1;
+  float q1 = imu.calcQuat(imu.qx)+1;
+  float q2 = imu.calcQuat(imu.qy)+1;
+  float q3 = imu.calcQuat(imu.qz)+1;
 
-  SerialPort.println(String(q0) + "," + String(q1) + "," + String(q2) + "," + String(q3));
+  String q0s = String(q0);
+  String q1s = String(q1);
+  String q2s = String(q2);
+  String q3s = String(q3);
+
+/*   Der part hier muss rein für max verkürzung (0-2 und komma entfernung)
+   String q0sd = q0s.replace(".", "");
+  String q1sd = q1s.replace(".", "");
+  String q2sd = q2s.replace(".", "");
+  String q3sd = q3s.replace(".", "");
+
+  */
+
+  SerialPort.println( q0s+ "," +q1s + "," + q2s+ "," +q3s);
  
 }
