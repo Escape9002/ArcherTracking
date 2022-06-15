@@ -1,7 +1,0 @@
-old Format[20]:
-[pxx.xx,pxx.xx,pxx.xx]
-
-new format[11]:
-xxx,xxx,xxx
-
-needs some transformation: quat *100 + 100 = x and x can be 0 to 200
