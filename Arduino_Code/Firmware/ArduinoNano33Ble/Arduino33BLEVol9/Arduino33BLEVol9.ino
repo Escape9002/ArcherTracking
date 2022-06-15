@@ -52,12 +52,12 @@
    none
 
   compatible with BLETestVol10.apk
-  
+
   Datenübertragung:
 
-  QuatOne = "[Wert(accelX)],[Wert(accelY)],[Wert(accelZ)]"
-  QuatTwo = "[Wert(gyroX)],[Wert(gyroY)],[Wert(gyroZ)]"
-  magXChar =  "[Wert(magnetX)],[Wert(magnetY)],[Wert(magnetZ)]"
+  QuatOne = "[xxx,xxx,xxx]" for x 0-200. by (xxx-100) / 100 you get the quaternions back
+  QuatTwo = "[]"
+  magXChar =  "[]"
 
 
     contained in [Level_String]
@@ -86,7 +86,7 @@ int fixed_length = 100;
 
 BLEService SendingService("c54beb4a-40c7-11eb-b378-0242ac130002");
 BLEStringCharacteristic QuatOne("d6b78de4-40c7-11eb-b378-0242ac130002", BLERead | BLENotify | BLEWriteWithoutResponse, fixed_length);
-BLEStringCharacteristic QuatTwo("d6a507ce-5489-11ec-bf63-0242ac130002", BLERead | BLENotify | BLEWriteWithoutResponse, fixed_length);
+//BLEStringCharacteristic QuatTwo("d6a507ce-5489-11ec-bf63-0242ac130002", BLERead | BLENotify | BLEWriteWithoutResponse, fixed_length);
 //BLEStringCharacteristic magXChar("11cf4eb8-86d0-11ec-a8a3-0242ac130002", BLERead | BLENotify | BLEWriteWithoutResponse, fixed_length);
 //-------------------------------------------------------------------------------------BLE_SETUP
 
@@ -125,7 +125,7 @@ void setup() {
   //BLE.setAdvertisedServiceUuid("c54beb4a-40c7-11eb-b378-0242ac130002");
 
   SendingService.addCharacteristic(QuatOne);
-  SendingService.addCharacteristic(QuatTwo);
+  //SendingService.addCharacteristic(QuatTwo);
   //SendingService.addCharacteristic(magXChar);
   // SendingService.addCharacteristic(tempXChar);
 
@@ -190,9 +190,10 @@ void sendIMUData(void) {
                           String(q2, 2) + ", " +
                           String(q3, 2);
   */
-
-  QuatOne.writeValue(String(q0, 2) + "," + String(q1, 2) + "," + String(q2, 2));
-  QuatTwo.writeValue(String(q3, 2) + ",0.00, 0.00");
+  
+  //QuatOne.writeValue(String(q0, 2) + "," + String(q1, 2) + "," + String(q2, 2));
+  //QuatTwo.writeValue(String(q3, 2) + ",0.00, 0.00");
+  QuatOne.writeValue(String(q0 * 100 + 100, 0) + "," + String(q1 * 100 + 100, 0) + "," + String(q2 * 100 + 100, 0) + "," + String(q3 * 100 + 100, 0));
 
 }
 
