@@ -2,17 +2,17 @@ from tokenize import String
 from numpy import unicode_
 import serial
 
-ser1 = serial.Serial('COM4', 115200, timeout = 1)
+ser1 = serial.Serial('COM5', 115200, timeout = 1)
 ser1.flushInput()
 msg1 = ""
 
-ser2 = serial.Serial('COM9', 115200, timeout = 1)
+ser2 = serial.Serial('COM3', 115200, timeout = 1)
 ser2.flushInput()
 msg2=""
 
 dataString =""
 
-kopfzeile = "DataRate=50.000000\nDataType=Quaternion\nversion=3\nOpenSimVersion=4.3-2021-08-27-4bc7ad9\nendheader\ntime\ttorso_imu\thumerus_l_imu\n" #\ttorso_imu\tulna_l_imu
+kopfzeile = "DataRate=50.000000\nDataType=Quaternion\nversion=3\nOpenSimVersion=4.3-2021-08-27-4bc7ad9\nendheader\ntime\ttorso_imu\tpelvis_imu\n" #\ttorso_imu\tulna_l_imu
 
 sec = 10
 timer = int(sec / (1/10))
