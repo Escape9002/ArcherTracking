@@ -30,7 +30,15 @@ def write_data(filename,kopfzeile,data1, data2):
             data.write(msg)
 
 huefte = load_data(6, 'data_huefte.sto')
-arm = load_data(6,'data_arm_r.sto')
+flex = load_data(6,'data_flex.sto')
+lift = load_data(6,'data_lift.sto')
+dance = load_data(6,'data_dance.sto')
 
-write_data('appendData.sto',
-    "DataRate=50.000000\nDataType=Quaternion\nversion=3\nOpenSimVersion=4.3-2021-08-27-4bc7ad9\nendheader\ntime\ttorso_imu\tpelvis_imu\thumerus_r_imu\tulna_r_imu\n",huefte,arm)
+write_data('appendData_flex.sto',
+    "DataRate=50.000000\nDataType=Quaternion\nversion=3\nOpenSimVersion=4.3-2021-08-27-4bc7ad9\nendheader\ntime\ttorso_imu\tpelvis_imu\thumerus_r_imu\tulna_r_imu\n",huefte,flex)
+
+write_data('appendData_lift.sto',
+    "DataRate=50.000000\nDataType=Quaternion\nversion=3\nOpenSimVersion=4.3-2021-08-27-4bc7ad9\nendheader\ntime\ttorso_imu\tpelvis_imu\thumerus_r_imu\tulna_r_imu\n",huefte,lift)
+
+write_data('appendData_dance.sto',
+    "DataRate=50.000000\nDataType=Quaternion\nversion=3\nOpenSimVersion=4.3-2021-08-27-4bc7ad9\nendheader\ntime\ttorso_imu\tpelvis_imu\thumerus_r_imu\tulna_r_imu\n",huefte,dance)

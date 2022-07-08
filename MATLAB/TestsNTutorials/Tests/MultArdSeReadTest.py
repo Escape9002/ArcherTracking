@@ -12,7 +12,7 @@ msg2=""
 
 dataString =""
 
-kopfzeile = "DataRate=50.000000\nDataType=Quaternion\nversion=3\nOpenSimVersion=4.3-2021-08-27-4bc7ad9\nendheader\ntime\thumerus_r_imu\tulna_r_imu\n" #\ttorso_imu\tulna_l_imu
+kopfzeile = "DataRate=50.000000\nDataType=Quaternion\nversion=3\nOpenSimVersion=4.3-2021-08-27-4bc7ad9\nendheader\ntime\ttorso_imu\thumerus_r_imu\n" #\ttorso_imu\tulna_l_imu
 
 sec = 10
 timer = int(sec / (1/10))
@@ -20,7 +20,7 @@ msg = []
 
 print(timer * (1/10))
 
-with open('data.sto', 'w') as data:
+with open('data_Basler.sto', 'w') as data:
     data.write(kopfzeile)
 
     for i in range(timer):
