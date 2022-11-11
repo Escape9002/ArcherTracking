@@ -1,6 +1,6 @@
 # ArcherTracking - JugenForscht 2020-2022
 ## Description
-This project (and "research") had the target to track motion via inertial sensors, on preferably an archer, to analyse their stance while shooting and help them improve said stance. The finished system is supposed to consist of the users phone and the sensors sticking to the shooters body, communication per BluetoothLowEnergy. It was submitted twice to a competition (Jugendforscht 2021 + Jugendforscht 2022).<br>
+This project (and "research") had the target to track motion via inertial sensors. It was to be used on an archer to analyse their stance while shooting and help them improve. The finished system is supposed to consist of the users phone and the sensors attached to the shooters body, communicating per BluetoothLowEnergy. It was submitted twice to a competition (Jugendforscht 2021 + Jugendforscht 2022).<br>
 
 ## Current progress
 This project is deprecated! It was split into three parts, which can be found here:
