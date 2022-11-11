@@ -5,9 +5,9 @@ This project (and "research") had the target to track motion via inertial sensor
 ## Current progress
 This project is deprecated! It was split into three parts, which can be found here:
 
-- [ArcherTracking-main]()
-- [ArcherTracking-Visualisation]()
-- [ArcherTracking-MotionRecognition]()
+- [ArcherTracking-main](https://github.com/Escape9002/ArcherTracking-main)
+- [ArcherTracking-Visualisation](https://github.com/Escape9002/ArcherTracking-Visualisation)
+- [ArcherTracking-MotionRecognition](https://github.com/Escape9002/ArcherTracking-MotionRecognition)
 
 ## What works?
 - Visualisation works with OpenSim and an USB-Connection and can be found [here](https://github.com/Escape9002/ArcherTracking/tree/main/MATLAB/TestsNTutorials/Tests)!
