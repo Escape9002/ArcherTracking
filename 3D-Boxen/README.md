@@ -1,0 +1,1 @@
+This directory hold the cases in which the die is placed and attached to the body.

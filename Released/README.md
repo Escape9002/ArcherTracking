@@ -1,0 +1,1 @@
+Released Soft- and Firmware, caution, some dont work, others my crash (also your phone...)

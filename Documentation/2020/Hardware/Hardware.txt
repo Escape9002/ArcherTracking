@@ -1,0 +1,3 @@
+- Arduino Nano 33 BLE
+- MPU9250
+- 9V-Battery

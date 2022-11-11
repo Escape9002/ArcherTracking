@@ -1,5 +1,0 @@
-current problem: 
-arduino nano 33 ble doesn't like connecting strings. simply crashes.
-workaround: send data in a certain pattern.
-
-solved by delting space-letters

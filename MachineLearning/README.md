@@ -1,0 +1,2 @@
+Nothing here works...the data is mainly pure motion data of random motions I did.  
+You can find the ArduinoCode and Tensorflow-Tutorial [here](https://docs.arduino.cc/tutorials/nano-33-ble-sense/get-started-with-machine-learning).
